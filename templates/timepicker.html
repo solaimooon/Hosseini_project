@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رزرو زمان با جلوگیری از همپوشانی</title>
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+
+    <div class="container center-align" style="margin-top: 50px;">
+        <h5>انتخاب ساعت</h5>
+
+        <!-- انتخاب ساعت شروع -->
+        <div class="input-field">
+            <input type="text" id="start_time" class="timepicker">
+            <label for="start_time">ساعت شروع</label>
+        </div>
+
+        <!-- انتخاب ساعت پایان -->
+        <div class="input-field">
+            <input type="text" id="end_time" class="timepicker">
+            <label for="end_time">ساعت پایان</label>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // بازه‌های زمانی رزرو شده
+            var reservedTimes = [
+                { start: "10:00 AM", end: "11:30 AM" },
+                { start: "01:30 PM", end: "02:30 PM" },
+                { start: "03:00 PM", end: "04:00 PM" },
+                { start: "06:00 PM", end: "07:30 PM" }
+            ];
+
+            function parseTime(timeStr) {
+                var time = timeStr.match(/(\d+):(\d+) (AM|PM)/);
+                if (!time) return null;
+                var hours = parseInt(time[1]);
+                var minutes = parseInt(time[2]);
+                var meridian = time[3];
+
+                if (meridian === "PM" && hours !== 12) hours += 12;
+                if (meridian === "AM" && hours === 12) hours = 0;
+
+                return hours * 60 + minutes; // تبدیل ساعت و دقیقه به دقیقه‌ی مطلق
+            }
+
+            function checkOverlap(start, end) {
+                var startTime = parseTime(start);
+                var endTime = parseTime(end);
+
+                for (let i = 0; i < reservedTimes.length; i++) {
+                    var resStart = parseTime(reservedTimes[i].start);
+                    var resEnd = parseTime(reservedTimes[i].end);
+
+                    if (
+                        (startTime >= resStart && startTime < resEnd) || // شروع داخل بازه رزرو شده
+                        (endTime > resStart && endTime <= resEnd) || // پایان داخل بازه رزرو شده
+                        (startTime <= resStart && endTime >= resEnd) // کل بازه جدید، بازه رزرو شده را پوشش دهد
+                    ) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            $('.timepicker').timepicker({
+                twelveHour: true,
+                defaultTime: false
+            });
+
+            $('#start_time, #end_time').on('change', function () {
+                var start = $('#start_time').val();
+                var end = $('#end_time').val();
+
+                if (start && end && checkOverlap(start, end)) {
+                    alert('این بازه زمانی با ساعات رزرو شده همپوشانی دارد، لطفاً زمان دیگری انتخاب کنید.');
+                    $(this).val('');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

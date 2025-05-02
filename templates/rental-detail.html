@@ -1,0 +1,1209 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GeoTrip - قالب HTML رزرو تور و آژانس مسافرتی ژِئوتریپ</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+
+    <!-- All Plugins -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/animation.css" rel="stylesheet">
+    <link href="assets/css/dropzone.min.css" rel="stylesheet">
+    <link href="assets/css/flatpickr.min.css" rel="stylesheet">
+    <link href="assets/css/flickity.min.css" rel="stylesheet">
+    <link href="assets/css/lightbox.min.css" rel="stylesheet">
+    <link href="assets/css/magnifypopup.css" rel="stylesheet">
+    <link href="assets/css/select2.min.css" rel="stylesheet">
+    <link href="assets/css/rangeSlider.min.css" rel="stylesheet">
+    <link href="assets/css/prism.css" rel="stylesheet">
+
+    <!-- Fontawesome & Bootstrap Icons CSS -->
+    <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/fontawesome.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- sweet alert -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.5.8/dist/sweetalert2.min.css" rel="stylesheet">
+
+    <!-- neshan cdn -->
+
+    <link rel="stylesheet" href="https://static.neshan.org/sdk/leaflet/v1.9.4/neshan-sdk/v1.0.8/index.css"/>
+    <script src="https://static.neshan.org/sdk/leaflet/v1.9.4/neshan-sdk/v1.0.8/index.js"></script>
+    <style>
+        .nav-tabs .nav-link.active {
+            border-bottom: 3px solid #4a4aff; /* خط آبی پایین تب فعال */
+            color: #4a4aff !important;
+        }
+
+        .nav-tabs .nav-link {
+            border: none;
+        }
+
+        /* استایل سفارشی برای اسلایدر */
+
+        /* در حالت پیش‌فرض iframe پنهان است */
+        .custom-iframe {
+            display: none;
+            width: 100%;
+            border: none;
+        }
+
+        /* نمایش و اندازه‌دهی برای موبایل تا تبلت */
+        @media (max-width: 768px) {
+            .custom-iframe {
+                display: block;
+                height: 60vh; /* یعنی 60 درصد از ارتفاع صفحه نمایش */
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+<nav class="navbar fixed-bottom bg-white shadow-lg p-3 d-block d-md-none">
+    <div class="container d-flex justify-content-between align-items-center">
+        <!-- دکمه ثبت رزرو -->
+        <button class="btn btn-info px-4 py-2 fw-bold rounded-pill">ثبت رزرو</button>
+
+        <!-- اطلاعات قیمت و امتیاز -->
+        <div class="text-end">
+            <div class="fw-bold text-dark">
+                هر شب از <span class="text-primary fs-5">۴,۱۲۵,۰۰۰</span> تومان
+            </div>
+            <div class="text-muted">
+                <span class="text-warning fw-bold">⭐ ۴.۸۵</span>
+                <span class="small">(۸۳ نظر)</span>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<!-- ============================================================== -->
+<!-- Preloader - style you can find in spinners.css -->
+<!-- ============================================================== -->
+<div id="preloader">
+    <div class="preloader"><span></span><span></span></div>
+</div>
+
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+
+
+<!-- gallery and video for phone -->
+
+<div id="main-wrapper">
+
+    <!-- ============================================================== -->
+    <!-- Top header  -->
+    <!-- ============================================================== -->
+    <div class="clearfix"></div>
+    <!-- ============================================================== -->
+    <!-- Top header  -->
+    <!-- ============================================================== -->
+
+    <!-- ============================ Hotel Details Start ================================== -->
+
+    <section class="pt-3 gray-simple">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-xl-12 col-lg-12 col-md-12">
+                    <div class="card border-0 p-lg-3 pb-lg-5">
+                        <!-- name and addres of masjed in desktop-->
+                        <div class="card-header d-lg-flex d-none align-items-center justify-content-between mb-3">
+                            <div class="crd-heaader-first">
+                                <div class="d-block">
+                                    <h4 class="mb-0">اجاره آپارتمان یک خوابه بهاران</h4>
+                                    <div class="explotter">
+                                        <p class="detail ellipsis-container fw-semibold">
+                                            <i class="fa-solid fa-map-marker-alt text-info ms-2"></i>
+                                            تهران، اشرفی اصفهانی، اسکندرزاده
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-heaader-last my-md-0 my-2">
+                                <div class="drix-wrap d-flex flex-column align-items-md-end align-items-start text-end">
+                                    <!--                                    <div class="drix-first d-flex align-items-center text-end mb-2">-->
+                                    <!--                                        <a href="rental-detail.html#"-->
+                                    <!--                                           class="bg-light-info text-info rounded-1 fw-medium text-sm px-3 py-2 lh-base"><i-->
+                                    <!--                                                class="fa-solid fa-bookmark ms-2"></i>افزودن به علاقه مندی</a>-->
+
+                                    <!--                                    </div>-->
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- gallery and video for desktop -->
+                        <div class="card-body p-0">
+
+                            <div class="row align-items-center justify-content-between d-lg-flex d-none">
+                                <div class="col-12">
+                                    <div class="galleryGrid typeGrid_2 mb-lg-0 mb-3">
+                                        <div class="galleryGrid__item relative d-flex">
+                                            <a href="assets/video/sample.mp4" data-lightbox="roadtrip">
+                                                <video class="rounded-2 img-fluid" controls>
+                                                    <source src="assets/video/sample.mp4" type="video/mp4">
+                                                    مرورگر شما از ویدیو پشتیبانی نمی‌کند.
+                                                </video>
+                                            </a>
+                                        </div>
+                                        <div class="galleryGrid__item position-relative">
+                                            <a href="assets/img/property/img-3.jpg" data-lightbox="roadtrip"><img
+                                                    src="assets/img/property/img-3.jpg"
+                                                    alt="image" class="rounded-2 img-fluid"></a>
+                                            <div class="position-absolute start-0 bottom-0 mb-3 ms-3">
+                                                <a href="assets/img/property/img-4.jpg" data-lightbox="roadtrip"
+                                                   class="btn btn-md btn-whites fw-medium text-dark"><i
+                                                        class="fa-solid fa-caret-left ms-1"></i>مشاهده همه</a>
+                                            </div>
+                                        </div>
+                                        <div class="galleryGrid__item">
+                                            <a href="assets/img/property/img-4.jpg" data-lightbox="roadtrip"><img
+                                                    src="assets/img/property/img-4.jpg"
+                                                    alt="image" class="rounded-2 img-fluid"></a>
+                                        </div>
+                                        <div class="galleryGrid__item">
+                                            <a href="assets/img/property/img-5.jpg" data-lightbox="roadtrip"><img
+                                                    src="assets/img/property/img-5.jpg"
+                                                    alt="image" class="rounded-2 img-fluid"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <iframe class="d-lg-none d-block custom-iframe" src="media-tabs.html"></iframe>
+
+                        </div>
+
+
+
+                        <!-- detail of masjed -->
+                        <div class=" row justify-content-between align-items-start mt-2">
+                            <!--  information -->
+                            <div class="col-lg-9 mt-3">
+                                <div class="container">
+                                    <!-- navbar -->
+                                    <ul class="nav nav-tabs justify-content-start border-bottom d-lg-flex d-none">
+                                        <li class="nav-item">
+                                            <a class="nav-link active text-dark fw-bold" href="#">تصاویر</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark fw-bold" href="#">مشخصات</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark fw-bold" href="#">قوانین</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark fw-bold" href="#">نظرات</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark fw-bold" href="#">موقعیت</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark fw-bold" href="#">تقویم</a>
+                                        </li>
+                                    </ul>
+
+                                    <!-- check free reservation -->
+                                    <div class="mt-4 border-bottom">
+                                        <div class="d-flex lg-justify-content-between lg-align-items-center">
+                                            <!-- انتخاب تاریخ -->
+                                            <div class="form-group w-50 pb-4 pt-4">
+                                                <label class="form-label fw-semibold">تاریخ مراسم را وارد
+                                                    کنید</label>
+                                                <input type="text"
+                                                       class="form-control choosedate rounded-pill shadow-sm">
+                                            </div>
+
+                                            <!-- کارت نمایش ساعت‌های رزرو شده -->
+                                            <div class="container w-50 pb-4 pt-4">
+                                                <div class="card shadow-lg border-0 rounded-4">
+                                                    <div class="card-header bg-info text-white text-center">
+                                                        <h5 class="mb-0">ساعت‌های رزرو شده</h5>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="d-flex flex-wrap gap-2">
+                                                            <button class="btn btn-outline-danger" disabled>
+                                                                10:00 -
+                                                                11:30
+                                                            </button>
+                                                            <button class="btn btn-outline-danger" disabled>
+                                                                01:30 -
+                                                                02:30
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <!-- emkanat -->
+                                    <div class="pt-4 pb-4 border-bottom">
+                                        <h6 class="fw-semibold mb-3">امکانات</h6>
+                                        <ul class="row align-items-center p-0 g-3">
+                                            <li class="col-md-6">
+                                                <i class="fa-solid fa-check text-success ms-2"></i>یک تجربه فوق
+                                                العاده
+                                                در آبشار
+                                                نیاگارا
+                                            </li>
+                                            <li class="col-md-6">
+                                                <i class="fa-solid fa-check text-success ms-2"></i>تجربه شگفت انگیز
+                                                در
+                                                بندرگاه
+                                            </li>
+                                            <li class="col-md-6">
+                                                <i class="fa-solid fa-check text-success ms-2"></i>مناظر خیره کننده
+                                                در
+                                                شب در آبشار
+                                                نیاگارا
+                                            </li>
+                                            <li class="col-md-6">
+                                                <i class="fa-solid fa-check text-success ms-2"></i>تجربیات عالی با
+                                                تورهای گردشگری
+                                                سیاحتی
+                                            </li>
+                                            <li class="col-md-6">
+                                                <i class="fa-solid fa-check text-success ms-2"></i>معتبرترین
+                                                عرضه‌کننده
+                                                محصولات
+                                                گردشگری در ایران
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- map -->
+                                    <div class="pt-4 pb-4 border-bottom w-100" style="height:500px">
+                                        <h6 class="fw-semibold mb-3">موقعیت</h6>
+                                        <div id="map" class="mt-4" style="height: 100% ;width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- reserve box -->
+                            <div class="col-lg-3 d-lg-block d-none">
+                                <div class="card mt-5" style="width: 22rem;">
+                                    <div class="card-body">
+                                        <row class="justify-content-between">
+                                            <h5 class="text-muted text-end">قیمت : <span
+                                                    class="text-dark float-start"> 7,000,000 تومان</span></h5>
+                                            <h6 class="text-end"></h6>
+                                        </row>
+
+                                        <h3>انتخاب ساعت</h3>
+
+                                        <!-- انتخاب ساعت شروع -->
+                                        <div class="form-group mb-4">
+                                            <label class="form-label">ساعت شروع</label>
+                                            <input type="time" class="form-control rounded-pill appt"
+                                                   id="start_time">
+                                        </div>
+
+                                        <!-- انتخاب ساعت پایان -->
+                                        <div class="form-group mb-4">
+                                            <label class="form-label">ساعت پایان</label>
+                                            <input type="time" class="form-control rounded-pill appt"
+                                                   id="end_time">
+                                        </div>
+                                        <!-- reserve btn -->
+                                        <a class="btn rounded-pill btn-info w-100 "> رزرو </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Login Alert -->
+            <!--                <div class="col-xl-12 col-lg-12 col-md-12">-->
+            <!--                    <div class="d-flex align-items-center justify-content-start py-3 px-3 rounded-2 bg-success mb-4">-->
+            <!--                        <p class="text-light m-0"><i class="fa-solid fa-gift text-warning ms-2"></i><a-->
+            <!--                                href="rental-detail.html#"-->
+            <!--                                class="text-white text-decoration-underline">ورود </a> یا <a href="rental-detail.html#"-->
+            <!--                                                                                             class="text-white text-decoration-underline">ثبت-->
+            <!--                            نام </a>برای دريافت 118 امتیاز در باشگاه مشتریان-->
+            <!--                        <p>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+
+
+            <!-- Inclusions & Exclusions -->
+            <!--                <div class="col-xl-12 col-lg-12 col-md-12">-->
+            <!--                    <div class="card mb-4">-->
+            <!--                        <div class="card-header">-->
+            <!--                            <h4 class="fs-5 mb-0">مزایا و معایب</h4>-->
+            <!--                        </div>-->
+            <!--                        <div class="card-body">-->
+            <!--                            <div class="expott-info mb-4">-->
+            <!--                                <h5>مزایا</h5>-->
+            <!--                                <ul class="row align-items-center p-0 g-3">-->
+            <!--                                    <li class="col-md-6">-->
+            <!--                                        <i class="fa-regular fa-circle-dot text-success ms-2"></i>بیمه سرقت کامل خودرو-->
+            <!--                                    </li>-->
+            <!--                                    <li class="col-md-6">-->
+            <!--                                        <i class="fa-regular fa-circle-dot text-success ms-2"></i> مجوز طرح ترافیک تهران-->
+            <!--                                    </li>-->
+            <!--                                    <li class="col-md-6">-->
+            <!--                                        <i class="fa-regular fa-circle-dot text-success ms-2"></i>صندلی کودک-->
+            <!--                                    </li>-->
+            <!--                                    <li class="col-md-6">-->
+            <!--                                        <i class="fa-regular fa-circle-dot text-success ms-2"></i>زنجیر چرخ-->
+            <!--                                    </li>-->
+            <!--                                    <li class="col-md-6">-->
+            <!--                                        <i class="fa-regular fa-circle-dot text-success ms-2"></i> خدمات تحویل و استرداد-->
+            <!--                                        خارج از ساعت عرف-->
+            <!--                                    </li>-->
+            <!--                                </ul>-->
+            <!--                            </div>-->
+            <!--                            <div class="expott-info">-->
+            <!--                                <h5>معایب</h5>-->
+            <!--                                <ul class="row align-items-center p-0 g-3">-->
+            <!--                                    <li class="col-md-6">-->
+            <!--                                        <i class="fa-regular fa-circle-dot text-danger ms-2"></i>هزینه جانبی تحویل خودرو-->
+            <!--                                        در محل مشتری-خارج از ایستگاه-->
+            <!--                                    </li>-->
+            <!--                                    <li class="col-md-6">-->
+            <!--                                        <i class="fa-regular fa-circle-dot text-danger ms-2"></i>هزینه ورودی فرودگاه-->
+            <!--                                    </li>-->
+            <!--                                    <li class="col-md-6">-->
+            <!--                                        <i class="fa-regular fa-circle-dot text-danger ms-2"></i>عدم بیمه لاستیک و شیشه-->
+            <!--                                        های خودرو-->
+            <!--                                    </li>-->
+            <!--                                </ul>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+
+            <!-- Guests Reviews -->
+            <!--                <div class="col-xl-12 col-lg-12 col-md-12">-->
+            <!--                    <div class="card mb-4">-->
+            <!--                        <div class="card-header">-->
+            <!--                            <h4 class="fs-5 mb-0">دیدگاه مهمانان</h4>-->
+            <!--                        </div>-->
+            <!--                        <div class="card-body">-->
+            <!--                            <div class="row align-items-center mb-4">-->
+            <!--                                <div class="col-xl-2 col-lg-3 col-md-4">-->
+            <!--                                    <div class="rounded-3 bg-primary full-width">-->
+            <!--                                        <div class="py-4 px-3 text-center">-->
+            <!--                                            <h3 class="text-light display-2 fw-semibold mb-0">92</h3>-->
+            <!--                                            <p class="text-light lh-base m-0">786 دیدگاه ثبت شده</p>-->
+            <!--                                        </div>-->
+            <!--                                    </div>-->
+            <!--                                </div>-->
+            <!--                                <div class="col-xl-10 col-lg-9 col-md-8">-->
+            <!--                                    <div class="row align-items-start">-->
+
+            <!--                                        <div class="col-xl-12 col-lg-12 col-md-12">-->
+            <!--                                            <ul class="row align-items-center p-0 mb-0 gy-3 gx-4">-->
+            <!--                                                <li class="col-xl-6 col-lg-6 col-md-6 col-sm-12">-->
+            <!--                                                    <div class="revs-wraps">-->
+            <!--                                                        <div class="revs-wraps-flex d-flex align-items-center justify-content-between mb-1">-->
+            <!--                                                            <span class="text-dark text-md">تمیزی</span>-->
+            <!--                                                            <span class="text-dark text-md">8.7</span>-->
+            <!--                                                        </div>-->
+            <!--                                                        <div class="progress " role="progressbar" aria-label="Example"-->
+            <!--                                                             aria-valuenow="87"-->
+            <!--                                                             aria-valuemin="0" aria-valuemax="100" style="height: 7px">-->
+            <!--                                                            <div class="progress-bar bg-primary"-->
+            <!--                                                                 style="width: 87%"></div>-->
+            <!--                                                        </div>-->
+            <!--                                                    </div>-->
+            <!--                                                </li>-->
+            <!--                                                <li class="col-xl-6 col-lg-6 col-md-6 col-sm-12">-->
+            <!--                                                    <div class="revs-wraps">-->
+            <!--                                                        <div class="revs-wraps-flex d-flex align-items-center justify-content-between mb-1">-->
+            <!--                                                            <span class="text-dark text-md">صحت مطالب</span>-->
+            <!--                                                            <span class="text-dark text-md">9.2</span>-->
+            <!--                                                        </div>-->
+            <!--                                                        <div class="progress " role="progressbar" aria-label="Example"-->
+            <!--                                                             aria-valuenow="92"-->
+            <!--                                                             aria-valuemin="0" aria-valuemax="100" style="height: 7px">-->
+            <!--                                                            <div class="progress-bar bg-primary"-->
+            <!--                                                                 style="width: 92%"></div>-->
+            <!--                                                        </div>-->
+            <!--                                                    </div>-->
+            <!--                                                </li>-->
+            <!--                                                <li class="col-xl-6 col-lg-6 col-md-6 col-sm-12">-->
+            <!--                                                    <div class="revs-wraps">-->
+            <!--                                                        <div class="revs-wraps-flex d-flex align-items-center justify-content-between mb-1">-->
+            <!--                                                            <span class="text-dark text-md">امکانات رفاهی</span>-->
+            <!--                                                            <span class="text-dark text-md">8.8</span>-->
+            <!--                                                        </div>-->
+            <!--                                                        <div class="progress " role="progressbar" aria-label="Example"-->
+            <!--                                                             aria-valuenow="88"-->
+            <!--                                                             aria-valuemin="0" aria-valuemax="100" style="height: 7px">-->
+            <!--                                                            <div class="progress-bar bg-primary"-->
+            <!--                                                                 style="width: 88%"></div>-->
+            <!--                                                        </div>-->
+            <!--                                                    </div>-->
+            <!--                                                </li>-->
+            <!--                                                <li class="col-xl-6 col-lg-6 col-md-6 col-sm-12">-->
+            <!--                                                    <div class="revs-wraps">-->
+            <!--                                                        <div class="revs-wraps-flex d-flex align-items-center justify-content-between mb-1">-->
+            <!--                                                            <span class="text-dark text-md">مکان اقامتگاه</span>-->
+            <!--                                                            <span class="text-dark text-md">8.9</span>-->
+            <!--                                                        </div>-->
+            <!--                                                        <div class="progress " role="progressbar" aria-label="Example"-->
+            <!--                                                             aria-valuenow="89"-->
+            <!--                                                             aria-valuemin="0" aria-valuemax="100" style="height: 7px">-->
+            <!--                                                            <div class="progress-bar bg-primary"-->
+            <!--                                                                 style="width: 89%"></div>-->
+            <!--                                                        </div>-->
+            <!--                                                    </div>-->
+            <!--                                                </li>-->
+            <!--                                                <li class="col-xl-6 col-lg-6 col-md-6 col-sm-12">-->
+            <!--                                                    <div class="revs-wraps">-->
+            <!--                                                        <div class="revs-wraps-flex d-flex align-items-center justify-content-between mb-1">-->
+            <!--                                                            <span class="text-dark text-md">خدمات</span>-->
+            <!--                                                            <span class="text-dark text-md">9.2</span>-->
+            <!--                                                        </div>-->
+            <!--                                                        <div class="progress " role="progressbar" aria-label="Example"-->
+            <!--                                                             aria-valuenow="92"-->
+            <!--                                                             aria-valuemin="0" aria-valuemax="100" style="height: 7px">-->
+            <!--                                                            <div class="progress-bar bg-primary"-->
+            <!--                                                                 style="width: 92%"></div>-->
+            <!--                                                        </div>-->
+            <!--                                                    </div>-->
+            <!--                                                </li>-->
+            <!--                                                <li class="col-xl-6 col-lg-6 col-md-6 col-sm-12">-->
+            <!--                                                    <div class="revs-wraps">-->
+            <!--                                                        <div class="revs-wraps-flex d-flex align-items-center justify-content-between mb-1">-->
+            <!--                                                            <span class="text-dark text-md">کیفیت نسبت به نرخ</span>-->
+            <!--                                                            <span class="text-dark text-md">8.6</span>-->
+            <!--                                                        </div>-->
+            <!--                                                        <div class="progress " role="progressbar" aria-label="Example"-->
+            <!--                                                             aria-valuenow="86"-->
+            <!--                                                             aria-valuemin="0" aria-valuemax="100" style="height: 7px">-->
+            <!--                                                            <div class="progress-bar bg-primary"-->
+            <!--                                                                 style="width: 86%"></div>-->
+            <!--                                                        </div>-->
+            <!--                                                    </div>-->
+            <!--                                                </li>-->
+            <!--                                            </ul>-->
+            <!--                                        </div>-->
+            <!--                                    </div>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+
+            <!--                            <div class="row align-items-center">-->
+            <!--                                <div class="col-xl-12 col-lg-12 col-md-12">-->
+            <!--                                    <div class="gstRevws-groups">-->
+
+            <!--                                        &lt;!&ndash; Single Reviwws &ndash;&gt;-->
+            <!--                                        <div class="single-gstRevws rounded-2 border p-2 d-flex align-items-start mb-3">-->
+            <!--                                            <div class="single-gstRevws-thumb">-->
+            <!--                                                <div class="rounded-2 overflow-hidden w-25 h-25">-->
+            <!--                                                    <img src="assets/img/team-1.jpg" class="img-fluid" alt="">-->
+            <!--                                                </div>-->
+            <!--                                            </div>-->
+            <!--                                            <div class="single-gstRevws-caps pe-3">-->
+            <!--                                                <div class="gstRevws-head d-flex align-items-start justify-content-between">-->
+            <!--                                                    <div class="dfls-headers">-->
+            <!--                                                        <h5 class="h6 text-dark fw-semibold mb-0">علی مسعودی</h5>-->
+            <!--                                                        <p class="text-md mb-0">کانادا</p>-->
+            <!--                                                    </div>-->
+            <!--                                                    <div class="dfls-arrios"><span class="text-muted text-md">10 بهمن 1402</span>-->
+            <!--                                                    </div>-->
+            <!--                                                </div>-->
+            <!--                                                <div class="dfls-secription">-->
+            <!--                                                    <p class="mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از-->
+            <!--                                                        صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه-->
+            <!--                                                        روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی-->
+            <!--                                                        تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای-->
+            <!--                                                        کاربردی می باشد.</p>-->
+            <!--                                                </div>-->
+            <!--                                            </div>-->
+            <!--                                        </div>-->
+
+            <!--                                        &lt;!&ndash; Single Reviwws &ndash;&gt;-->
+            <!--                                        <div class="single-gstRevws rounded-2 border p-2 d-flex align-items-start mb-3">-->
+            <!--                                            <div class="single-gstRevws-thumb">-->
+            <!--                                                <div-->
+            <!--                                                        class="rounded-2 bg-light-purple d-flex align-items-center justify-content-center overflow-hidden w-25 h-25">-->
+            <!--                                                    <h3 class="m-0 fs-1 fw-semibold text-purple">K</h3>-->
+            <!--                                                </div>-->
+            <!--                                            </div>-->
+            <!--                                            <div class="single-gstRevws-caps pe-3">-->
+            <!--                                                <div class="gstRevws-head d-flex align-items-start justify-content-between">-->
+            <!--                                                    <div class="dfls-headers">-->
+            <!--                                                        <h5 class="h6 text-dark fw-semibold mb-0">نیلوفر حیدری</h5>-->
+            <!--                                                        <p class="text-md mb-0">کانادا</p>-->
+            <!--                                                    </div>-->
+            <!--                                                    <div class="dfls-arrios"><span-->
+            <!--                                                            class="text-muted text-md">10 دی 1402</span></div>-->
+            <!--                                                </div>-->
+            <!--                                                <div class="dfls-secription">-->
+            <!--                                                    <p class="mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از-->
+            <!--                                                        صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه-->
+            <!--                                                        روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی-->
+            <!--                                                        تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای-->
+            <!--                                                        کاربردی می باشد.</p>-->
+            <!--                                                </div>-->
+            <!--                                            </div>-->
+            <!--                                        </div>-->
+
+            <!--                                        &lt;!&ndash; Single Reviwws &ndash;&gt;-->
+            <!--                                        <div class="single-gstRevws rounded-2 border p-2 d-flex align-items-start mb-3">-->
+            <!--                                            <div class="single-gstRevws-thumb">-->
+            <!--                                                <div class="rounded-2 overflow-hidden w-25 h-25">-->
+            <!--                                                    <img src="assets/img/team-3.jpg" class="img-fluid" alt="">-->
+            <!--                                                </div>-->
+            <!--                                            </div>-->
+            <!--                                            <div class="single-gstRevws-caps pe-3">-->
+            <!--                                                <div class="gstRevws-head d-flex align-items-start justify-content-between">-->
+            <!--                                                    <div class="dfls-headers">-->
+            <!--                                                        <h5 class="h6 text-dark fw-semibold mb-0">مهرداد هادیان</h5>-->
+            <!--                                                        <p class="text-md mb-0">کانادا</p>-->
+            <!--                                                    </div>-->
+            <!--                                                    <div class="dfls-arrios"><span class="text-muted text-md">10 مهر 1402</span>-->
+            <!--                                                    </div>-->
+            <!--                                                </div>-->
+            <!--                                                <div class="dfls-secription">-->
+            <!--                                                    <p class="mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از-->
+            <!--                                                        صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه-->
+            <!--                                                        روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی-->
+            <!--                                                        تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای-->
+            <!--                                                        کاربردی می باشد.</p>-->
+            <!--                                                </div>-->
+            <!--                                            </div>-->
+            <!--                                        </div>-->
+
+
+            <!--                                        &lt;!&ndash; Single Reviwws &ndash;&gt;-->
+            <!--                                        <div class="show-morerewsbox mb-3">-->
+            <!--                                            <div class="text-center" role="alert">-->
+            <!--                                                <a href="rental-detail.html#" class="fw-medium text-primary">مشاهده-->
+            <!--                                                    بیشتر<i-->
+            <!--                                                            class="fa-solid fa-caret-down me-2"></i></a>-->
+            <!--                                            </div>-->
+            <!--                                        </div>-->
+
+            <!--                                        &lt;!&ndash; submit Reviews &ndash;&gt;-->
+            <!--                                        <div class="sbms-rewsbox">-->
+            <!--                                            <div class="alert alert-success text-center" role="alert">-->
+            <!--                                                ورود برای ثبت دیدگاه <a href="rental-detail.html#" class="text-dark">ورود-->
+            <!--                                                به حساب کاربری</a>-->
+            <!--                                            </div>-->
+            <!--                                        </div>-->
+
+            <!--                                    </div>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+
+
+        </div>
+</div>
+</section>
+<!-- ============================ Hotel Details End ================================== -->
+
+
+<!-- ============================ Similar Hotels Start ================================== -->
+<section class="py-5">
+    <div class="container">
+
+        <div class="row align-items-center justify-content-between mb-3">
+            <div class="col-8">
+                <div class="upside-heading">
+                    <h5 class="fw-bold fs-6 m-0">اقامتگاه های مشابه</h5>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="text-start grpx-btn">
+                    <a href="rental-detail.html#" class="btn btn-light-primary btn-md fw-medium">مشاهده<i
+                            class="fa-solid fa-arrow-trend-up me-2"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 p-0">
+                <div class="main-carousel cols-3 arrow-hide">
+
+                    <!-- Single Item -->
+                    <div class="carousel-cell">
+                        <div class="pop-touritem">
+                            <a href="rental-detail.html#" class="card rounded-3 border m-0">
+                                <div class="flight-thumb-wrapper">
+                                    <div class="popFlights-item-overHidden">
+                                        <img src="assets/img/property/img-1.jpg" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div class="touritem-middle position-relative p-3">
+                                    <div class="touritem-flexxer">
+                                        <div class="d-flex align-items-start justify-content-start flex-column">
+                                            <span class="city-destination label text-success bg-light-success mb-1">سوئیت</span>
+                                            <h4 class="city fs-title m-0 fw-bold">
+                                                <span>رزرو سوئیت یک خوابه جنت آباد</span>
+                                            </h4>
+                                        </div>
+                                        <div class="detail ellipsis-container mt-3">
+                                            <span class="ellipsis">3 خوابه</span>
+                                            <span class="ellipsis">2 سرویس بهداشتی</span>
+                                            <span class="ellipsis">2100 مترمربع</span>
+                                            <span class="ellipsis">1 انباری</span>
+                                        </div>
+                                    </div>
+                                    <div class="flight-footer">
+                                        <div class="epocsic">
+                                            <span class="label d-inline-flex bg-light-danger text-danger mb-1">15% تخفیف</span>
+                                            <h5 class="fs-5 low-price m-0"><span class="tag-span">از</span> <span
+                                                    class="price">154,000,000 ریال</span></h5>
+                                        </div>
+                                        <div class="rates">
+                                            <div class="star-rates">
+                                                <i class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i>
+                                            </div>
+                                            <div class="rat-reviews">
+                                                <strong>4.6</strong><span>(142 دیدگاه)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Single Item -->
+                    <div class="carousel-cell">
+                        <div class="pop-touritem">
+                            <a href="rental-detail.html#" class="card rounded-3 border m-0">
+                                <div class="flight-thumb-wrapper">
+                                    <div class="popFlights-item-overHidden">
+                                        <img src="assets/img/property/img-2.jpg" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div class="touritem-middle position-relative p-3">
+                                    <div class="touritem-flexxer">
+                                        <div class="d-flex align-items-start justify-content-start flex-column">
+                                            <span class="city-destination label text-success bg-light-success mb-1">ویلا</span>
+                                            <h4 class="city fs-title m-0 fw-bold">
+                                                <span>رزرو ویلا دوخوابه نهم شرقی پونک</span>
+                                            </h4>
+                                        </div>
+                                        <div class="detail ellipsis-container mt-3">
+                                            <span class="ellipsis">3 خوابه</span>
+                                            <span class="ellipsis">2 سرویس بهداشتی</span>
+                                            <span class="ellipsis">2100 مترمربع</span>
+                                            <span class="ellipsis">1 انباری</span>
+                                        </div>
+                                    </div>
+                                    <div class="flight-footer">
+                                        <div class="epocsic">
+                                            <span class="label d-inline-flex bg-light-danger text-danger mb-1">15% تخفیف</span>
+                                            <h5 class="fs-5 low-price m-0"><span class="tag-span">از</span> <span
+                                                    class="price">154,000,000 ریال</span></h5>
+                                        </div>
+                                        <div class="rates">
+                                            <div class="star-rates">
+                                                <i class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i>
+                                            </div>
+                                            <div class="rat-reviews">
+                                                <strong>4.6</strong><span>(142 دیدگاه)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Single Item -->
+                    <div class="carousel-cell">
+                        <div class="pop-touritem">
+                            <a href="rental-detail.html#" class="card rounded-3 border m-0">
+                                <div class="flight-thumb-wrapper">
+                                    <div class="popFlights-item-overHidden">
+                                        <img src="assets/img/property/img-3.jpg" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div class="touritem-middle position-relative p-3">
+                                    <div class="touritem-flexxer">
+                                        <div class="d-flex align-items-start justify-content-start flex-column">
+                                            <span class="city-destination label text-success bg-light-success mb-1">سوئیت</span>
+                                            <h4 class="city fs-title m-0 fw-bold">
+                                                <span>اجاره سوئیت فلت پاسداران بنی هاشم</span>
+                                            </h4>
+                                        </div>
+                                        <div class="detail ellipsis-container mt-3">
+                                            <span class="ellipsis">3 خوابه</span>
+                                            <span class="ellipsis">2 سرویس بهداشتی</span>
+                                            <span class="ellipsis">2100 مترمربع</span>
+                                            <span class="ellipsis">1 انباری</span>
+                                        </div>
+                                    </div>
+                                    <div class="flight-footer">
+                                        <div class="epocsic">
+                                            <span class="label d-inline-flex bg-light-danger text-danger mb-1">15% تخفیف</span>
+                                            <h5 class="fs-5 low-price m-0"><span class="tag-span">از</span> <span
+                                                    class="price">154,000,000 ریال</span></h5>
+                                        </div>
+                                        <div class="rates">
+                                            <div class="star-rates">
+                                                <i class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i>
+                                            </div>
+                                            <div class="rat-reviews">
+                                                <strong>4.6</strong><span>(142 دیدگاه)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Single Item -->
+                    <div class="carousel-cell">
+                        <div class="pop-touritem">
+                            <a href="rental-detail.html#" class="card rounded-3 border m-0">
+                                <div class="flight-thumb-wrapper">
+                                    <div class="popFlights-item-overHidden">
+                                        <img src="assets/img/property/img-4.jpg" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div class="touritem-middle position-relative p-3">
+                                    <div class="touritem-flexxer">
+                                        <div class="d-flex align-items-start justify-content-start flex-column">
+                                            <span class="city-destination label text-success bg-light-success mb-1">کلبه</span>
+                                            <h4 class="city fs-title m-0 fw-bold">
+                                                <span>اجاره کلبه یک خوابه کارال پیروزی</span>
+                                            </h4>
+                                        </div>
+                                        <div class="detail ellipsis-container mt-3">
+                                            <span class="ellipsis">3 خوابه</span>
+                                            <span class="ellipsis">2 سرویس بهداشتی</span>
+                                            <span class="ellipsis">2100 مترمربع</span>
+                                            <span class="ellipsis">1 انباری</span>
+                                        </div>
+                                    </div>
+                                    <div class="flight-footer">
+                                        <div class="epocsic">
+                                            <span class="label d-inline-flex bg-light-danger text-danger mb-1">15% تخفیف</span>
+                                            <h5 class="fs-5 low-price m-0"><span class="tag-span">از</span> <span
+                                                    class="price">154,000,000 ریال</span></h5>
+                                        </div>
+                                        <div class="rates">
+                                            <div class="star-rates">
+                                                <i class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i>
+                                            </div>
+                                            <div class="rat-reviews">
+                                                <strong>4.6</strong><span>(142 دیدگاه)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Single Item -->
+                    <div class="carousel-cell">
+                        <div class="pop-touritem">
+                            <a href="rental-detail.html#" class="card rounded-3 border m-0">
+                                <div class="flight-thumb-wrapper">
+                                    <div class="popFlights-item-overHidden">
+                                        <img src="assets/img/property/img-5.jpg" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div class="touritem-middle position-relative p-3">
+                                    <div class="touritem-flexxer">
+                                        <div class="d-flex align-items-start justify-content-start flex-column">
+                                            <span class="city-destination label text-success bg-light-success mb-1">آپارتمان</span>
+                                            <h4 class="city fs-title m-0 fw-bold">
+                                                <span>اجاره آپارتمان دوخوابه کاشانی صادقیه</span>
+                                            </h4>
+                                        </div>
+                                        <div class="detail ellipsis-container mt-3">
+                                            <span class="ellipsis">3 خوابه</span>
+                                            <span class="ellipsis">2 سرویس بهداشتی</span>
+                                            <span class="ellipsis">2100 مترمربع</span>
+                                            <span class="ellipsis">1 انباری</span>
+                                        </div>
+                                    </div>
+                                    <div class="flight-footer">
+                                        <div class="epocsic">
+                                            <span class="label d-inline-flex bg-light-danger text-danger mb-1">15% تخفیف</span>
+                                            <h5 class="fs-5 low-price m-0"><span class="tag-span">از</span> <span
+                                                    class="price">154,000,000 ریال</span></h5>
+                                        </div>
+                                        <div class="rates">
+                                            <div class="star-rates">
+                                                <i class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i><i
+                                                    class="fa-solid fa-star active"></i>
+                                            </div>
+                                            <div class="rat-reviews">
+                                                <strong>4.6</strong><span>(142 دیدگاه)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ============================ Similar Hotels End ================================== -->
+
+<!-- ============================ Footer Start ================================== -->
+<footer class="footer skin-dark-footer">
+    <div>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-4">
+                    <div class="footer-widget">
+                        <div class="d-flex align-items-start flex-column mb-3">
+                            <div class="d-inline-block"><img src="assets/img/logo-light.png" class="img-fluid"
+                                                             width="160"
+                                                             alt="Footer Logo"></div>
+                        </div>
+                        <div class="footer-add ps-xl-3">
+                            <p>ما با شادی فراوان رویای شما را زیباتر و لذت بخش تر می کنیم.</p>
+                        </div>
+                        <div class="foot-socials">
+                            <ul>
+                                <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-facebook"></i></a></li>
+                                <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-linkedin"></i></a></li>
+                                <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-google-plus"></i></a></li>
+                                <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-twitter"></i></a></li>
+                                <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-dribbble"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <div class="footer-widget">
+                        <h4 class="widget-title">لینک های سریع</h4>
+                        <ul class="footer-menu">
+                            <li><a href="JavaScript:Void(0);">درباره ما</a></li>
+                            <li><a href="JavaScript:Void(0);">مجله گردشگری</a></li>
+                            <li><a href="JavaScript:Void(0);">بیمه مسافرتی</a></li>
+                            <li><a href="JavaScript:Void(0);">قوانین سایت</a></li>
+                            <li><a href="JavaScript:Void(0);">تماس با ما</a></li>
+                            <li><a href="JavaScript:Void(0);">فرصت های شغلی</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-4">
+                    <div class="footer-widget">
+                        <h4 class="widget-title">خدمات پرواز و هتل</h4>
+                        <ul class="footer-menu">
+                            <li><a href="JavaScript:Void(0);">خرید بلیط هواپیما</a></li>
+                            <li><a href="JavaScript:Void(0);">رزرو هتل</a></li>
+                            <li><a href="JavaScript:Void(0);">درخواست ویزا</a></li>
+                            <li><a href="JavaScript:Void(0);">رزرو اقامتگاه</a></li>
+                            <li><a href="JavaScript:Void(0);">بلیط چارتر</a></li>
+                            <li><a href="JavaScript:Void(0);">پشتیبانی</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h4 class="widget-title">نحوه رزرو اقامتگاه</h4>
+                        <ul class="footer-menu">
+                            <li><a href="JavaScript:Void(0);">راهنمای رزرو اقامتگاه</a></li>
+                            <li><a href="JavaScript:Void(0);">همکاران سازمانی</a></li>
+                            <li><a href="JavaScript:Void(0);">تماس با ما</a></li>
+                            <li><a href="JavaScript:Void(0);">پرسش های متداول</a></li>
+                            <li><a href="JavaScript:Void(0);">شرایط لغو</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h4 class="widget-title">روش های پرداخت</h4>
+                        <div class="pmt-wrap">
+                            <img src="assets/img/payment.png" class="img-fluid" alt="">
+                        </div>
+                        <div class="our-prtwrap mt-4">
+                            <div class="prtn-title">
+                                <p class="text-muted-2 fw-medium">همکاران ما</p>
+                            </div>
+                            <div class="prtn-thumbs d-flex align-items-center justify-content-start">
+                                <div class="pmt-wrap ps-4">
+                                    <img src="assets/img/mytrip.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="pmt-wrap ps-4">
+                                    <img src="assets/img/tripadv.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="pmt-wrap ps-4">
+                                    <img src="assets/img/goibibo.png" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom border-top">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+
+                <div class="col-xl-6 col-lg-6 col-md-6">
+                    <p class="mb-0">© 2023 کلیه حقوق این سایت محفوظ و متعلق به شرکت خدمات مسافرتی و گردشگری است.</p>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6">
+                    <ul class="p-0 d-flex justify-content-start justify-content-md-end text-start text-md-end m-0">
+                        <li><a href="rental-detail.html#">شرایط و قوانین</a></li>
+                        <li class="me-3"><a href="rental-detail.html#">درباره ما</a></li>
+                        <li class="me-3"><a href="rental-detail.html#">کوکی ها</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- ============================ Footer End ================================== -->
+
+<!-- Log In Modal -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginmodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
+        <div class="modal-content" id="loginmodal">
+            <div class="modal-header">
+                <h4 class="modal-title fs-6">ثبت نام / ورود</h4>
+                <a href="rental-detail.html#" class="text-muted fs-4" data-bs-dismiss="modal" aria-label="Close"><i
+                        class="fa-solid fa-square-xmark"></i></a>
+            </div>
+            <div class="modal-body">
+                <div class="modal-login-form py-4 px-md-3 px-0">
+                    <form>
+
+                        <div class="form-floating mb-4">
+                            <input type="email" class="form-control" placeholder="name@example.com">
+                            <label>نام کاربری</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="password" class="form-control" placeholder="********">
+                            <label>رمز عبور</label>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary full-width font--bold btn-lg">ورود</button>
+                        </div>
+
+                        <div class="modal-flex-item d-flex align-items-center justify-content-between mb-3">
+                            <div class="modal-flex-first">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="savepassword"
+                                           value="option1">
+                                    <label class="form-check-label" for="savepassword">ذخیره رمز عبور</label>
+                                </div>
+                            </div>
+                            <div class="modal-flex-last">
+                                <a href="JavaScript:Void(0);" class="text-primary fw-medium">رمز عبور را فراموش کرده
+                                    اید؟</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="prixer px-3">
+                    <div class="devider-wraps position-relative">
+                        <div class="devider-text text-muted-2 text-md">با روش های زیر وارد سیستم شوید</div>
+                    </div>
+                </div>
+
+                <div class="social-login py-4 px-2">
+                    <ul class="row align-items-center justify-content-between g-3 p-0 m-0">
+                        <li class="col"><a href="rental-detail.html#"
+                                           class="square--60 border br-dashed rounded-2 full-width"><i
+                                class="fa-brands fa-facebook color--facebook fs-2"></i></a></li>
+                        <li class="col"><a href="rental-detail.html#" class="square--60 border br-dashed rounded-2"><i
+                                class="fa-brands fa-whatsapp color--whatsapp fs-2"></i></a></li>
+                        <li class="col"><a href="rental-detail.html#" class="square--60 border br-dashed rounded-2"><i
+                                class="fa-brands fa-linkedin color--linkedin fs-2"></i></a></li>
+                        <li class="col"><a href="rental-detail.html#" class="square--60 border br-dashed rounded-2"><i
+                                class="fa-brands fa-dribbble color--dribbble fs-2"></i></a></li>
+                        <li class="col"><a href="rental-detail.html#" class="square--60 border br-dashed rounded-2"><i
+                                class="fa-brands fa-twitter color--twitter fs-2"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer align-items-center justify-content-center">
+                <p>حساب کاربری ندارید؟<a href="signup.html" class="text-primary fw-medium me-1">ثبت نام</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+
+
+<a id="back2Top" class="top-scroll" title="Back to top" href="rental-detail.html#"><i
+        class="fa-solid fa-sort-up"></i></a>
+
+
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->
+
+
+<!-- ============================================================== -->
+<!-- All Jquery -->
+<!-- ============================================================== -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/dropzone.min.js"></script>
+<script src="assets/js/flatpickr.js"></script>
+<script src="assets/js/flickity.pkgd.min.js"></script>
+<script src="assets/js/lightbox.min.js"></script>
+<script src="assets/js/rangeslider.js"></script>
+<script src="assets/js/select2.min.js"></script>
+<script src="assets/js/counterup.min.js"></script>
+<script src="assets/js/prism.js"></script>
+
+<script src="assets/js/custom.js"></script>
+<!-- Date Booking Script -->
+<script src="assets/js/jdate.min.js"></script>
+<script src="assets/js/fa.js"></script>
+<script>
+    window.Date = window.JDate;
+    flatpickr("#checkinout", {
+        "locale": "fa",
+        mode: "range",
+        minDate: "today",
+        format: 'YYYY/MM/DD',
+    });
+    lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true
+    })
+
+    flatpickr(".choosedate", {
+        "locale": "fa"
+    });
+</script>
+<!-- timepicker script to check the hamposhanitarikh -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // بازه‌های زمانی رزرو شده (در فرمت 24 ساعته)
+        const reservedTimes = [
+            {start: "10:00", end: "11:30"},
+            {start: "13:30", end: "14:30"},
+            {start: "15:00", end: "16:00"},
+            {start: "18:00", end: "19:30"}
+        ];
+
+        function parseTime(timeStr) {
+            const [hours, minutes] = timeStr.split(":").map(Number);
+            return hours * 60 + minutes; // تبدیل به دقیقه‌ی مطلق
+        }
+
+        function checkOverlap(start, end) {
+            const startTime = parseTime(start);
+            const endTime = parseTime(end);
+
+            return reservedTimes.some(({start, end}) => {
+                const resStart = parseTime(start);
+                const resEnd = parseTime(end);
+
+                return (
+                    (startTime >= resStart && startTime < resEnd) ||  // شروع داخل بازه رزرو شده
+                    (endTime > resStart && endTime <= resEnd) ||  // پایان داخل بازه رزرو شده
+                    (startTime <= resStart && endTime >= resEnd) // کل بازه، بازه رزرو شده را پوشش دهد
+                );
+            });
+        }
+
+        function validateTime() {
+            const start = document.getElementById("start_time").value;
+            const end = document.getElementById("end_time").value;
+
+            if (start && end && checkOverlap(start, end)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '⛔ این بازه زمانی قبلاً رزرو شده است!',
+                    text: 'لطفاً زمان دیگری انتخاب کنید.',
+                    confirmButtonText: 'باشه'
+                });
+                this.value = "";
+            }
+        }
+
+        document.getElementById("start_time").addEventListener("change", validateTime);
+        document.getElementById("end_time").addEventListener("change", validateTime);
+    });
+</script>
+
+<!-- neshan scrypt -->
+<script>
+    // ساخت نقشه نشان با استفاده از Leaflet
+    const neshanMap = new L.Map("map", {
+        key: "web.f790ce90cd3f465caf3a71a6919b8c8d", // کلید API مخصوص به خود را وارد کنید
+        maptype: "neshan",
+        poi: true,
+        traffic: true,
+        center: [35.731810, 51.329440],
+        zoom: 14,
+    });
+
+    // افزودن مارکر ثابت به نقشه
+    let marker = L.marker([35.731810, 51.329440]).addTo(neshanMap);
+
+    // افزودن پاپ‌آپ به مارکر
+    marker.bindPopup(`
+        <p class="text-center">
+            موقعیت مسجد
+        </p>
+    `).openPopup();
+</script>
+
+
+<script>
+    const shadowHost = document.getElementById('gallery-shadow-root');
+    const shadowRoot = shadowHost.attachShadow({mode: 'open'});
+    const template = document.getElementById('gallery-template');
+    shadowRoot.appendChild(template.content.cloneNode(true));
+</script>
+</body>
+
+</html>

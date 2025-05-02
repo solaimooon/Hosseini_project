@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="card">
+    <div class="d-lg-none">
+        <!-- تب‌ها -->
+        <ul class="nav nav-tabs justify-content-center bg-white shadow-sm px-3 rounded-pill my-2 mx-auto"
+            id="mediaTab" role="tablist" style="max-width: fit-content;">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active text-dark fw-bold py-1 px-3" id="photos-tab"
+                        data-bs-toggle="tab" data-bs-target="#photos"
+                        type="button" role="tab" aria-controls="photos"
+                        aria-selected="true">
+                    تصاویر
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link text-dark fw-bold py-1 px-3" id="videos-tab"
+                        data-bs-toggle="tab" data-bs-target="#videos"
+                        type="button" role="tab" aria-controls="videos"
+                        aria-selected="false">
+                    ویدئو
+                </button>
+            </li>
+        </ul>
+
+        <!-- تب محتوا -->
+        <div class="tab-content p-0" id="mediaTabContent">
+            <!-- گالری تصاویر -->
+            <div class="tab-pane fade show active" id="photos" role="tabpanel"
+                 aria-labelledby="photos-tab">
+                <div id="carouselExampleFade" class="carousel slide carousel-fade m-0 p-0"
+                     data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item p-0 active">
+                            <img class="d-block w-100" src="assets/img/property/img-1.jpg"
+                                 alt="photo" style="object-fit: cover;">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button"
+                            data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">قبلی</span>
+                    </button>
+                    <button class="carousel-control-next" type="button"
+                            data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">بعدی</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ویدئو -->
+            <div class="tab-pane fade" id="videos" role="tabpanel"
+                 aria-labelledby="videos-tab">
+                <div class="ratio ratio-16x9 rounded overflow-hidden">
+                    <video class="rounded-2 img-fluid" controls>
+                        <source src="assets/video/sample.mp4" type="video/mp4">
+                        مرورگر شما از ویدیو پشتیبانی نمی‌کند.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+</body>
+</html>
