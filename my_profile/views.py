@@ -41,9 +41,9 @@ def Authentication(request):
         # this is the api of cavenegar , pass the key to url
         api = 'https://api.kavenegar.com/v1/%s/verify/lookup.json' % key
         # data must be send to api
-        paloyd = {'receptor': str(phone_number), 'token': str(verification_code), "template": "verify"}
-        # request to kavenegar to send massage
-        # response = requests.post(api, data=paloyd)
+        paloyd = {'receptor': str(phone_number), 'token': str(verification_code), "template": "verifyy"}
+        #request to kavenegar to send massage
+        response = requests.post(api, data=paloyd)
         return render(request, 'verification.html')
     elif request.method == 'POST':
         # get the numbers
@@ -79,6 +79,7 @@ def log_in_view(request):
         else:
             print("سلام",form.errors)
             messages.error(request, 'نام کاربری یا رمز عبور نادرست است.')
+            return HttpResponsePermanentRedirect(reverse('website:index'))
     else:
         return HttpResponsePermanentRedirect(reverse('website:index'))
 
