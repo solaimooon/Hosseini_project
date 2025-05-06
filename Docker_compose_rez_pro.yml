@@ -21,7 +21,7 @@ services:
       - DB_PORT=3306
       - debug=True
       - ALLOWED_HOSTS=kodomjaa.ir,www.kodomjaa.ir
-      - DJANGO_ENV=development
+      - DJANGO_ENV=production
 
     networks:
       - shared_net
