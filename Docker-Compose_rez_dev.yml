@@ -19,7 +19,7 @@ services:
       - DB_USER=${MYSQL_USER}
       - DB_PASSWORD=${MYSQL_PASSWORD}
       - DB_PORT=3306
-      - debug=False
+      - debug=True
       - ALLOWED_HOSTS=127.0.0.1
       - DJANGO_ENV=development
 
