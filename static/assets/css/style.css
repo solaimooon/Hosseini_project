@@ -3419,48 +3419,41 @@ table.table tr th {
 }
 
 /*------------- Common Elentns: Accordion Styles ---------------*/
+/* استایل اصلی دکمه‌های آکاردئون */
+.accordion-button {
+  font-weight: 500;
+  color: #00345b;
+  padding-right: 1rem; /* فضای سمت راست برای دکمه */
+  padding-left: 1rem; /* فاصله متن از چپ */
+  text-align: right; /* تراز متن به راست */
+  direction: rtl; /* جهت متن RTL برای فارسی */
+  position: relative; /* برای موقعیت دهی مطلق آیکون */
+}
+
+/* استایل هنگام فوکوس */
 .accordion-button:focus {
   z-index: 3;
-  border-color: none;
+  border-color: transparent;
   outline: 0;
   box-shadow: none;
 }
 
-.bi {
-  width: 1em;
-  height: 1em;
-  fill: currentcolor;
-}
-
-.accordion-button {
-  font-weight: 500;
-  color: #00345b;
-}
-
+/* استایل دکمه در حالت باز */
 .accordion-button:not(.collapsed) {
   color: var(--bs-primary);
   background-color: rgba(205, 44, 34, 0.1);
   box-shadow: none;
 }
 
-.searchBar-single ul li .btn-sm {
-  height: auto;
-  padding: 0.5rem 0.4rem;
-}
-
-.accordion-flush .accordion-item,
-.accordion .accordion-item {
-  border-radius: 0.2rem;
-  overflow: hidden;
-  margin-bottom: 1rem;
-  border: none;
-}
-
+/* استایل آیکون (پیکان) */
 .accordion-button::after {
   content: "\f0d8";
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
-  background-image: none;
+  background-image: none !important;
+  position: absolute;
+  left: 0.75rem !important;
+  right: auto !important;
   width: 28px;
   height: 28px;
   display: flex;
@@ -3470,22 +3463,29 @@ table.table tr th {
   border-radius: 50%;
   transition: all ease 0.4s;
   background: var(--bs-primary-bg-subtle);
+  margin: 0;
 }
 
+/* استایل آیکون در حالت باز */
 .accordion-button:not(.collapsed)::after {
   content: "\f0d7";
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  background-image: none;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  color: var(--bs-primary);
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: all ease 0.4s;
   background: rgba(205, 44, 34, 0.11);
+}
+
+/* استایل آیتم‌های آکاردئون */
+.accordion-flush .accordion-item,
+.accordion .accordion-item {
+  border-radius: 0.2rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border: none;
+}
+
+/* استایل بدنه آکاردئون */
+.accordion-body {
+  text-align: right;
+  direction: rtl;
+  padding: 1rem 1.25rem;
 }
 
 /*------------ Common Elentns: Nav Tabs & Tabs Styles --------------*/

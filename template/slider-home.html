@@ -6,9 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="enamad" content="29431380"/>
-    <meta http-equiv="content-language" content="fa" />
-    <title>کدوم جا،سامانه رزرو مساجد و سالن اجتماعات مساجد برای ختم  </title>
-    <meta name="description" content=" کدوم جا سامانه ی آنلاین رزرو مسجد و سالن اجتماعات مساجد به صورت قطعی ،ارزان و با تخفیف برای مراسم ختم و کنفرانس ،آموزش ،همایش در تهران امکان مقایسه امکانات مساجد در سراسر ایران">
+    <meta http-equiv="content-language" content="fa"/>
+    <title>کدوم جا،سامانه رزرو مساجد و سالن اجتماعات مساجد برای ختم </title>
+    <meta name="description"
+          content=" کدوم جا سامانه ی آنلاین رزرو مسجد و سالن اجتماعات مساجد به صورت قطعی ،ارزان و با تخفیف برای مراسم ختم و کنفرانس ،آموزش ،همایش در تهران امکان مقایسه امکانات مساجد در سراسر ایران">
     <link rel="icon" type="image/x-icon" href="{% static 'assets/logo.webp' %}">
     <!-- All Plugins -->
     <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -414,7 +415,8 @@
 
                 <div class="col-xl-5 col-lg-5 col-md-12 position-relative ps-xl-5 ps-lg-4 ps-md-4 pb-xl-5 pb-lg-4 pb-md-4">
                     <div class="position-relative mb-lg-0 mb-4">
-                        <img src="{% static 'assets/img/img-3.webp' %}" class="img-fluid rounded-3 position-relative z-1"
+                        <img src="{% static 'assets/img/img-3.webp' %}"
+                             class="img-fluid rounded-3 position-relative z-1"
                              alt="">
                         <div class="position-absolute bottom-0 end-0 z-index-1 mb-4 me-5">
                         </div>
@@ -706,707 +708,826 @@
     </section>
     <!-- ============================ Flexible features End ================================== -->
 
-    <!-- ============================ Our Reviews Start ================================== -->
-    <!--    <section class="gray-simple bg-cover" style="background:url(assets/img/reviewbg.png)no-repeat;">-->
-    <!--        <div class="container">-->
-
-    <!--            <div class="row align-items-center justify-content-center">-->
-    <!--                <div class="col-xl-8 col-lg-9 col-md-11 col-sm-12">-->
-    <!--                    <div class="secHeading-wrap text-center mb-5">-->
-    <!--                        <h3>دیدگاه محبت آمیز کاربران</h3>-->
-    <!--                        <p>با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--            </div>-->
-
-    <!--            <div class="row align-items-center justify-content-center g-xl-4 g-lg-4 g-md-4 g-3">-->
-
-    <!--                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">-->
-    <!--                    <div class="card border-0 rounded-3">-->
-    <!--                        <div class="card-body">-->
-    <!--                            <div class="position-absolute top-0 start-0 mt-3 ms-3"><span-->
-    <!--                                    class="square&#45;&#45;40 circle text-primary bg-light-primary"><i-->
-    <!--                                    class="fa-solid fa-quote-right"></i></span></div>-->
-    <!--                            <div class="d-flex align-items-center flex-thumbes">-->
-    <!--                                <div class="revws-pic"><img src="assets/img/team-1.jpg" class="img-fluid rounded-2"-->
-    <!--                                                            width="80" alt="">-->
-    <!--                                </div>-->
-    <!--                                <div class="revws-caps pe-3">-->
-    <!--                                    <h6 class="fw-bold fs-6 m-0">علی حسینی</h6>-->
-    <!--                                    <p class="text-muted-2 text-md m-0">ایالات متحده</p>-->
-    <!--                                    <div class="d-flex align-items-center justify-content-start">-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                    </div>-->
-    <!--                                </div>-->
-    <!--                            </div>-->
-    <!--                            <div class="revws-desc mt-3">-->
-    <!--                                <p class="m-0 text-md">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم-->
-    <!--                                    است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای-->
-    <!--                                    کاربردی می باشد.</p>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-
-    <!--                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">-->
-    <!--                    <div class="card border-0 rounded-3">-->
-    <!--                        <div class="card-body">-->
-    <!--                            <div class="position-absolute top-0 start-0 mt-3 ms-3"><span-->
-    <!--                                    class="square&#45;&#45;40 circle text-primary bg-light-primary"><i-->
-    <!--                                    class="fa-solid fa-quote-right"></i></span></div>-->
-    <!--                            <div class="d-flex align-items-center flex-thumbes">-->
-    <!--                                <div class="revws-pic"><img src="assets/img/team-2.jpg" class="img-fluid rounded-2"-->
-    <!--                                                            width="80" alt="">-->
-    <!--                                </div>-->
-    <!--                                <div class="revws-caps pe-3">-->
-    <!--                                    <h6 class="fw-bold fs-6 m-0">فاطمه علیزاده</h6>-->
-    <!--                                    <p class="text-muted-2 text-md m-0">پاریس</p>-->
-    <!--                                    <div class="d-flex align-items-center justify-content-start">-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                    </div>-->
-    <!--                                </div>-->
-    <!--                            </div>-->
-    <!--                            <div class="revws-desc mt-3">-->
-    <!--                                <p class="m-0 text-md">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم-->
-    <!--                                    است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای-->
-    <!--                                    کاربردی می باشد.</p>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-
-    <!--                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">-->
-    <!--                    <div class="card border-0 rounded-3">-->
-    <!--                        <div class="card-body">-->
-    <!--                            <div class="position-absolute top-0 start-0 mt-3 ms-3"><span-->
-    <!--                                    class="square&#45;&#45;40 circle text-primary bg-light-primary"><i-->
-    <!--                                    class="fa-solid fa-quote-right"></i></span></div>-->
-    <!--                            <div class="d-flex align-items-center flex-thumbes">-->
-    <!--                                <div class="revws-pic"><img src="assets/img/team-3.jpg" class="img-fluid rounded-2"-->
-    <!--                                                            width="80" alt="">-->
-    <!--                                </div>-->
-    <!--                                <div class="revws-caps pe-3">-->
-    <!--                                    <h6 class="fw-bold fs-6 m-0">مهرداد افخمی</h6>-->
-    <!--                                    <p class="text-muted-2 text-md m-0">کانادا</p>-->
-    <!--                                    <div class="d-flex align-items-center justify-content-start">-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                    </div>-->
-    <!--                                </div>-->
-    <!--                            </div>-->
-    <!--                            <div class="revws-desc mt-3">-->
-    <!--                                <p class="m-0 text-md">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم-->
-    <!--                                    است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای-->
-    <!--                                    کاربردی می باشد.</p>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-
-    <!--                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">-->
-    <!--                    <div class="card border-0 rounded-3">-->
-    <!--                        <div class="card-body">-->
-    <!--                            <div class="position-absolute top-0 start-0 mt-3 ms-3"><span-->
-    <!--                                    class="square&#45;&#45;40 circle text-primary bg-light-primary"><i-->
-    <!--                                    class="fa-solid fa-quote-right"></i></span></div>-->
-    <!--                            <div class="d-flex align-items-center flex-thumbes">-->
-    <!--                                <div class="revws-pic"><img src="assets/img/team-4.jpg" class="img-fluid rounded-2"-->
-    <!--                                                            width="80" alt="">-->
-    <!--                                </div>-->
-    <!--                                <div class="revws-caps pe-3">-->
-    <!--                                    <h6 class="fw-bold fs-6 m-0">نیلوفر احمدی</h6>-->
-    <!--                                    <p class="text-muted-2 text-md m-0">فرانسه</p>-->
-    <!--                                    <div class="d-flex align-items-center justify-content-start">-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                    </div>-->
-    <!--                                </div>-->
-    <!--                            </div>-->
-    <!--                            <div class="revws-desc mt-3">-->
-    <!--                                <p class="m-0 text-md">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم-->
-    <!--                                    است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای-->
-    <!--                                    کاربردی می باشد.</p>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-
-    <!--                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">-->
-    <!--                    <div class="card border-0 rounded-3">-->
-    <!--                        <div class="card-body">-->
-    <!--                            <div class="position-absolute top-0 start-0 mt-3 ms-3"><span-->
-    <!--                                    class="square&#45;&#45;40 circle text-primary bg-light-primary"><i-->
-    <!--                                    class="fa-solid fa-quote-right"></i></span></div>-->
-    <!--                            <div class="d-flex align-items-center flex-thumbes">-->
-    <!--                                <div class="revws-pic"><img src="assets/img/team-5.jpg" class="img-fluid rounded-2"-->
-    <!--                                                            width="80" alt="">-->
-    <!--                                </div>-->
-    <!--                                <div class="revws-caps pe-3">-->
-    <!--                                    <h6 class="fw-bold fs-6 m-0">محسن مرادی</h6>-->
-    <!--                                    <p class="text-muted-2 text-md m-0">استانبول</p>-->
-    <!--                                    <div class="d-flex align-items-center justify-content-start">-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
-    <!--                                    </div>-->
-    <!--                                </div>-->
-    <!--                            </div>-->
-    <!--                            <div class="revws-desc mt-3">-->
-    <!--                                <p class="m-0 text-md">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم-->
-    <!--                                    است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای-->
-    <!--                                    کاربردی می باشد.</p>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </section>-->
-    <!-- ============================ Our Reviews End ================================== -->
-
-
-    <!-- ================================ Article Section Start ======================================= -->
-    <!--<section class="pt-0">
+    <!-- ============================ Booking Title ================================== -->
+    <section class="bg-cover position-relative" style="background:#dce0e8">
         <div class="container">
-
-            <div class="row align-items-center justify-content-center">
-                <div class="col-xl-8 col-lg-9 col-md-11 col-sm-12">
-                    <div class="secHeading-wrap text-center mb-5">
-                        <h3>مجله گردشگری</h3>
-                        <p>با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row justify-content-center g-4">
-
-                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                    <div class="blogGrid-wrap d-flex flex-column h-100">
-                        <div class="blogGrid-pics">
-                            <a href="slider-home.html#" class="d-block"><img src="assets/img/blog-1.jpg"
-                                                                             class="img-fluid rounded"
-                                                                             alt=""></a>
-                        </div>
-                        <div class="blogGrid-caps pt-3">
-                            <div class="d-flex align-items-center mb-1"><span
-                                    class="label text-success bg-light-success">گردشگری</span></div>
-                            <h4 class="fw-bold fs-6 lh-base"><a href="slider-home.html#" class="text-dark">هر آنچه باید
-                                درباره فرودگاه بین المللی دبی بدانید!</a></h4>
-                            <p class="mb-3">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
-                                شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
-                                باشد...</p>
-                            <a class="text-primary fw-medium" href="slider-home.html#">بیشتر بخوانید<i
-                                    class="fa-solid fa-arrow-trend-up me-2"></i></a>
+            <div class="row align-items-start">
+                <div class="col-xl-12 col-lg-12 col-md-12 mt-4">
+                    <div class="row mb-4">
+                        <div class="col-12 text-center">
+                            <h3>پرسش های متداول</h3>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                    <div class="blogGrid-wrap d-flex flex-column h-100">
-                        <div class="blogGrid-pics">
-                            <a href="slider-home.html#" class="d-block"><img src="assets/img/blog-2.jpg"
-                                                                             class="img-fluid rounded"
-                                                                             alt=""></a>
-                        </div>
-                        <div class="blogGrid-caps pt-3">
-                            <div class="d-flex align-items-center mb-1"><span
-                                    class="label text-success bg-light-success">جاهای دیدنی</span></div>
-                            <h4 class="fw-bold fs-6 lh-base"><a href="slider-home.html#" class="text-dark">جا‌های دیدنی
-                                متل قو | شهر ساحلی محبوب شمال</a></h4>
-                            <p class="mb-3">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
-                                شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
-                                باشد...</p>
-                            <a class="text-primary fw-medium" href="slider-home.html#">بیشتر بخوانید<i
-                                    class="fa-solid fa-arrow-trend-up me-2"></i></a>
-                        </div>
-                    </div>
-                </div>
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
 
-                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                    <div class="blogGrid-wrap d-flex flex-column h-100">
-                        <div class="blogGrid-pics">
-                            <a href="slider-home.html#" class="d-block"><img src="assets/img/blog-3.jpg"
-                                                                             class="img-fluid rounded"
-                                                                             alt=""></a>
-                        </div>
-                        <div class="blogGrid-caps pt-3">
-                            <div class="d-flex align-items-center mb-1"><span
-                                    class="label text-success bg-light-success">اقامتگاه</span></div>
-                            <h4 class="fw-bold fs-6 lh-base"><a href="slider-home.html#" class="text-dark">آشنایی با
-                                واحد پول کشورها | از آسیا تا آمریکای جنوبی</a></h4>
-                            <p class="mb-3">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
-                                شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
-                                باشد...</p>
-                            <a class="text-primary fw-medium" href="slider-home.html#">بیشتر بخوانید<i
-                                    class="fa-solid fa-arrow-trend-up me-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>-->
-    <!-- ================================ Article Section Start ======================================= -->
-
-
-    <!-- ============================ Footer Start ================================== -->
-    <footer class="footer skin-dark-footer">
-        <div>
-            <div class="container">
-                <div class="row">
-
-{#                    <div class="col-lg-3 col-md-4">#}
-{#                        <div class="footer-widget">#}
-{#                            <div class="d-flex align-items-start flex-column mb-3">#}
-{#                                <div class="d-inline-block"><img src="assets/img/logo-light.png" class="img-fluid"#}
-{#                                                                 width="160"#}
-{#                                                                 alt="Footer Logo"></div>#}
-{#                            </div>#}
-{#                            <div class="footer-add ps-xl-3">#}
-{#                                <p>ما با شادی فراوان رویای شما را زیباتر و لذت بخش تر می کنیم.</p>#}
-{#                            </div>#}
-{#                            <div class="foot-socials">#}
-{#                                <ul>#}
-{#                                    <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-facebook"></i></a></li>#}
-{#                                    <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-linkedin"></i></a></li>#}
-{#                                    <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-google-plus"></i></a></li>#}
-{#                                    <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-twitter"></i></a></li>#}
-{#                                    <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-dribbble"></i></a></li>#}
-{#                                </ul>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    <div class="col-lg-2 col-md-4">#}
-{#                        <div class="footer-widget">#}
-{#                            <h4 class="widget-title">لینک های سریع</h4>#}
-{#                            <ul class="footer-menu">#}
-{#                                <li><a href="JavaScript:Void(0);">درباره ما</a></li>#}
-{#                                <li><a href="JavaScript:Void(0);">مجله گردشگری</a></li>#}
-{#                                <li><a href="JavaScript:Void(0);">بیمه مسافرتی</a></li>#}
-{#                                <li><a href="JavaScript:Void(0);">قوانین سایت</a></li>#}
-{#                                <li><a href="JavaScript:Void(0);">تماس با ما</a></li>#}
-{#                                <li><a href="JavaScript:Void(0);">فرصت های شغلی</a></li>#}
-{#                            </ul>#}
-{#                        </div>#}
-{#                    </div>#}
-{##}
-{#                    <div class="col-lg-2 col-md-4">#}
-{#                        <div class="footer-widget">#}
-{#                            <h4 class="widget-title">خدمات پرواز و هتل</h4>#}
-{#                            <ul class="footer-menu">#}
-{#                                <li><a href="JavaScript:Void(0);">خرید بلیط هواپیما</a></li>#}
-{#                                <li><a href="JavaScript:Void(0);">رزرو هتل</a></li>#}
-{#                                <li><a href="JavaScript:Void(0);">درخواست ویزا</a></li>#}
-{#                                <li><a href="JavaScript:Void(0);">رزرو اقامتگاه</a></li>#}
-{#                                <li><a href="JavaScript:Void(0);">بلیط چارتر</a></li>#}
-{#                                <li><a href="JavaScript:Void(0);">پشتیبانی</a></li>#}
-{#                            </ul>#}
-{#                        </div>#}
-{#                    </div>#}
-{##}
-{#                    <div class="col-lg-2 col-md-6">#}
-{#                        <div class="footer-widget">#}
-{#                            <h4 class="widget-title">نحوه رزرو اقامتگاه</h4>#}
-{#                            <ul class="footer-menu">#}
-{#                                <li><a href="JavaScript:Void(0);">راهنمای رزرو اقامتگاه</a></li>#}
-{#                                <li><a href="JavaScript:Void(0);">همکاران سازمانی</a></li>#}
-{#                                <li><a href="JavaScript:Void(0);">تماس با ما</a></li>#}
-{#                                <li><a href="JavaScript:Void(0);">پرسش های متداول</a></li>#}
-{#                                <li><a href="JavaScript:Void(0);">شرایط لغو</a></li>#}
-{#                            </ul>#}
-{#                        </div>#}
-{#                    </div>#}
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-widget">
-                            <h4 class="widget-title">با خیال راحت به ما اعتماد کنید</h4>
-                            <div class="pmt-wrap">
-                                <a referrerpolicy='origin' target='_blank'
-                                   href='https://trustseal.enamad.ir/?id=606663&Code=OnbcmOuYFTlKvZZ2sMQurAqG8TiYNAeS'><img
-                                        referrerpolicy='origin'
-                                        src='https://trustseal.enamad.ir/logo.aspx?id=606663&Code=OnbcmOuYFTlKvZZ2sMQurAqG8TiYNAeS'
-                                        alt='' style='cursor:pointer' code='OnbcmOuYFTlKvZZ2sMQurAqG8TiYNAeS'></a>
+                        <div class="accordion-item border rounded-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                        aria-controls="flush-collapseTwo">
+                                    چگونه می‌توانم مسجدی را برای مراسم ختم یا همایش خود رزرو کنم؟
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                 data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">برای رزرو مسجد به صورت انلاین، کافی است وارد سامانه شوید،
+                                    مسجد مورد نظر را جست‌وجو کرده، مسجد و سالن یا صحن دلخواه را انتخاب و پس از تعیین
+                                    تاریخ و ساعت، به صورت قطعی و سریع رزرو کنید.
+                                </div>
                             </div>
-{#                            <div class="our-prtwrap mt-4">#}
-{#                                <div class="prtn-title">#}
-{#                                    <p class="text-muted-2 fw-medium">همکاران ما</p>#}
-{#                                </div>#}
-{#                                <div class="prtn-thumbs d-flex align-items-center justify-content-start">#}
-{#                                    <div class="pmt-wrap ps-4">#}
-{#                                        <img src="assets/img/mytrip.png" class="img-fluid" alt="">#}
-{#                                    </div>#}
-{#                                    <div class="pmt-wrap ps-4">#}
-{#                                        <img src="assets/img/tripadv.png" class="img-fluid" alt="">#}
-{#                                    </div>#}
-{#                                    <div class="pmt-wrap ps-4">#}
-{#                                        <img src="assets/img/goibibo.png" class="img-fluid" alt="">#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
                         </div>
+                        <div class="accordion-item border rounded-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseFive2" aria-expanded="false"
+                                        aria-controls="flush-collapseFive2">
+                                    آیا می‌توانم قبل از رزرو، از خالی بودن سالن مسجد در تاریخ موردنظر مطمئن شوم؟
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFive2" class="accordion-collapse collapse"
+                                 data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">بله، در سامانه امکان بررسی وضعیت در دسترس بودن سالن‌ها فراهم
+                                    شده است. شما می‌توانید تاریخ مراسم خود را وارد کنید و ببینید که در آن تاریخ، سالن
+                                    موردنظر آزاد است یا قبلاً رزرو شده. این ویژگی به شما کمک می‌کند بهترین زمان ممکن را
+                                    برای رزرو انتخاب کنید
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border rounded-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseFive3" aria-expanded="false"
+                                        aria-controls="flush-collapseFive3">
+                                    یا سامانه از هم‌پوشانی زمان‌های رزرو جلوگیری می‌کند؟
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFive3" class="accordion-collapse collapse"
+                                 data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">بله، سامانه رزرو مسجد به صورت هوشمند از ثبت رزرو در
+                                    زمان‌هایی که قبلاً توسط دیگران رزرو شده جلوگیری می‌کند، تا با خیال راحت بتوانید رزرو
+                                    خود را انجام دهید
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border rounded-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                        aria-controls="flush-collapseThree">
+                                    قیمت مسجد یا سالن اجتماعات برای مراسم ختم یا همایش به چه صورت محاسبه میشود؟
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                 data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">هزینه رزرو بر اساس مدت زمان استفاده، نوع سالن و امکانات
+                                    انتخابی محاسبه می‌شود. قیمت‌ها در صفحه هر مسجد مشخص شده‌اند.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border rounded-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseFour" aria-expanded="false"
+                                        aria-controls="flush-collapseFour">
+                                    آیا سامانه شامل مساجد سراسر کشور می‌شود؟
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFour" class="accordion-collapse collapse"
+                                 data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body"> در حال حاضر، سامانه شامل مساجد منتخب در شهر تهران از قبیل:
+                                    مسجد جامع امیر المومنین (ع) واقع در مرزداران ،مسجد جامع امام سجاد (ع) واقع در اشرفی
+                                    اصفهانی و مسجد جامع نظام مافی است و به‌تدریج به تعداد مساجد افزوده می‌شود.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border rounded-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseFive" aria-expanded="false"
+                                        aria-controls="flush-collapseFive">
+                                    آیا برای استفاده از سامانه نیاز به ثبت‌نام دارم؟
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFive" class="accordion-collapse collapse"
+                                 data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">برای مشاهده اطلاعات عمومی نیازی به ثبت‌نام نیست، اما برای
+                                    رزرو سالن‌ها و مدیریت رزروهای خود، باید در سامانه ثبت‌نام کنید.
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
+                </div>
+            </div>
+
+        </div>
+</div>
+</div>
+</section>
+<!-- ============================ Booking Title ================================== -->
+
+<!-- ============================ Our Reviews Start ================================== -->
+<!--    <section class="gray-simple bg-cover" style="background:url(assets/img/reviewbg.png)no-repeat;">-->
+<!--        <div class="container">-->
+
+<!--            <div class="row align-items-center justify-content-center">-->
+<!--                <div class="col-xl-8 col-lg-9 col-md-11 col-sm-12">-->
+<!--                    <div class="secHeading-wrap text-center mb-5">-->
+<!--                        <h3>دیدگاه محبت آمیز کاربران</h3>-->
+<!--                        <p>با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="row align-items-center justify-content-center g-xl-4 g-lg-4 g-md-4 g-3">-->
+
+<!--                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">-->
+<!--                    <div class="card border-0 rounded-3">-->
+<!--                        <div class="card-body">-->
+<!--                            <div class="position-absolute top-0 start-0 mt-3 ms-3"><span-->
+<!--                                    class="square&#45;&#45;40 circle text-primary bg-light-primary"><i-->
+<!--                                    class="fa-solid fa-quote-right"></i></span></div>-->
+<!--                            <div class="d-flex align-items-center flex-thumbes">-->
+<!--                                <div class="revws-pic"><img src="assets/img/team-1.jpg" class="img-fluid rounded-2"-->
+<!--                                                            width="80" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="revws-caps pe-3">-->
+<!--                                    <h6 class="fw-bold fs-6 m-0">علی حسینی</h6>-->
+<!--                                    <p class="text-muted-2 text-md m-0">ایالات متحده</p>-->
+<!--                                    <div class="d-flex align-items-center justify-content-start">-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="revws-desc mt-3">-->
+<!--                                <p class="m-0 text-md">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم-->
+<!--                                    است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای-->
+<!--                                    کاربردی می باشد.</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">-->
+<!--                    <div class="card border-0 rounded-3">-->
+<!--                        <div class="card-body">-->
+<!--                            <div class="position-absolute top-0 start-0 mt-3 ms-3"><span-->
+<!--                                    class="square&#45;&#45;40 circle text-primary bg-light-primary"><i-->
+<!--                                    class="fa-solid fa-quote-right"></i></span></div>-->
+<!--                            <div class="d-flex align-items-center flex-thumbes">-->
+<!--                                <div class="revws-pic"><img src="assets/img/team-2.jpg" class="img-fluid rounded-2"-->
+<!--                                                            width="80" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="revws-caps pe-3">-->
+<!--                                    <h6 class="fw-bold fs-6 m-0">فاطمه علیزاده</h6>-->
+<!--                                    <p class="text-muted-2 text-md m-0">پاریس</p>-->
+<!--                                    <div class="d-flex align-items-center justify-content-start">-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="revws-desc mt-3">-->
+<!--                                <p class="m-0 text-md">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم-->
+<!--                                    است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای-->
+<!--                                    کاربردی می باشد.</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">-->
+<!--                    <div class="card border-0 rounded-3">-->
+<!--                        <div class="card-body">-->
+<!--                            <div class="position-absolute top-0 start-0 mt-3 ms-3"><span-->
+<!--                                    class="square&#45;&#45;40 circle text-primary bg-light-primary"><i-->
+<!--                                    class="fa-solid fa-quote-right"></i></span></div>-->
+<!--                            <div class="d-flex align-items-center flex-thumbes">-->
+<!--                                <div class="revws-pic"><img src="assets/img/team-3.jpg" class="img-fluid rounded-2"-->
+<!--                                                            width="80" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="revws-caps pe-3">-->
+<!--                                    <h6 class="fw-bold fs-6 m-0">مهرداد افخمی</h6>-->
+<!--                                    <p class="text-muted-2 text-md m-0">کانادا</p>-->
+<!--                                    <div class="d-flex align-items-center justify-content-start">-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="revws-desc mt-3">-->
+<!--                                <p class="m-0 text-md">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم-->
+<!--                                    است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای-->
+<!--                                    کاربردی می باشد.</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">-->
+<!--                    <div class="card border-0 rounded-3">-->
+<!--                        <div class="card-body">-->
+<!--                            <div class="position-absolute top-0 start-0 mt-3 ms-3"><span-->
+<!--                                    class="square&#45;&#45;40 circle text-primary bg-light-primary"><i-->
+<!--                                    class="fa-solid fa-quote-right"></i></span></div>-->
+<!--                            <div class="d-flex align-items-center flex-thumbes">-->
+<!--                                <div class="revws-pic"><img src="assets/img/team-4.jpg" class="img-fluid rounded-2"-->
+<!--                                                            width="80" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="revws-caps pe-3">-->
+<!--                                    <h6 class="fw-bold fs-6 m-0">نیلوفر احمدی</h6>-->
+<!--                                    <p class="text-muted-2 text-md m-0">فرانسه</p>-->
+<!--                                    <div class="d-flex align-items-center justify-content-start">-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="revws-desc mt-3">-->
+<!--                                <p class="m-0 text-md">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم-->
+<!--                                    است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای-->
+<!--                                    کاربردی می باشد.</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">-->
+<!--                    <div class="card border-0 rounded-3">-->
+<!--                        <div class="card-body">-->
+<!--                            <div class="position-absolute top-0 start-0 mt-3 ms-3"><span-->
+<!--                                    class="square&#45;&#45;40 circle text-primary bg-light-primary"><i-->
+<!--                                    class="fa-solid fa-quote-right"></i></span></div>-->
+<!--                            <div class="d-flex align-items-center flex-thumbes">-->
+<!--                                <div class="revws-pic"><img src="assets/img/team-5.jpg" class="img-fluid rounded-2"-->
+<!--                                                            width="80" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="revws-caps pe-3">-->
+<!--                                    <h6 class="fw-bold fs-6 m-0">محسن مرادی</h6>-->
+<!--                                    <p class="text-muted-2 text-md m-0">استانبول</p>-->
+<!--                                    <div class="d-flex align-items-center justify-content-start">-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                        <span class="ms-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="revws-desc mt-3">-->
+<!--                                <p class="m-0 text-md">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم-->
+<!--                                    است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای-->
+<!--                                    کاربردی می باشد.</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+<!-- ============================ Our Reviews End ================================== -->
+
+
+<!-- ================================ Article Section Start ======================================= -->
+<!--<section class="pt-0">
+    <div class="container">
+
+        <div class="row align-items-center justify-content-center">
+            <div class="col-xl-8 col-lg-9 col-md-11 col-sm-12">
+                <div class="secHeading-wrap text-center mb-5">
+                    <h3>مجله گردشگری</h3>
+                    <p>با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
                 </div>
             </div>
         </div>
 
-        <div class="footer-bottom border-top">
-            <div class="container">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col">
-                        <p class="mb-0 text-center"> کلیه حقوق این سایت محفوظ و متعلق به کدوم جا است.</p>
+
+        <div class="row justify-content-center g-4">
+
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <div class="blogGrid-wrap d-flex flex-column h-100">
+                    <div class="blogGrid-pics">
+                        <a href="slider-home.html#" class="d-block"><img src="assets/img/blog-1.jpg"
+                                                                         class="img-fluid rounded"
+                                                                         alt=""></a>
                     </div>
-
-
+                    <div class="blogGrid-caps pt-3">
+                        <div class="d-flex align-items-center mb-1"><span
+                                class="label text-success bg-light-success">گردشگری</span></div>
+                        <h4 class="fw-bold fs-6 lh-base"><a href="slider-home.html#" class="text-dark">هر آنچه باید
+                            درباره فرودگاه بین المللی دبی بدانید!</a></h4>
+                        <p class="mb-3">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
+                            شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
+                            باشد...</p>
+                        <a class="text-primary fw-medium" href="slider-home.html#">بیشتر بخوانید<i
+                                class="fa-solid fa-arrow-trend-up me-2"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
-    <!-- ============================ Footer End ================================== -->
 
-    <!-- Log In Modal -->
-    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginmodal" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content border-0 shadow-lg">
-                <!-- هدر مودال -->
-                <div class="modal-header border-0 pb-0">
-                    <div class="w-100 text-center">
-                        <h4 class="modal-title fw-bold text-primary">به سامانه کدوم جا خوش آمدید</h4>
-                        <p class="small text-muted mt-1">لطفاً برای ادامه وارد شوید یا ثبت‌نام کنید</p>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <div class="blogGrid-wrap d-flex flex-column h-100">
+                    <div class="blogGrid-pics">
+                        <a href="slider-home.html#" class="d-block"><img src="assets/img/blog-2.jpg"
+                                                                         class="img-fluid rounded"
+                                                                         alt=""></a>
                     </div>
-                    <button type="button" class="btn-close position-absolute end-0 me-3" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                </div>
-
-                <!-- بدنه مودال -->
-                <div class="modal-body pt-0">
-                    <!-- تب‌های ورود/ثبت‌نام -->
-                    <ul class="nav nav-pills nav-justified mb-4" id="authTabs" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active fw-bold" id="login-tab" data-bs-toggle="pill"
-                                    data-bs-target="#login-tab-pane" type="button" role="tab">
-                                <i class="fas fa-sign-in-alt me-2"></i>ورود
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link fw-bold" id="register-tab" data-bs-toggle="pill"
-                                    data-bs-target="#register-tab-pane" type="button" role="tab">
-                                <i class="fas fa-user-plus me-2"></i>ثبت‌نام
-                            </button>
-                        </li>
-                    </ul>
-
-                    <div class="tab-content">
-                        <!-- تب ورود -->
-                        <div class="tab-pane fade show active" id="login-tab-pane" role="tabpanel"
-                             aria-labelledby="login-tab">
-                            <form method="post" action="{% url 'my_profile:log_in' %}">
-                                {% csrf_token %}
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="loginUsername "
-                                           placeholder="شماره موبایل" name="username">
-                                    <label for="loginUsername"> شماره موبایل</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="loginPassword"
-                                           placeholder="رمز عبور" name="password">
-                                    <label for="loginPassword">رمز عبور</label>
-                                    <a href="#" class="small text-primary float-start mt-1">رمز عبور را فراموش
-                                        کرده‌ام؟</a>
-                                </div>
-                                <div class="form-check mb-3">
-                                    <input class="form-check-input" type="checkbox" id="rememberLogin">
-                                    <label class="form-check-label" for="rememberLogin">مرا به خاطر بسپار</label>
-                                </div>
-                                <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">ورود به حساب</button>
-                            </form>
-                        </div>
-
-                        <!-- تب ثبت‌نام -->
-                        <div class="tab-pane fade" id="register-tab-pane" role="tabpanel"
-                             aria-labelledby="register-tab">
-                            <form action="{% url 'my_profile:Register' %}" method="post">
-                                {% csrf_token %}
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="registerName" placeholder="نام "
-                                           name="first_name">
-                                    <label for="registerName">نام </label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="registerName"
-                                           placeholder="نام خانوادگی " name="last_name">
-                                    <label for="registerName">نام خانوادگی </label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="tel" class="form-control" id="registerPhone"
-                                           placeholder="شماره موبایل" name="phone_number">
-                                    <label for="registerPhone">شماره موبایل</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="registerPassword"
-                                           placeholder="رمز عبور" name="password1">
-                                    <label for="registerPassword">رمز عبور</label>
-                                </div>
-                                {#                                <div class="form-check mb-3">#}
-                                {#                                    <input class="form-check-input" type="checkbox" id="agreeTerms">#}
-                                {#                                    <label class="form-check-label" for="agreeTerms">با <a href="#"#}
-                                {#                                                                                           class="text-primary">قوانین</a>#}
-                                {#                                        موافقم</label>#}
-                                {#                                </div>#}
-                                <button type="submit" class="btn btn-success w-100 py-2 fw-bold">ثبت‌نام کنید</button>
-                            </form>
-                        </div>
+                    <div class="blogGrid-caps pt-3">
+                        <div class="d-flex align-items-center mb-1"><span
+                                class="label text-success bg-light-success">جاهای دیدنی</span></div>
+                        <h4 class="fw-bold fs-6 lh-base"><a href="slider-home.html#" class="text-dark">جا‌های دیدنی
+                            متل قو | شهر ساحلی محبوب شمال</a></h4>
+                        <p class="mb-3">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
+                            شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
+                            باشد...</p>
+                        <a class="text-primary fw-medium" href="slider-home.html#">بیشتر بخوانید<i
+                                class="fa-solid fa-arrow-trend-up me-2"></i></a>
                     </div>
-
-                    <!-- ورود با شبکه‌های اجتماعی -->
-                    <div class="text-center my-4">
-                        <div class="divider">
-                            <span class="divider-text bg-white px-3 text-muted">یا با</span>
-                        </div>
-                        <div class="d-flex justify-content-center gap-3 mt-3">
-                            <a href="#" class="btn btn-outline-primary rounded-circle social-btn">
-                                <i class="fab fa-google"></i>
-                            </a>
-                            <a href="#" class="btn btn-outline-primary rounded-circle social-btn">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="#" class="btn btn-outline-primary rounded-circle social-btn">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- فوتر مودال -->
-                <div class="modal-footer border-0 justify-content-center">
-                    <p class="mb-0">با ورود یا ثبت‌نام، با <a href="#" class="text-primary">قوانین</a> موافقت می‌کنید
-                    </p>
                 </div>
             </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <div class="blogGrid-wrap d-flex flex-column h-100">
+                    <div class="blogGrid-pics">
+                        <a href="slider-home.html#" class="d-block"><img src="assets/img/blog-3.jpg"
+                                                                         class="img-fluid rounded"
+                                                                         alt=""></a>
+                    </div>
+                    <div class="blogGrid-caps pt-3">
+                        <div class="d-flex align-items-center mb-1"><span
+                                class="label text-success bg-light-success">اقامتگاه</span></div>
+                        <h4 class="fw-bold fs-6 lh-base"><a href="slider-home.html#" class="text-dark">آشنایی با
+                            واحد پول کشورها | از آسیا تا آمریکای جنوبی</a></h4>
+                        <p class="mb-3">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
+                            شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
+                            باشد...</p>
+                        <a class="text-primary fw-medium" href="slider-home.html#">بیشتر بخوانید<i
+                                class="fa-solid fa-arrow-trend-up me-2"></i></a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-    <!-- End Modal -->
+</section>-->
+<!-- ================================ Article Section Start ======================================= -->
 
-    <!-- Choose Currency Modal -->
-    <div class="modal modal-lg fade" id="currencyModal" tabindex="-1" aria-labelledby="currenyModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title fs-6" id="currenyModalLabel">انتخاب واحد ارز</h4>
-                    <a href="slider-home.html#" class="text-muted fs-4" data-bs-dismiss="modal" aria-label="Close"><i
-                            class="fa-solid fa-square-xmark"></i></a>
-                </div>
-                <div class="modal-body">
-                    <div class="allCurrencylist">
 
-                        <div class="suggestedCurrencylist-wrap mb-4">
-                            <div class="d-inline-block mb-0 ps-3">
-                                <h5 class="fs-6 fw-bold">ارزهای پیشنهادی</h5>
-                            </div>
-                            <div class="suggestedCurrencylists">
-                                <ul
-                                        class="row align-items-center justify-content-start row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-2 gy-2 gx-3 m-0 p-0">
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">ایالات متحده دلار</div>
-                                            <div class="text-muted-2 text-md text-uppercase">USD</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">سودان پوند</div>
-                                            <div class="text-muted-2 text-md text-uppercase">GBP</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency active" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">هندوستان روپیه</div>
-                                            <div class="text-muted-2 text-md text-uppercase">Inr</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">کلمبیا پزوی</div>
-                                            <div class="text-muted-2 text-md text-uppercase">EUR</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">استرالیا دلار</div>
-                                            <div class="text-muted-2 text-md text-uppercase">aud</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">مراکش درهم</div>
-                                            <div class="text-muted-2 text-md text-uppercase">thb</div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+<!-- ============================ Footer Start ================================== -->
+<footer class="footer skin-dark-footer">
+    <div>
+        <div class="container">
+            <div class="row">
+
+                {#                    <div class="col-lg-3 col-md-4">#}
+                {#                        <div class="footer-widget">#}
+                {#                            <div class="d-flex align-items-start flex-column mb-3">#}
+                {#                                <div class="d-inline-block"><img src="assets/img/logo-light.png" class="img-fluid"#}
+                {#                                                                 width="160"#}
+                {#                                                                 alt="Footer Logo"></div>#}
+                {#                            </div>#}
+                {#                            <div class="footer-add ps-xl-3">#}
+                {#                                <p>ما با شادی فراوان رویای شما را زیباتر و لذت بخش تر می کنیم.</p>#}
+                {#                            </div>#}
+                {#                            <div class="foot-socials">#}
+                {#                                <ul>#}
+                {#                                    <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-facebook"></i></a></li>#}
+                {#                                    <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-linkedin"></i></a></li>#}
+                {#                                    <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-google-plus"></i></a></li>#}
+                {#                                    <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-twitter"></i></a></li>#}
+                {#                                    <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-dribbble"></i></a></li>#}
+                {#                                </ul>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {#                    <div class="col-lg-2 col-md-4">#}
+                {#                        <div class="footer-widget">#}
+                {#                            <h4 class="widget-title">لینک های سریع</h4>#}
+                {#                            <ul class="footer-menu">#}
+                {#                                <li><a href="JavaScript:Void(0);">درباره ما</a></li>#}
+                {#                                <li><a href="JavaScript:Void(0);">مجله گردشگری</a></li>#}
+                {#                                <li><a href="JavaScript:Void(0);">بیمه مسافرتی</a></li>#}
+                {#                                <li><a href="JavaScript:Void(0);">قوانین سایت</a></li>#}
+                {#                                <li><a href="JavaScript:Void(0);">تماس با ما</a></li>#}
+                {#                                <li><a href="JavaScript:Void(0);">فرصت های شغلی</a></li>#}
+                {#                            </ul>#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {##}
+                {#                    <div class="col-lg-2 col-md-4">#}
+                {#                        <div class="footer-widget">#}
+                {#                            <h4 class="widget-title">خدمات پرواز و هتل</h4>#}
+                {#                            <ul class="footer-menu">#}
+                {#                                <li><a href="JavaScript:Void(0);">خرید بلیط هواپیما</a></li>#}
+                {#                                <li><a href="JavaScript:Void(0);">رزرو هتل</a></li>#}
+                {#                                <li><a href="JavaScript:Void(0);">درخواست ویزا</a></li>#}
+                {#                                <li><a href="JavaScript:Void(0);">رزرو اقامتگاه</a></li>#}
+                {#                                <li><a href="JavaScript:Void(0);">بلیط چارتر</a></li>#}
+                {#                                <li><a href="JavaScript:Void(0);">پشتیبانی</a></li>#}
+                {#                            </ul>#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {##}
+                {#                    <div class="col-lg-2 col-md-6">#}
+                {#                        <div class="footer-widget">#}
+                {#                            <h4 class="widget-title">نحوه رزرو اقامتگاه</h4>#}
+                {#                            <ul class="footer-menu">#}
+                {#                                <li><a href="JavaScript:Void(0);">راهنمای رزرو اقامتگاه</a></li>#}
+                {#                                <li><a href="JavaScript:Void(0);">همکاران سازمانی</a></li>#}
+                {#                                <li><a href="JavaScript:Void(0);">تماس با ما</a></li>#}
+                {#                                <li><a href="JavaScript:Void(0);">پرسش های متداول</a></li>#}
+                {#                                <li><a href="JavaScript:Void(0);">شرایط لغو</a></li>#}
+                {#                            </ul>#}
+                {#                        </div>#}
+                {#                    </div>#}
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h4 class="widget-title">با خیال راحت به ما اعتماد کنید</h4>
+                        <div class="pmt-wrap">
+                            <a referrerpolicy='origin' target='_blank'
+                               href='https://trustseal.enamad.ir/?id=606663&Code=OnbcmOuYFTlKvZZ2sMQurAqG8TiYNAeS'><img
+                                    referrerpolicy='origin'
+                                    src='https://trustseal.enamad.ir/logo.aspx?id=606663&Code=OnbcmOuYFTlKvZZ2sMQurAqG8TiYNAeS'
+                                    alt='' style='cursor:pointer' code='OnbcmOuYFTlKvZZ2sMQurAqG8TiYNAeS'></a>
                         </div>
-
-                        <div class="suggestedCurrencylist-wrap">
-                            <div class="d-inline-block mb-0 ps-3">
-                                <h5 class="fs-6 fw-bold">همه ارزها</h5>
-                            </div>
-                            <div class="suggestedCurrencylists">
-                                <ul
-                                        class="row align-items-center justify-content-start row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-2 gy-2 gx-3 m-0 p-0">
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">دلار ایالات متحده</div>
-                                            <div class="text-muted-2 text-md text-uppercase">USD</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">پوند لبنان</div>
-                                            <div class="text-muted-2 text-md text-uppercase">GBP</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">روپیه اندونزی</div>
-                                            <div class="text-muted-2 text-md text-uppercase">EUR</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">وون کره جنوبی</div>
-                                            <div class="text-muted-2 text-md text-uppercase">Inr</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">درهم مراکش</div>
-                                            <div class="text-muted-2 text-md text-uppercase">aud</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">دلار تایوان</div>
-                                            <div class="text-muted-2 text-md text-uppercase">thb</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">ریال یمن</div>
-                                            <div class="text-muted-2 text-md text-uppercase">USD</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">پزوی شیلی</div>
-                                            <div class="text-muted-2 text-md text-uppercase">GBP</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">کانادا دلار</div>
-                                            <div class="text-muted-2 text-md text-uppercase">EUR</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">دلار باهاماس</div>
-                                            <div class="text-muted-2 text-md text-uppercase">Inr</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">کونا کرواسی</div>
-                                            <div class="text-muted-2 text-md text-uppercase">aud</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">سامانی تاجیکستان</div>
-                                            <div class="text-muted-2 text-md text-uppercase">thb</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">پوند سودان</div>
-                                            <div class="text-muted-2 text-md text-uppercase">USD</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">روپیه سیشل</div>
-                                            <div class="text-muted-2 text-md text-uppercase">GBP</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">دینار صربستان</div>
-                                            <div class="text-muted-2 text-md text-uppercase">EUR</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">فرانک رواندا</div>
-                                            <div class="text-muted-2 text-md text-uppercase">Inr</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">دینار صربستان</div>
-                                            <div class="text-muted-2 text-md text-uppercase">aud</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">لئو رومانی</div>
-                                            <div class="text-muted-2 text-md text-uppercase">thb</div>
-                                        </a>
-                                    </li>
-                                    <li class="col">
-                                        <a class="selectCurrency" href="slider-home.html#">
-                                            <div class="text-dark text-md fw-medium">سنگاپور دلار</div>
-                                            <div class="text-muted-2 text-md text-uppercase">thb</div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
+                        {#                            <div class="our-prtwrap mt-4">#}
+                        {#                                <div class="prtn-title">#}
+                        {#                                    <p class="text-muted-2 fw-medium">همکاران ما</p>#}
+                        {#                                </div>#}
+                        {#                                <div class="prtn-thumbs d-flex align-items-center justify-content-start">#}
+                        {#                                    <div class="pmt-wrap ps-4">#}
+                        {#                                        <img src="assets/img/mytrip.png" class="img-fluid" alt="">#}
+                        {#                                    </div>#}
+                        {#                                    <div class="pmt-wrap ps-4">#}
+                        {#                                        <img src="assets/img/tripadv.png" class="img-fluid" alt="">#}
+                        {#                                    </div>#}
+                        {#                                    <div class="pmt-wrap ps-4">#}
+                        {#                                        <img src="assets/img/goibibo.png" class="img-fluid" alt="">#}
+                        {#                                    </div>#}
+                        {#                                </div>#}
+                        {#                            </div>#}
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 
+    <div class="footer-bottom border-top">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col">
+                    <p class="mb-0 text-center"> کلیه حقوق این سایت محفوظ و متعلق به کدوم جا است.</p>
+                </div>
 
 
-    <!-- Video Modal -->
-    <div class="modal fade" id="popup-video" tabindex="-1" role="dialog" aria-labelledby="popupvideo"
-         aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content" id="popupvideo">
-                <iframe class="embed-responsive-item" style="width: 100%; height: 480px;"
-                        src="https://www.aparat.com/video/video/embed/videohash/trxOV/vt/frame" frameborder="0"
-                        allowfullscreen></iframe>
             </div>
         </div>
     </div>
-    <!-- End Video Modal -->
+</footer>
+<!-- ============================ Footer End ================================== -->
 
-    <a id="back2Top" class="top-scroll" title="Back to top" href="slider-home.html#"><i class="fa-solid fa-sort-up"></i></a>
+<!-- Log In Modal -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginmodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content border-0 shadow-lg">
+            <!-- هدر مودال -->
+            <div class="modal-header border-0 pb-0">
+                <div class="w-100 text-center">
+                    <h4 class="modal-title fw-bold text-primary">به سامانه کدوم جا خوش آمدید</h4>
+                    <p class="small text-muted mt-1">لطفاً برای ادامه وارد شوید یا ثبت‌نام کنید</p>
+                </div>
+                <button type="button" class="btn-close position-absolute end-0 me-3" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+
+            <!-- بدنه مودال -->
+            <div class="modal-body pt-0">
+                <!-- تب‌های ورود/ثبت‌نام -->
+                <ul class="nav nav-pills nav-justified mb-4" id="authTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active fw-bold" id="login-tab" data-bs-toggle="pill"
+                                data-bs-target="#login-tab-pane" type="button" role="tab">
+                            <i class="fas fa-sign-in-alt me-2"></i>ورود
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link fw-bold" id="register-tab" data-bs-toggle="pill"
+                                data-bs-target="#register-tab-pane" type="button" role="tab">
+                            <i class="fas fa-user-plus me-2"></i>ثبت‌نام
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <!-- تب ورود -->
+                    <div class="tab-pane fade show active" id="login-tab-pane" role="tabpanel"
+                         aria-labelledby="login-tab">
+                        <form method="post" action="{% url 'my_profile:log_in' %}">
+                            {% csrf_token %}
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="loginUsername "
+                                       placeholder="شماره موبایل" name="username">
+                                <label for="loginUsername"> شماره موبایل</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="loginPassword"
+                                       placeholder="رمز عبور" name="password">
+                                <label for="loginPassword">رمز عبور</label>
+                                <a href="#" class="small text-primary float-start mt-1">رمز عبور را فراموش
+                                    کرده‌ام؟</a>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="rememberLogin">
+                                <label class="form-check-label" for="rememberLogin">مرا به خاطر بسپار</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">ورود به حساب</button>
+                        </form>
+                    </div>
+
+                    <!-- تب ثبت‌نام -->
+                    <div class="tab-pane fade" id="register-tab-pane" role="tabpanel"
+                         aria-labelledby="register-tab">
+                        <form action="{% url 'my_profile:Register' %}" method="post">
+                            {% csrf_token %}
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="registerName" placeholder="نام "
+                                       name="first_name">
+                                <label for="registerName">نام </label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="registerName"
+                                       placeholder="نام خانوادگی " name="last_name">
+                                <label for="registerName">نام خانوادگی </label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="tel" class="form-control" id="registerPhone"
+                                       placeholder="شماره موبایل" name="phone_number">
+                                <label for="registerPhone">شماره موبایل</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="registerPassword"
+                                       placeholder="رمز عبور" name="password1">
+                                <label for="registerPassword">رمز عبور</label>
+                            </div>
+                            {#                                <div class="form-check mb-3">#}
+                            {#                                    <input class="form-check-input" type="checkbox" id="agreeTerms">#}
+                            {#                                    <label class="form-check-label" for="agreeTerms">با <a href="#"#}
+                            {#                                                                                           class="text-primary">قوانین</a>#}
+                            {#                                        موافقم</label>#}
+                            {#                                </div>#}
+                            <button type="submit" class="btn btn-success w-100 py-2 fw-bold">ثبت‌نام کنید</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ورود با شبکه‌های اجتماعی -->
+                <div class="text-center my-4">
+                    <div class="divider">
+                        <span class="divider-text bg-white px-3 text-muted">یا با</span>
+                    </div>
+                    <div class="d-flex justify-content-center gap-3 mt-3">
+                        <a href="#" class="btn btn-outline-primary rounded-circle social-btn">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-primary rounded-circle social-btn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-primary rounded-circle social-btn">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- فوتر مودال -->
+            <div class="modal-footer border-0 justify-content-center">
+                <p class="mb-0">با ورود یا ثبت‌نام، با <a href="#" class="text-primary">قوانین</a> موافقت می‌کنید
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+
+<!-- Choose Currency Modal -->
+<div class="modal modal-lg fade" id="currencyModal" tabindex="-1" aria-labelledby="currenyModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title fs-6" id="currenyModalLabel">انتخاب واحد ارز</h4>
+                <a href="slider-home.html#" class="text-muted fs-4" data-bs-dismiss="modal" aria-label="Close"><i
+                        class="fa-solid fa-square-xmark"></i></a>
+            </div>
+            <div class="modal-body">
+                <div class="allCurrencylist">
+
+                    <div class="suggestedCurrencylist-wrap mb-4">
+                        <div class="d-inline-block mb-0 ps-3">
+                            <h5 class="fs-6 fw-bold">ارزهای پیشنهادی</h5>
+                        </div>
+                        <div class="suggestedCurrencylists">
+                            <ul
+                                    class="row align-items-center justify-content-start row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-2 gy-2 gx-3 m-0 p-0">
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">ایالات متحده دلار</div>
+                                        <div class="text-muted-2 text-md text-uppercase">USD</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">سودان پوند</div>
+                                        <div class="text-muted-2 text-md text-uppercase">GBP</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency active" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">هندوستان روپیه</div>
+                                        <div class="text-muted-2 text-md text-uppercase">Inr</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">کلمبیا پزوی</div>
+                                        <div class="text-muted-2 text-md text-uppercase">EUR</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">استرالیا دلار</div>
+                                        <div class="text-muted-2 text-md text-uppercase">aud</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">مراکش درهم</div>
+                                        <div class="text-muted-2 text-md text-uppercase">thb</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="suggestedCurrencylist-wrap">
+                        <div class="d-inline-block mb-0 ps-3">
+                            <h5 class="fs-6 fw-bold">همه ارزها</h5>
+                        </div>
+                        <div class="suggestedCurrencylists">
+                            <ul
+                                    class="row align-items-center justify-content-start row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-2 gy-2 gx-3 m-0 p-0">
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">دلار ایالات متحده</div>
+                                        <div class="text-muted-2 text-md text-uppercase">USD</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">پوند لبنان</div>
+                                        <div class="text-muted-2 text-md text-uppercase">GBP</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">روپیه اندونزی</div>
+                                        <div class="text-muted-2 text-md text-uppercase">EUR</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">وون کره جنوبی</div>
+                                        <div class="text-muted-2 text-md text-uppercase">Inr</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">درهم مراکش</div>
+                                        <div class="text-muted-2 text-md text-uppercase">aud</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">دلار تایوان</div>
+                                        <div class="text-muted-2 text-md text-uppercase">thb</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">ریال یمن</div>
+                                        <div class="text-muted-2 text-md text-uppercase">USD</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">پزوی شیلی</div>
+                                        <div class="text-muted-2 text-md text-uppercase">GBP</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">کانادا دلار</div>
+                                        <div class="text-muted-2 text-md text-uppercase">EUR</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">دلار باهاماس</div>
+                                        <div class="text-muted-2 text-md text-uppercase">Inr</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">کونا کرواسی</div>
+                                        <div class="text-muted-2 text-md text-uppercase">aud</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">سامانی تاجیکستان</div>
+                                        <div class="text-muted-2 text-md text-uppercase">thb</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">پوند سودان</div>
+                                        <div class="text-muted-2 text-md text-uppercase">USD</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">روپیه سیشل</div>
+                                        <div class="text-muted-2 text-md text-uppercase">GBP</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">دینار صربستان</div>
+                                        <div class="text-muted-2 text-md text-uppercase">EUR</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">فرانک رواندا</div>
+                                        <div class="text-muted-2 text-md text-uppercase">Inr</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">دینار صربستان</div>
+                                        <div class="text-muted-2 text-md text-uppercase">aud</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">لئو رومانی</div>
+                                        <div class="text-muted-2 text-md text-uppercase">thb</div>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a class="selectCurrency" href="slider-home.html#">
+                                        <div class="text-dark text-md fw-medium">سنگاپور دلار</div>
+                                        <div class="text-muted-2 text-md text-uppercase">thb</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Video Modal -->
+<div class="modal fade" id="popup-video" tabindex="-1" role="dialog" aria-labelledby="popupvideo"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" id="popupvideo">
+            <iframe class="embed-responsive-item" style="width: 100%; height: 480px;"
+                    src="https://www.aparat.com/video/video/embed/videohash/trxOV/vt/frame" frameborder="0"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+<!-- End Video Modal -->
+
+<a id="back2Top" class="top-scroll" title="Back to top" href="slider-home.html#"><i class="fa-solid fa-sort-up"></i></a>
 
 
 </div>
