@@ -6,8 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مسجد جامع امام سجاد (ع)</title>
-    <meta name="description" content="صفحه رزرو صحن اصلی و سالن اجتماعات مسجد جامع امام سجاد(ع) واقع در خیابان اشرفی اصفهانی" />
-    <link rel="icon" type="image/x-icon" href="{% static 'assets/logo.png' %}">
+    <meta name="description"
+          content="صفحه رزرو صحن اصلی و سالن اجتماعات مسجد جامع امام سجاد(ع) واقع در خیابان اشرفی اصفهانی"/>
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/logo.webp' %}">
     <!-- All Plugins -->
     <link href="{% static 'assets/css/animation.css' %}" rel="stylesheet">
     <link href="{% static 'assets/css/dropzone.min.css' %}" rel="stylesheet">
@@ -148,6 +149,7 @@
     </style>
 </head>
 <body>
+
 <section class="pt-3 gray-simple d-none d-lg-block">
     <div class="container-fluid">
         <div class="row">
@@ -158,11 +160,11 @@
                     <div class="card-header d-lg-flex d-none align-items-center justify-content-between mb-3">
                         <div class="crd-heaader-first">
                             <div class="d-block">
-                                <h4 class="mb-0 fw-bold">مسجد جامع امام سجاد(ع)</h4>
+                                <h4 class="mb-0 fw-bold">{{ mosque.name }}</h4>
                                 <div class="explotter">
                                     <p class="detail ellipsis-container fw-semibold">
                                         <i class="fa-solid fa-map-marker-alt text-info ms-2"></i>
-                                        تهران، اشرفی اصفهانی، اسکندرزاده
+                                        {{ mosque.address }}
                                     </p>
                                 </div>
                             </div>
@@ -186,10 +188,12 @@
                             <div class="col-12">
                                 <div class="galleryGrid typeGrid_2 mb-lg-0 mb-3">
                                     <div class="galleryGrid__item relative d-flex">
-                                        <video class="rounded-2 img-fluid" controls>
-                                            <source src="{% static 'assets/video/sample.mp4' %}" type="video/mp4">
-                                            مرورگر شما از ویدیو پشتیبانی نمی‌کند.
-                                        </video>
+                                        {% for hall in mosque.halls.all %}
+                                            <video class="rounded-2 img-fluid" controls>
+                                                <source src="{{ hall.video_file.url }}" type="video/mp4">
+                                                مرورگر شما از ویدیو پشتیبانی نمی‌کند.
+                                            </video>
+                                        {% endfor %}
                                     </div>
                                     <div class="galleryGrid__item position-relative">
                                         <a href="{% static 'assets/img/property/img-3.jpg' %}" data-lightbox="roadtrip"><img
@@ -361,6 +365,7 @@
 
     </div>
 </section>
+
 <section class="d-lg-none">
     <!-- gallery in phone type -->
     <div class="custom-media-tabs d-lg-none">
@@ -410,21 +415,23 @@
 
             <div class="tab-pane fade" id="videos" role="tabpanel" aria-labelledby="videos-tab">
                 <div class="video-container ratio ratio-16x9 overflow-hidden">
-                    <video class="img-fluid" controls>
-                        <source src="{% static 'assets/video/sample.mp4' %}" type="video/mp4">
-                        مرورگر شما از ویدیو پشتیبانی نمی‌کند.
-                    </video>
+                    {% for hall in mosque.halls.all %}
+                        <video class="rounded-2 img-fluid" controls>
+                            <source src="{{ hall.video_file.url }}" type="video/mp4">
+                            مرورگر شما از ویدیو پشتیبانی نمی‌کند.
+                        </video>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
     <!-- name and address -->
     <div class="d-block m-3 border-bottom">
-        <h4 class="fw-bold">مسجد جامع امام سجاد (ع)</h4>
+        <h4 class="fw-bold">{{ mosque.name }}</h4>
         <div class="explotter mb-3">
             <p class="detail ellipsis-container fw-semibold">
                 <i class="fa-solid fa-map-marker-alt text-info ms-2"></i>
-                تهران، اشرفی اصفهانی، اسکندرزاده
+               {{ mosque.address }}
             </p>
         </div>
     </div>

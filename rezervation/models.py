@@ -11,7 +11,7 @@ class Facility(models.Model):
 
 class Mosque(models.Model):
     name = models.CharField(max_length=200)
-    slug = models.SlugField(unique=True)
+    slug = models.CharField(max_length=200,unique=True)
     rigen = models.TextField()
     address = models.TextField()
     description = models.TextField(blank=True, null=True)
@@ -26,20 +26,32 @@ class Mosque(models.Model):
     def get_absolute_url(self):
         return reverse('mosque_detail', kwargs={'slug': self.slug})
 
+
+
 class Hall(models.Model):
-    mosque = models.ForeignKey(Mosque, related_name='halls', on_delete=models.CASCADE)
+    mosque = models.ForeignKey('Mosque', related_name='halls', on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     capacity = models.PositiveIntegerField()
     is_active = models.BooleanField(default=True)
     facilities = models.ManyToManyField('Facility', related_name='halls', blank=True)
+    video_file = models.FileField(upload_to='videos/',null=True)  # ذخیره در پوشه media/videos/
+
+    price = models.DecimalField(null=True,
+        max_digits=10,  # حداکثر تعداد ارقام (مثلاً 10000000.00)
+        decimal_places=2,  # تعداد ارقام اعشار (مثلاً 150000.00)
+        help_text='قیمت پایه رزرو سالن به تومان'
+
+    )
 
     def __str__(self):
         return f"{self.name} ({self.mosque.name})"
+
 
 class HallImage(models.Model):
     hall = models.ForeignKey(Hall, related_name='images', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='halls/images/')
     caption = models.CharField(max_length=255, blank=True)
+
 
     def __str__(self):
         return f"Image for {self.hall.name}"

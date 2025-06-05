@@ -1,10 +1,12 @@
-from django.shortcuts import render
-
+from django.shortcuts import get_object_or_404, render
+from rezervation.models import *
 def index (request):
-    return render(request,'slider-home.html')
+    mosques=Mosque.objects.all()
+    return render(request,'slider-home.html',{"mosques":mosques})
 
-def detail (request):
-    return render(request, 'media-tabs.html')
+def rez_page (request,slug):
+    mosque = get_object_or_404(Mosque, slug=slug)[0]
+    return render(request, 'media-tabs.html',{"mosque":mosque})
 
 
 

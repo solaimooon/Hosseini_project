@@ -3,7 +3,7 @@ from django.urls import reverse
 
 
 class StaticViewSitemap(sitemaps.Sitemap):
-    priority = 0.5
+    priority = 1
     changefreq = "daily"
 
     def items(self):
@@ -11,3 +11,14 @@ class StaticViewSitemap(sitemaps.Sitemap):
 
     def location(self, item):
         return reverse(item)
+from django.contrib.sitemaps import Sitemap
+from rezervation.models import *
+class MosqueRezPageSitemap(Sitemap):
+    changefreq = "weekly"
+    priority = 0.8
+
+    def items(self):
+        return Mosque.objects.all()
+
+    def location(self, obj):
+        return reverse("website:rez_page", kwargs={"slug": obj.slug})
