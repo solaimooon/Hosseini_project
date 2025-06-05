@@ -5,7 +5,7 @@ def index (request):
     return render(request,'slider-home.html',{"mosques":mosques})
 
 def rez_page (request,slug):
-    mosque = get_object_or_404(Mosque, slug=slug)[0]
+    mosque = get_object_or_404(Mosque, slug=slug)
     return render(request, 'media-tabs.html',{"mosque":mosque})
 
 
