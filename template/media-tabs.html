@@ -287,36 +287,25 @@
                                 <!-- emkanat -->
                                 <div class="pt-4 pb-4 border-bottom">
                                     <h6 class="fw-semibold mb-3">امکانات</h6>
+
                                     <ul class="row align-items-center p-0 g-3">
-                                        <li class="col-md-6">
-                                            <i class="fa-solid fa-check text-success m-2"></i>یک تجربه فوق
-                                            العاده
-                                            در آبشار
-                                            نیاگارا
-                                        </li>
-                                        <li class="col-md-6">
-                                            <i class="fa-solid fa-check text-success m-2"></i>تجربه شگفت انگیز
-                                            در
-                                            بندرگاه
-                                        </li>
-                                        <li class="col-md-6">
-                                            <i class="fa-solid fa-check text-success m-2"></i>مناظر خیره کننده
-                                            در
-                                            شب در آبشار
-                                            نیاگارا
-                                        </li>
-                                        <li class="col-md-6">
-                                            <i class="fa-solid fa-check text-success m-2"></i>تجربیات عالی با
-                                            تورهای گردشگری
-                                            سیاحتی
-                                        </li>
-                                        <li class="col-md-6">
-                                            <i class="fa-solid fa-check text-success m-2"></i>معتبرترین
-                                            عرضه‌کننده
-                                            محصولات
-                                            گردشگری در ایران
-                                        </li>
+                                        {% for emkanat in mosque.facilities.all %}
+                                            <li class="col-md-6">
+                                                <i class="fa-solid fa-check text-success m-2"></i>
+                                                {{ emkanat.name }}
+                                            </li>
+                                        {% endfor %}
+                                        {% for hall in mosque.halls.all %}
+                                            {% for  emkanat in hall.facilities.all %}
+                                                <li class="col-md-6">
+                                                    <i class="fa-solid fa-check text-success m-2"></i>
+                                                    {{ emkanat.name }}
+                                                </li>
+                                            {% endfor %}
+                                        {% endfor %}
+
                                     </ul>
+
                                 </div>
                                 <!-- map -->
                                 <div class="pt-4 pb-4 border-bottom w-100" style="height:500px">
@@ -431,7 +420,7 @@
         <div class="explotter mb-3">
             <p class="detail ellipsis-container fw-semibold">
                 <i class="fa-solid fa-map-marker-alt text-info ms-2"></i>
-               {{ mosque.address }}
+                {{ mosque.address }}
             </p>
         </div>
     </div>
@@ -477,34 +466,21 @@
             <div class="pt-4 pb-4 border-bottom">
                 <h6 class="fw-semibold mb-3">امکانات</h6>
                 <ul class="row align-items-center p-0 g-3">
-                    <li class="col-md-6">
-                        <i class="fa-solid fa-check text-success m-2"></i>یک تجربه فوق
-                        العاده
-                        در آبشار
-                        نیاگارا
-                    </li>
-                    <li class="col-md-6">
-                        <i class="fa-solid fa-check text-success m-2"></i>تجربه شگفت انگیز
-                        در
-                        بندرگاه
-                    </li>
-                    <li class="col-md-6">
-                        <i class="fa-solid fa-check text-success m-2"></i>مناظر خیره کننده
-                        در
-                        شب در آبشار
-                        نیاگارا
-                    </li>
-                    <li class="col-md-6">
-                        <i class="fa-solid fa-check text-success m-2"></i>تجربیات عالی با
-                        تورهای گردشگری
-                        سیاحتی
-                    </li>
-                    <li class="col-md-6">
-                        <i class="fa-solid fa-check text-success m-2"></i>معتبرترین
-                        عرضه‌کننده
-                        محصولات
-                        گردشگری در ایران
-                    </li>
+                    {% for emkanat in mosque.facilities.all %}
+                        <li class="col-md-6">
+                            <i class="fa-solid fa-check text-success m-2"></i>
+                            {{ emkanat.name }}
+                        </li>
+                    {% endfor %}
+                    {% for hall in mosque.halls.all %}
+                        {% for  emkanat in hall.facilities.all %}
+                            <li class="col-md-6">
+                                <i class="fa-solid fa-check text-success m-2"></i>
+                                {{ emkanat.name }}
+                            </li>
+                        {% endfor %}
+                    {% endfor %}
+
                 </ul>
             </div>
             <!-- map -->
