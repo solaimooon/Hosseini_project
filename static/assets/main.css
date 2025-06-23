@@ -1,0 +1,194 @@
+@font-face {
+    font-family: vazir;
+    src: url("./font/Vazir.ttf") format("truetype");
+}
+
+/* تنظیمات لازم برای فول سایز شدن در خالت موبایل */
+html, body {
+    overflow-x: hidden;
+    font-family: vazir;
+}
+
+@media (max-width: 576px) {
+    body, html {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .container,
+    .container-fluid {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        margin: 0 !important;
+    }
+
+    section,
+    nav,
+    footer {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+/*  پایان تنظیمات لازم برای فول سایز شدن در خالت موبایل */
+/* پس‌زمینه و فونت */
+.custom-navbar {
+    background-color: #00345b;
+}
+
+/* لوگو */
+.navbar-logo {
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+}
+
+/* نام سایت */
+.site-name {
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.navbar-badge {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    font-size: 10px;
+    padding: 3px 6px;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+/*تنظیمات برای اسلایدر */
+.carousel-item img,
+.carousel-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* یا contain اگر نمی‌خوای برش بخوره */
+  aspect-ratio: 16 / 9;
+  max-height: 500px;
+}
+
+
+
+/* بخش دکمه خدمات   */
+.services-section {
+    background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.service-box {
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    height: 100%;
+}
+
+.service-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+}
+
+.icon-blue {
+    color: #004080;
+}
+
+.animate-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* تأخیر برای هر دکمه (می‌تونی اضافه کنی برای زیبایی بیشتر) */
+.service-box:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.service-box:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.service-box:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.service-box:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.service-box:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+/* دکمه به زودی  */
+.soon-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    z-index: 2;
+}
+
+/* بخش دکمه خدمات پایان */
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+footer {
+    background-color: #00345b;
+}
+
+/*دکمه های مسیر یابی*/
+.route-btn {
+    background-color: transparent;
+    border: 2px solid #28a745;
+    color: #28a745;
+    transition: all 0.3s ease;
+    font-family: 'Vazirmatn', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 50px;
+    padding: 6px 16px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.route-btn i,
+.route-btn img {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.route-btn:hover {
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+}
+
+.route-btn:hover i,
+.route-btn:hover img {
+    transform: translateX(4px);
+}
+
+
+
+
+
