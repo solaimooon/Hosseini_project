@@ -7,6 +7,7 @@ urlpatterns = [
     path('rez/<str:slug>/', rez_page, name='rez_page'),
     path('masje_emam_sajjad/', masjed_emama_sajad, name='masjed_emam_sajad'),
 path('masje_emam_sajjad_live/', masjed_emama_sajad_live, name='masjed_emam_sajad_live'),
+path('masje_emam_sajjad_report/', masjed_emama_sajad_report, name='masjed_emam_sajad_report'),
 
 
 ]

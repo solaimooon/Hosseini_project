@@ -15,5 +15,7 @@ def masjed_emama_sajad(request):
 def masjed_emama_sajad_live(request):
     return render(request, 'live.html')
 
+def masjed_emama_sajad_report(request):
+    return render(request, 'report.html')
 
 # Create your views here.
