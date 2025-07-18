@@ -7,7 +7,7 @@ class StaticViewSitemap(sitemaps.Sitemap):
     changefreq = "daily"
 
     def items(self):
-        return ["website:index" ]
+        return ["website:index" ,"website:masjed_emam_sajad","website:masjed_emam_sajad_live","website:masjed_emam_sajad_report"]
 
     def location(self, item):
         return reverse(item)

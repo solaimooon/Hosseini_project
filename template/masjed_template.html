@@ -1,0 +1,262 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>پایگاه رسمی مسجد جامع امام سجاد (ع)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/img/emam_sajad_logo.jpg' %}">
+
+    <link href="{% static 'assets/bootstrap-5.2.3-dist/css/bootstrap.rtl.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/main.css' %}">
+    <!-- Fontawesome & Bootstrap Icons CSS -->
+    <link href="{% static 'assets/css/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/fontawesome.css' %}" rel="stylesheet">
+    <!-- neshan cdn -->
+    <link rel="stylesheet" href="https://static.neshan.org/sdk/leaflet/v1.9.4/neshan-sdk/v1.0.8/index.css"/>
+    <script src="https://static.neshan.org/sdk/leaflet/v1.9.4/neshan-sdk/v1.0.8/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg px-1 custom-navbar">
+  <div class="container-fluid d-flex align-items-center justify-content-between flex-nowrap py-2">
+
+    <!-- لوگو و نام سایت -->
+    <div class="d-flex align-items-center flex-shrink-1" style="min-width: 0;">
+      <img src="{% static 'assets/img/emam_sajad_logo.jpg' %}" class="navbar-logo " alt="logo">
+      <span class="navbar-brand mb-0 site-name text-white ">مسجد جامع امام سجاد(ع)</span>
+    </div>
+
+    <!-- دکمه ثبت‌نام و نشان -->
+    <div class="position-relative flex-shrink-0">
+      <a href="#" class="btn btn-outline-light rounded-pill px-1 py-1 signup-btn">ثبت‌نام / ورود</a>
+      <span class="badge bg-warning text-dark position-absolute top-0 start-100 translate-middle badge-on-button">به‌زودی</span>
+    </div>
+
+  </div>
+</nav>
+
+
+
+<!-- اسلایدر -->
+<div id="carouselExampleFade" style="background-color: #000000" class="carousel slide carousel-fade"
+     data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="0"
+                    class="active"></button>
+            <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="1"></button>
+        </div>
+
+        <div class="carousel-item active">
+            <img class="w-100" src="{% static 'assets/img/حسین.jpg' %}" style="max-height: 500px"
+                 alt="slider">
+        </div>
+        <div class="carousel-item">
+            <video class="d-block w-100" style="max-height: 500px" autoplay loop muted>
+                <source src="{% static 'assets/video/امام حسین فیلم - Trim.mp4' %}" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
+<!-- خدمات -->
+<section class="services-section py-5">
+    <div class="container">
+        <div class="row gy-4 justify-content-center">
+
+            <!-- کارت 1 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="service-box">
+                    <span class="badge bg-warning text-dark soon-badge">به‌زودی</span>
+                    <i class="far fa-folder-open fa-2x icon-blue mb-3"></i>
+                    <p class="mb-0 fw-bold">آرشیو مراسمات</p>
+                </div>
+            </div>
+
+            <!-- کارت 2 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="service-box">
+                    <span class="badge bg-warning text-dark soon-badge">به‌زودی</span>
+                    <i class="fas fa-trophy fa-2x icon-blue mb-3"></i>
+                    <p class="mb-0 fw-bold">ستارگان مسجد</p>
+                </div>
+            </div>
+
+            <!-- ✅ دکمه پخش زنده مخصوص موبایل -->
+            <div class="col-12 d-md-none">
+                <a href="{% url 'website:masjed_emam_sajad_live' %}"
+                   class="live-btn-mobile d-block text-center text-white text-decoration-none">
+                    <i class="fas fa-broadcast-tower fa-2x mb-2 d-block"></i>
+                    <span class="fw-bold">پخش زنده</span>
+                </a>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <a href="{% url 'website:masjed_emam_sajad_report' %}" class="text-decoration-none">
+                    <div class="service-box">
+                        <i class="fas fa-bullhorn fa-2x icon-blue mb-3"></i>
+                        <p class="mb-0 fw-bold text-dark">آخرین اطلاعیه‌ها</p>
+                    </div>
+                </a>
+            </div>
+
+
+            <!-- کارت 4 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="service-box">
+                    <span class="badge bg-warning text-dark soon-badge">به‌زودی</span>
+                    <i class="fas fa-gift fa-2x icon-blue mb-3"></i>
+                    <p class="mb-0 fw-bold">هدیه و نذورات</p>
+                </div>
+            </div>
+
+            <!-- کارت 5 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="service-box">
+                    <span class="badge bg-warning text-dark soon-badge">به‌زودی</span>
+                    <i class="far fa-calendar-alt fa-2x icon-blue mb-3"></i>
+                    <p class="mb-0 fw-bold">رزرو سالن اجتماعات</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- درباره مسجد -->
+<section class="py-5">
+    <div class="container-fluid mt-5">
+        <div class="about rounded-4 shadow-lg p-4 position-relative" style="background: rgba(255,255,255,0.9);">
+            <div class="row">
+                <h2 class="text-center my-3 display-4 fw-bold">درباره مسجد</h2>
+            </div>
+            <div class="row mt-3 align-items-center justify-content-center">
+                <div class="col-md-6 col-12 order-2 order-md-1">
+                    <p class="text-lg-start text-center px-4 px-lg-2 fs-5" style="line-height: 1.8;">
+                        مسجد جامع امام سجاد علیه‌السلام با زیربنای ۲۲٬۰۰۰ متر مربع، یکی از بزرگ‌ترین و جامع‌ترین مراکز
+                        مذهبی، فرهنگی و اجتماعی در قلب شهر است. این مسجد با معماری چشم‌نواز و امکانات گسترده، فراتر از
+                        عبادت، بستری برای آموزش، نشست‌های فرهنگی، خدمات اجتماعی، ورزش، و فعالیت‌های متنوع فراهم کرده
+                        است.
+
+                        فضاهای متعددی همچون نمازخانه‌، سالن‌های اجتماعات، کلاس‌های آموزشی، کتابخانه، حوزه علمیه، سالن
+                        ورزشی، آشپزخانه صنعتی و.. این مجموعه را به الگویی برای مساجد چندمنظوره مدرن
+                        تبدیل کرده است.
+
+                        مسجد امام سجاد (ع) نه تنها محل عبادت، بلکه کانونی برای رشد معنوی، علمی و اجتماعی نسل امروز و
+                        فرداست.
+
+
+                    </p>
+                </div>
+                <div class="col-md-6 col-12 order-1 order-md-2 d-flex justify-content-center">
+                    <img src="{% static 'assets/img/mosque.jpg' %}" style="width: 600px; height: 400px;"
+                         class="mt-3 mt-lg-0" alt="mosque">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer skin-dark-footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6 justify-content-center">
+                <div class="m-3">
+                    <p class="text-white pt-3">آدرس:</p>
+                    <p class="text-white mt-2">خیابان اشرفی اصفهانی اسکندرزاده نبش بوستان صبا</p>
+                    <p class="text-white ">شبکه اجتماعی:</p>
+                    <a class="btn btn-soft-light btn-xs btn-icon mt-2" href="
+                                https://eitaa.com/mje_sajad"><img
+                            src="{% static 'assets/sosial media icon/2lSfJCPqMllhHI88YFFavvqI7Of.svg' %}"
+                            alt="Eitaa logo" style="width: 30px; height: 30px;"></img></a>
+                </div>
+            </div>
+            <div class="col-6 justify-content-center">
+                <di class="m-3">
+                    <div class="my-3 text-center rounded-3" id="map" style="width: 100%; height: 200px;"></div>
+                </di>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom border-top">
+        <div class="container text-center py-2">
+{#            <p class="text-white mb-1">#}
+{#                طراحی و پشتیبانی:#}
+{#                <a href="https://kodomjaa.ir" target="_blank" class="text-warning text-decoration-none">🔹 سامانه رزرو#}
+{#                    کدوجا</a> |#}
+{#                <a href="https://soleymoon.ir" target="_blank" class="text-info text-decoration-none">🔸 سلیمون - طراح#}
+{#                    سایت</a>#}
+{#            </p>#}
+            <p class="text-white mb-0">
+                ⓒ کلیه حقوق برای مسجد جامع امام سجاد (ع) محفوظ است.
+            </p>
+        </div>
+    </div>
+
+</footer>
+
+<a href="{% url 'website:masjed_emam_sajad_live' %}" id="liveButton"
+   class="btn btn-danger position-fixed bottom-0 end-0 m-3 p-3 rounded-pill shadow-lg z-10">
+    <i class="fas fa-broadcast-tower me-2"></i> پخش زنده
+</a>
+
+
+<!--scrip to open sidebar-->
+<script>
+    document.getElementById('menuToggle').addEventListener('click', function () {
+        document.getElementById('sidebar').classList.toggle('show');
+        document.getElementById('overlay').classList.toggle('show');
+    });
+
+    document.getElementById('overlay').addEventListener('click', function () {
+        document.getElementById('sidebar').classList.remove('show');
+        this.classList.remove('show');
+    });
+</script>
+
+<!-- neshan scrypt   -->
+<script>
+    // تابع عمومی برای ایجاد نقشه
+    function createMap(mapId, center, zoom, markerPosition, popupContent) {
+        // ایجاد نقشه
+        const map = new L.Map(mapId, {
+            key: "web.f790ce90cd3f465caf3a71a6919b8c8d", // کلید API خود را جایگزین کنید
+            maptype: "neshan",
+            poi: true,
+            traffic: true,
+            center: center,
+            zoom: zoom,
+        });
+
+        // افزودن مارکر
+        let marker = L.marker(markerPosition).addTo(map);
+
+        // افزودن پاپ‌آپ
+        marker.bindPopup(popupContent).openPopup();
+
+        return map;
+    }
+
+    // ایجاد نقشه اول (map)
+    createMap(
+        'map', // ID المان
+        [35.728654, 51.333647], // مختصات مرکز
+        14, // سطح زوم
+        [35.728654, 51.333647], // موقعیت مارکر
+        `<p class="text-center">مسجد امام سجاد(ع)</p>` // محتوای پاپ‌آپ
+    );
+</script>
+
+<script src="{% static 'assets/bootstrap-5.2.3-dist/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>اطلاعیه های  مسجد جامع امام سجاد(ع)</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/img/emam_sajad_logo.jpg' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'assets/bootstrap-5.2.3-dist/css/bootstrap.rtl.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/main.css' %}">
+    <!-- Fontawesome & Bootstrap Icons CSS -->
+    <link href="{% static 'assets/css/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/fontawesome.css' %}" rel="stylesheet">
+    <!-- neshan cdn -->
+    <link rel="stylesheet" href="https://static.neshan.org/sdk/leaflet/v1.9.4/neshan-sdk/v1.0.8/index.css"/>
+    <script src="https://static.neshan.org/sdk/leaflet/v1.9.4/neshan-sdk/v1.0.8/index.js"></script>
+</head>
+<style>
+    /*background for live page*/
+
+    body {
+        background: url("../static/assets/img/live_back.jpg");
+    }
+
+    img {
+        width: 100%;
+        height: 200px;
+        border: none;
+        border-radius: 10px;
+    }
+
+    .announcement-box {
+        background-color: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        padding: 20px;
+        text-align: center;
+    }
+
+    .announcement-box img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+    }
+
+    .footer {
+        margin-top: auto;
+    }
+
+</style>
+<body class="d-flex flex-column min-vh-100">
+<nav class="navbar navbar-expand-lg px-1 custom-navbar">
+  <div class="container-fluid d-flex align-items-center justify-content-between flex-nowrap py-2">
+
+    <!-- لوگو و نام سایت -->
+    <div class="d-flex align-items-center flex-shrink-1" style="min-width: 0;">
+      <img src="{% static 'assets/img/emam_sajad_logo.jpg' %}" class="navbar-logo " alt="logo">
+      <span class="navbar-brand mb-0 site-name text-white ">مسجد جامع امام سجاد(ع)</span>
+    </div>
+
+    <!-- دکمه ثبت‌نام و نشان -->
+    <div class="position-relative flex-shrink-0">
+      <a href="#" class="btn btn-outline-light rounded-pill px-1 py-1 signup-btn">ثبت‌نام / ورود</a>
+      <span class="badge bg-warning text-dark position-absolute top-0 start-100 translate-middle badge-on-button">به‌زودی</span>
+    </div>
+
+  </div>
+</nav>
+
+
+<!-- live -->
+
+<!-- اعلامیه اصلی -->
+<main class="flex-grow-1 py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <div class="announcement-box">
+                    <h3 class="mb-4 text-primary fw-bold">📢 اعلامیه جدید</h3>
+                    <img src="{% static 'assets/img/محرم.jpg' %}" alt="اعلامیه محرم">
+                    <!-- می‌تونی این بخش توضیحی هم اضافه کنی اگر لازم شد -->
+                    <!-- <p class="mt-3 text-muted">مراسم عزاداری دهه اول محرم، هر شب ساعت ۲۰</p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- Footer -->
+<footer class="footer skin-dark-footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6 justify-content-center">
+                <div class="m-3">
+                    <p class="text-white pt-3">آدرس:</p>
+                    <p class="text-white mt-2">خیابان اشرفی اصفهانی اسکندرزاده نبش بوستان صبا</p>
+                    <p class="text-white ">شبکه اجتماعی:</p>
+                    <a class="btn btn-soft-light btn-xs btn-icon mt-2" href="
+                                https://eitaa.com/mje_sajad"><img
+                            src="{% static 'assets/sosial media icon/2lSfJCPqMllhHI88YFFavvqI7Of.svg' %}"
+                            alt="Eitaa logo" style="width: 30px; height: 30px;"></img></a>
+                </div>
+            </div>
+            <div class="col-6 justify-content-center">
+                <di class="m-3">
+                    <div class="my-3 text-center rounded-3" id="map" style="width: 100%; height: 200px;"></div>
+                </di>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom border-top">
+        <div class="container text-center py-2">
+{#            <p class="text-white mb-1">#}
+{#                طراحی و پشتیبانی:#}
+{#                <a href="https://kodomjaa.ir" target="_blank" class="text-warning text-decoration-none">🔹 سامانه رزرو#}
+{#                    کدوجا</a> |#}
+{#                <a href="https://soleymoon.ir" target="_blank" class="text-info text-decoration-none">🔸 سلیمون - طراح#}
+{#                    سایت</a>#}
+{#            </p>#}
+{#            <p class="text-white mb-0">#}
+                ⓒ کلیه حقوق برای مسجد جامع امام سجاد (ع) محفوظ است.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- neshan scrypt   -->
+<script>
+    // تابع عمومی برای ایجاد نقشه
+    function createMap(mapId, center, zoom, markerPosition, popupContent) {
+        // ایجاد نقشه
+        const map = new L.Map(mapId, {
+            key: "web.f790ce90cd3f465caf3a71a6919b8c8d", // کلید API خود را جایگزین کنید
+            maptype: "neshan",
+            poi: true,
+            traffic: true,
+            center: center,
+            zoom: zoom,
+        });
+
+        // افزودن مارکر
+        let marker = L.marker(markerPosition).addTo(map);
+
+        // افزودن پاپ‌آپ
+        marker.bindPopup(popupContent).openPopup();
+
+        return map;
+    }
+
+    // ایجاد نقشه اول (map)
+    createMap(
+        'map', // ID المان
+        [35.728654, 51.333647], // مختصات مرکز
+        14, // سطح زوم
+        [35.728654, 51.333647], // موقعیت مارکر
+        `<p class="text-center">مسجد امام سجاد(ع)</p>` // محتوای پاپ‌آپ
+    );
+</script>
+</body>
+</html>
