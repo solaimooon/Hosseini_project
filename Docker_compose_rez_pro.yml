@@ -20,7 +20,7 @@ services:
       - DB_PASSWORD=${MYSQL_PASSWORD}
       - DB_PORT=3306
       - debug=True
-      - ALLOWED_HOSTS=kodomjaa.ir,www.kodomjaa.ir,kodom-masjed.com,www.kodom-masjed.com
+      - ALLOWED_HOSTS=kodom-masjed.com,www.kodom-masjed.com,kodomjaa.ir,www.kodomjaa.ir,
       - DJANGO_ENV=production
 
     networks:
