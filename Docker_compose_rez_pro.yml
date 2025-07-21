@@ -19,7 +19,7 @@ services:
       - DB_USER=${MYSQL_USER}
       - DB_PASSWORD=${MYSQL_PASSWORD}
       - DB_PORT=3306
-      - debug=True
+      - debug=False
       - ALLOWED_HOSTS=kodom-masjed.com,www.kodom-masjed.com,kodomjaa.ir,www.kodomjaa.ir,
       - DJANGO_ENV=production
 
