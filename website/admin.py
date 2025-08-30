@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Occasion, Night, MediaFile
+from .models import Category, Occasion, Night, MediaFile,owner,style_media_file
 from my_profile.models import Mosque_operator
 
 
@@ -68,3 +68,6 @@ class MediaFileAdmin(MosqueFilteredAdmin):
     list_display = ("title", "media_type", "night")
     search_fields = ("title", "media_type")
     list_filter = ("media_type",)
+
+admin.site.register(style_media_file)
+admin.site.register(owner)
