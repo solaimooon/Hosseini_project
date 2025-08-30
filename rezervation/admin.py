@@ -49,3 +49,4 @@ admin.site.register(Mosque, MosqueAdmin)
 admin.site.register(Hall, HallAdmin)
 admin.site.register(HallImage, HallImageAdmin)
 admin.site.register(Facility, FacilityAdmin)
+

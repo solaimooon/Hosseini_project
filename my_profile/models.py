@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
+from rezervation.models import *
 
 
 class MyUserManager(BaseUserManager):
@@ -50,7 +51,8 @@ class My_user(AbstractUser):
 class Mosque_operator(models.Model):
     user = models.OneToOneField(My_user, on_delete=models.CASCADE, )
     national_id = models.CharField(max_length=10, blank=True, null=True)
+    mosque = models.ForeignKey(Mosque, on_delete=models.CASCADE)
 
     # سایر فیلدهای مربوط به مشتری
     def __str__(self):
-        return f"Customer: {self.full_name}"
+        return f"{self.mosque.name}"

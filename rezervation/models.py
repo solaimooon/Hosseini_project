@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.sites.models import Site
 
 class Facility(models.Model):
     name = models.CharField(max_length=100)
@@ -10,6 +11,7 @@ class Facility(models.Model):
 
 
 class Mosque(models.Model):
+    site = models.OneToOneField(Site, on_delete=models.CASCADE, default=1)
     name = models.CharField(max_length=200)
     slug = models.CharField(max_length=200,unique=True)
     rigen = models.TextField()
@@ -19,6 +21,10 @@ class Mosque(models.Model):
     latitude = models.FloatField(blank=True, null=True)
     longitude = models.FloatField(blank=True, null=True)
     facilities = models.ManyToManyField('Facility', related_name='mosques', blank=True)
+
+    # 🔹 فیلدهای سئو
+    meta_title = models.CharField(max_length=255, blank=True, null=True)
+    meta_description = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.name

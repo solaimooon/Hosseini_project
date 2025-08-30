@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}
+    {% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/img/emam_sajad_logo.jpg' %}">
+
+    <link href="{% static 'assets/bootstrap-5.2.3-dist/css/bootstrap.rtl.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/main.css' %}">
+    <!-- Fontawesome & Bootstrap Icons CSS -->
+    <link href="{% static 'assets/css/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/fontawesome.css' %}" rel="stylesheet">
+    <!-- neshan cdn -->
+    <link rel="stylesheet" href="https://static.neshan.org/sdk/leaflet/v1.9.4/neshan-sdk/v1.0.8/index.css"/>
+    <script src="https://static.neshan.org/sdk/leaflet/v1.9.4/neshan-sdk/v1.0.8/index.js"></script>
+</head>
+<body class="{% block body-class %}{% endblock %}"
+>
+<nav class="navbar navbar-expand-lg px-1 custom-navbar">
+    <div class="container-fluid d-flex align-items-center justify-content-between flex-nowrap py-2">
+
+        <!-- لوگو و نام سایت -->
+        <div class="d-flex align-items-center flex-shrink-1" style="min-width: 0;">
+            <img src="{% static 'assets/img/emam_sajad_logo.jpg' %}" class="navbar-logo " alt="logo">
+            <span class="navbar-brand mb-0 site-name text-white ">مسجد جامع امام سجاد(ع)</span>
+        </div>
+
+        <!-- دکمه ثبت‌نام و نشان -->
+        <div class="position-relative flex-shrink-0">
+            <a href="#" class="btn btn-outline-light rounded-pill px-1 py-1 signup-btn">ثبت‌نام / ورود</a>
+            <span class="badge bg-warning text-dark position-absolute top-0 start-100 translate-middle badge-on-button">به‌زودی</span>
+        </div>
+
+    </div>
+</nav>
+<!-- سایدبار -->
+<div class="sidebar vh-100 overflow-auto" id="sidebar">
+    <button class="close-sidebar-btn" id="closeSidebarBtn">&times;</button>
+    <h5 class="mb-4 text-danger text-center">آرشیو مراسمات</h5>
+    {% for category in categorys %}
+        <div class="text-center mb-4">
+            <a href="{% url 'website:occasion_years' category_slug=category.slug %}" class="text-decoration-none">
+                <img src="{{ category.image.url }}" class="sidebar-img mb-2" alt="محرم">
+                <p class="text-white small mb-0">{{ category.name }}</p>
+            </a>
+        </div>
+    {% endfor %}
+
+</div>
+{% block content %}
+{% endblock %}
+<!-- Footer -->
+<footer class="footer skin-dark-footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6 justify-content-center">
+                <div class="m-3">
+                    <p class="text-white pt-3">آدرس:</p>
+                    <p class="text-white mt-2">خیابان اشرفی اصفهانی اسکندرزاده نبش بوستان صبا</p>
+                    <p class="text-white ">شبکه اجتماعی:</p>
+                    <a class="btn btn-soft-light btn-xs btn-icon mt-2" href="
+                                https://eitaa.com/mje_sajad"><img
+                            src="{% static 'assets/sosial media icon/2lSfJCPqMllhHI88YFFavvqI7Of.svg' %}"
+                            alt="Eitaa logo" style="width: 30px; height: 30px;"></img></a>
+                </div>
+            </div>
+            <div class="col-6 justify-content-center">
+                <di class="m-3">
+                    <div class="my-3 text-center rounded-3" id="map" style="width: 100%; height: 200px;"></div>
+                </di>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom border-top">
+        <div class="container text-center py-2">
+            {#            <p class="text-white mb-1">#}
+            {#                طراحی و پشتیبانی:#}
+            {#                <a href="https://kodomjaa.ir" target="_blank" class="text-warning text-decoration-none">🔹 سامانه رزرو#}
+            {#                    کدوجا</a> |#}
+            {#                <a href="https://soleymoon.ir" target="_blank" class="text-info text-decoration-none">🔸 سلیمون - طراح#}
+            {#                    سایت</a>#}
+            {#            </p>#}
+            <p class="text-white mb-0">
+                ⓒ کلیه حقوق برای مسجد جامع امام سجاد (ع) محفوظ است.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- neshan scrypt   -->
+<script>
+    // تابع عمومی برای ایجاد نقشه
+    function createMap(mapId, center, zoom, markerPosition, popupContent) {
+        // ایجاد نقشه
+        const map = new L.Map(mapId, {
+            key: "web.f790ce90cd3f465caf3a71a6919b8c8d", // کلید API خود را جایگزین کنید
+            maptype: "neshan",
+            poi: true,
+            traffic: true,
+            center: center,
+            zoom: zoom,
+        });
+
+        // افزودن مارکر
+        let marker = L.marker(markerPosition).addTo(map);
+
+        // افزودن پاپ‌آپ
+        marker.bindPopup(popupContent).openPopup();
+
+        return map;
+    }
+
+    // ایجاد نقشه اول (map)
+    createMap(
+        'map', // ID المان
+        [35.728654, 51.333647], // مختصات مرکز
+        14, // سطح زوم
+        [35.728654, 51.333647], // موقعیت مارکر
+        `<p class="text-center">مسجد امام سجاد(ع)</p>` // محتوای پاپ‌آپ
+    );
+</script>
+{# اسکریپت برای باز و بسته شدن ساید بار#}
+<script>
+    const openBtn = document.getElementById('openSidebarBtn');
+    const sidebar = document.getElementById('sidebar');
+    const closeBtn = document.getElementById('closeSidebarBtn');
+    const overlay = document.getElementById('sidebarOverlay');
+
+    openBtn.addEventListener('click', () => {
+        sidebar.classList.add('show');
+        overlay.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', closeSidebar);
+    overlay.addEventListener('click', closeSidebar);
+
+    function closeSidebar() {
+        sidebar.classList.remove('show');
+        overlay.style.display = 'none';
+    }
+</script>
+
+<script src="{% static 'assets/bootstrap-5.2.3-dist/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
