@@ -15,6 +15,6 @@ urlpatterns = [
     path("<str:category_slug>/<str:occasion_slug>/", night_list, name="night_list"),
     path("<str:category_slug>/<int:year>/<str:occasion_slug>/<str:night_slug>/", media_list,
          name="media_list"),
-    path('media/<str:media_slug>',media_single,name='single_media')
+    path('archive/<str:media_slug>',media_single,name='single_media')
 
 ]
