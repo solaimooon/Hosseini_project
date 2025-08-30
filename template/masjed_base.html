@@ -37,7 +37,7 @@
     </div>
 </nav>
 <!-- سایدبار -->
-<div class="sidebar vh-100 overflow-auto" id="sidebar">
+<div class="sidebar" id="sidebar">
     <button class="close-sidebar-btn" id="closeSidebarBtn">&times;</button>
     <h5 class="mb-4 text-danger text-center">آرشیو مراسمات</h5>
     {% for category in categorys %}
@@ -48,9 +48,10 @@
             </a>
         </div>
     {% endfor %}
-
 </div>
 {% block content %}
+    <!-- لایه تار پس‌زمینه برای بستن سایدبار -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 {% endblock %}
 <!-- Footer -->
 <footer class="footer skin-dark-footer">

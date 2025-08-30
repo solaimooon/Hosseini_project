@@ -214,6 +214,7 @@ footer {
 }
 
 /*ساید بار ارشیو مراسمات*/
+/* پس‌زمینه تار */
 .sidebar-overlay {
     position: fixed;
     top: 0;
@@ -225,25 +226,27 @@ footer {
     z-index: 1040;
 }
 
+/* سایدبار */
 .sidebar {
-
     position: fixed;
     top: 0;
-    right: 0;
+    right: -200px; /* پیش‌فرض بیرون از صفحه */
     height: 100%;
     background-color: #1f1f28;
-    width: 150px; /* اینجا عرض رو تنظیم کن */
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
+    width: 200px; /* عرض منو */
+    transition: right 0.3s ease;
     z-index: 1045;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
     padding: 20px;
+    overflow-y: auto;
 }
 
+/* وقتی فعال شد */
 .sidebar.show {
-    transform: translateX(0);
+    right: 0;
 }
 
+/* دکمه بستن */
 .close-sidebar-btn {
     position: absolute;
     top: 10px;
@@ -251,18 +254,17 @@ footer {
     border: none;
     background: none;
     font-size: 24px;
+    color: white;
 }
 
-.sidebar-logo {
-    width: 80px;
-}
-
+/* عکس‌ها داخل منو */
 .sidebar-img {
     width: 80px;
     height: 80px;
     object-fit: cover;
     border-radius: 15px;
 }
+
 
 /* css های صفحه report */
 
@@ -309,7 +311,7 @@ iframe {
 
 /* صفحه ارشیو مراسمات */
 .categori-body {
-    background-image: url("img/background.jpg");
+    background-image: url("img/backgrond2.jpg");
     background-size:cover;
     background-repeat: no-repeat;
     /* خاکستری تیره و ملایم */
