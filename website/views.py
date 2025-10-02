@@ -7,6 +7,7 @@ from django.http import Http404
 from django.db.models import Min
 
 def index(request):
+    get_current_site(request)
     mosques = Mosque.objects.all()
     return render(request, 'slider-home.html', {"mosques": mosques})
 
@@ -27,6 +28,7 @@ def get_current_mosque(request, mosque_slug=None):
     site = get_current_site(request)
     try:
         # اول تلاش کن مسجد رو از روی Site پیدا کنی
+        print(request.META['HTTP_HOST'])  # مشابه بالا
         return Mosque.objects.get(site=site)
     except Mosque.DoesNotExist:
         # اگر روی دامنه اصلی بودیم، باید slug اجباری باشه
@@ -35,7 +37,7 @@ def get_current_mosque(request, mosque_slug=None):
         raise Http404("Mosque not found")
 
 # index page of masjed
-def masjed_emama_sajad(request):
+def masjed_index(request):
     mosque=get_current_mosque(request,)
     categorys=Category.objects.filter(mosque=mosque)
     mediafile_selected = MediaFile.objects.filter(Selected=True)
