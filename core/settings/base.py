@@ -140,4 +140,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # site framework config
 
-SITE_ID = 1
+SITE_ID = 2
