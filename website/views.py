@@ -7,9 +7,12 @@ from django.http import Http404
 from django.db.models import Min
 
 def index(request):
-    get_current_site(request)
-    mosques = Mosque.objects.all()
-    return render(request, 'slider-home.html', {"mosques": mosques})
+    if request.META['HTTP_HOST']=="mjes.ir" or "kodomjaa.ir":
+        masjed_index(request)
+    elif request.META['HTTP_HOST']=="kodom-masjed.com":
+        get_current_site(request)
+        mosques = Mosque.objects.all()
+        return render(request, 'slider-home.html', {"mosques": mosques})
 
 
 def rez_page(request, slug):
