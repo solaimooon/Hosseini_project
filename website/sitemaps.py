@@ -7,12 +7,14 @@ class StaticViewSitemap(sitemaps.Sitemap):
     changefreq = "daily"
 
     def items(self):
-        return ["website:index" ,"website:masjed_emam_sajad","website:masjed_emam_sajad_live","website:masjed_emam_sajad_report"]
+        return ["website:index" ,"website:live","website:report"]
 
     def location(self, item):
         return reverse(item)
 from django.contrib.sitemaps import Sitemap
 from rezervation.models import *
+
+
 class MosqueRezPageSitemap(Sitemap):
     changefreq = "weekly"
     priority = 0.8

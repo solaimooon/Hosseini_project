@@ -3,26 +3,11 @@ from rezervation.models import *
 from .models import  Category, Occasion, Night, MediaFile
 from rezervation.models import Mosque
 from django.contrib.sites.shortcuts import get_current_site
-from django.http import Http404
+from django.http import HttpResponse
 from django.db.models import Min
 
-def index(request):
-    if request.META['HTTP_HOST']=="mjes.ir" or "kodomjaa.ir":
-        masjed_index(request)
-    elif request.META['HTTP_HOST']=="kodom-masjed.com":
-        get_current_site(request)
-        mosques = Mosque.objects.all()
-        return render(request, 'slider-home.html', {"mosques": mosques})
 
 
-def rez_page(request, slug):
-    mosque = get_object_or_404(Mosque, slug=slug)
-    return render(request, 'media-tabs.html', {"mosque": mosque})
-
-
-# masajed view
-
-# distinguish the site
 def get_current_mosque(request, mosque_slug=None):
     """
     اگر مسجد از روی دامنه/ساب‌دامنه مشخص باشه → همون رو برمی‌گردونه
@@ -31,7 +16,7 @@ def get_current_mosque(request, mosque_slug=None):
     site = get_current_site(request)
     try:
         # اول تلاش کن مسجد رو از روی Site پیدا کنی
-        print(request.META['HTTP_HOST'])  # مشابه بالا
+        print("host:",request.META['HTTP_HOST'])  # مشابه بالا
         return Mosque.objects.get(site=site)
     except Mosque.DoesNotExist:
         # اگر روی دامنه اصلی بودیم، باید slug اجباری باشه
@@ -39,21 +24,25 @@ def get_current_mosque(request, mosque_slug=None):
             return get_object_or_404(Mosque, slug=mosque_slug)
         raise Http404("Mosque not found")
 
-# index page of masjed
-def masjed_index(request):
-    mosque=get_current_mosque(request,)
-    categorys=Category.objects.filter(mosque=mosque)
+def index(request):
+    mosque = get_current_mosque(request,)
+    print("mosque", mosque)
+    categorys = Category.objects.filter(mosque=mosque)
     mediafile_selected = MediaFile.objects.filter(Selected=True)
-    return render(request, 'masjed_template.html',{"categorys":categorys,"mediafile_selected":mediafile_selected})
+    return render(request, 'masjed_template.html', {"categorys": categorys, "mediafile_selected": mediafile_selected})
+
+
+
+
 
 
 # live page of masjed
-def masjed_emama_sajad_live(request):
+def live(request):
     return render(request, 'live.html')
 
 
 # report page of masjed
-def masjed_emama_sajad_report(request):
+def report(request):
     return render(request, 'report.html')
 
 

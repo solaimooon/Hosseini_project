@@ -17,7 +17,7 @@ services:
       - DB_PASSWORD=${MYSQL_PASSWORD}
       - DB_PORT=3306
       - debug=True
-      - ALLOWED_HOSTS=127.0.0.1,localhost
+      - ALLOWED_HOSTS=127.0.0.1,localhost,mjes.ir,kodom-masjed.com
       - DJANGO_ENV=development
     networks:
       - shared_net

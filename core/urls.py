@@ -18,10 +18,11 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 from django.contrib.sitemaps.views import sitemap
-from website.sitemaps import StaticViewSitemap,MosqueRezPageSitemap
+from website.sitemaps import StaticViewSitemap, MosqueRezPageSitemap
 from django.conf import settings
-
 from django.conf.urls.static import static
+import website, rezervation
+from .view import domain_index  # صفحه اول بر اساس دامنه
 
 sitemaps = {
     "static": StaticViewSitemap,
@@ -31,9 +32,11 @@ sitemaps = {
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
-                  path('', include('website.urls')),
-                  path('rezervation/', include('rezervation.urls')),
+                  path('', domain_index, name="domain_index"),  # blank_urls فقط برای fallback
                   path('profile/', include('my_profile.urls')),
+                  path("masjed/", include("website.urls", "website")),
+                  path("rezervation/", include("rezervation.urls", "rezervation")),
+                  # اپ مشترک
                   path(
                       "sitemap.xml",
                       sitemap,
@@ -41,5 +44,4 @@ urlpatterns = [
                       name="django.contrib.sitemaps.views.sitemap",
                   ),
                   path('robots.txt', include('robots.urls')),
-
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

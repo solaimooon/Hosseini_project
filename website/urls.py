@@ -3,12 +3,11 @@ from .views import *
 
 app_name = 'website'
 urlpatterns = [
-    path('', masjed_index, name='index'),
-    path('rez/<str:slug>/', rez_page, name='rez_page'),
+    path('',index, name='index'),
     # masjed pages
 
-    path('m/jame_emam_sajjad/live', masjed_emama_sajad_live, name='masjed_emam_sajad_live'),
-    path('m/jame_emam_sajjad/report', masjed_emama_sajad_report, name='masjed_emam_sajad_report'),
+    path('live',live, name='live'),
+    path('report',report, name='report'),
 
     path("<str:category_slug>/", year_list, name="occasion_years"),
     path("<str:category_slug>/year:<int:year>/", occasion_list , name="occasion_list"),
