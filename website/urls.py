@@ -1,11 +1,14 @@
 from django.urls import path
 from .views import *
-
+from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 app_name = 'website'
 urlpatterns = [
     path('',index, name='index'),
     # masjed pages
 
+    path('admin', admin.site.urls),
     path('live',live, name='live'),
     path('report',report, name='report'),
 
@@ -16,4 +19,4 @@ urlpatterns = [
          name="media_list"),
     path('archive/<str:media_slug>',media_single,name='single_media')
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
