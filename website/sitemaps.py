@@ -1,26 +1,29 @@
 from django.contrib import sitemaps
 from django.urls import reverse
+from website.models import *
 
 
+# static page
 class StaticViewSitemap(sitemaps.Sitemap):
+    protocol = "https"
+    domain = "mjes.ir"  # 👈 دامنه مخصوص اپ مسجد
     priority = 1
-    changefreq = "daily"
+    changefreq = "weekly"
 
     def items(self):
         return ["website:index" ,"website:live","website:report"]
 
     def location(self, item):
         return reverse(item)
-from django.contrib.sitemaps import Sitemap
-from rezervation.models import *
 
 
-class MosqueRezPageSitemap(Sitemap):
+
+class mediafile_Sitemap(sitemaps.Sitemap):
     changefreq = "weekly"
     priority = 0.8
 
     def items(self):
-        return Mosque.objects.all()
+        return MediaFile.objects.all()
 
     def location(self, obj):
         return reverse("website:rez_page", kwargs={"slug": obj.slug})

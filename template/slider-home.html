@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="enamad" content="29431380"/>
     <meta http-equiv="content-language" content="fa"/>
-    <title>کدوم جا،سامانه رزرو مساجد و سالن اجتماعات مساجد برای ختم </title>
+    <title>کدوم مسجد،سامانه رزرو مساجد و سالن اجتماعات مساجد برای ختم </title>
     <meta name="description"
-          content=" کدوم جا سامانه ی آنلاین رزرو مسجد و سالن اجتماعات مساجد به صورت قطعی ،ارزان و با تخفیف برای مراسم ختم و کنفرانس ،آموزش ،همایش در تهران امکان مقایسه امکانات مساجد در سراسر ایران">
+          content=" کدوم مسجد سامانه ی آنلاین رزرو مسجد و سالن اجتماعات مساجد به صورت قطعی ،ارزان و با تخفیف برای مراسم ختم و کنفرانس ،آموزش ،همایش در تهران امکان مقایسه امکانات مساجد در سراسر ایران">
     <link rel="icon" type="image/x-icon" href="{% static 'assets/logo.webp' %}">
     <!-- All Plugins -->
     <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -390,7 +390,7 @@
                                 </div>
                             </div>
                             <div class="text-center mt-3">
-                                <a href="#"
+                                <a href="{% url 'reservation:detail' slug=mosque.slug %}"
                                    class="btn btn-primary w-100 fw-bold py-2 rounded-pill shadow-sm"
                                    style="background-color: #007bff; border-color: #007bff;"
                                    onmouseover="this.style.backgroundColor='#0056b3'"
@@ -1190,7 +1190,7 @@
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="col">
-                    <p class="mb-0 text-center"> کلیه حقوق این سایت محفوظ و متعلق به کدوم جا است.</p>
+                    <p class="mb-0 text-center"> کلیه حقوق این سایت محفوظ و متعلق به کدوم مسجد است.</p>
                 </div>
 
 
@@ -1207,7 +1207,7 @@
             <!-- هدر مودال -->
             <div class="modal-header border-0 pb-0">
                 <div class="w-100 text-center">
-                    <h4 class="modal-title fw-bold text-primary">به سامانه کدوم جا خوش آمدید</h4>
+                    <h4 class="modal-title fw-bold text-primary">به سامانه کدوم مسجد خوش آمدید</h4>
                     <p class="small text-muted mt-1">لطفاً برای ادامه وارد شوید یا ثبت‌نام کنید</p>
                 </div>
                 <button type="button" class="btn-close position-absolute end-0 me-3" data-bs-dismiss="modal"
