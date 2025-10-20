@@ -5,8 +5,7 @@ from rezervation.models import *
 
 # static page
 class StaticViewSitemap(sitemaps.Sitemap):
-    protocol = "https"
-    domain = "kodom-masjed.com"
+
 
     priority = 1
     changefreq = "daily"
@@ -17,17 +16,12 @@ class StaticViewSitemap(sitemaps.Sitemap):
     def location(self, item):
         return reverse(item)
 
-    def get_urls(self, site=None, **kwargs):
-        # دامنه را به‌صورت دستی تنظیم می‌کنیم
-        from django.contrib.sites.models import Site
-        site = Site(domain=self.domain, name=self.domain)
-        return super().get_urls(site=site, **kwargs)
+
 
 
 
 class MosqueRezPageSitemap(sitemaps.Sitemap):
-    protocol = "https"
-    domain = "kodom-masjed.com"  # 👈 دامنه مخصوص اپ مسجد
+
 
     changefreq = "weekly"
     priority = 0.8
