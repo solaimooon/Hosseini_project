@@ -15,7 +15,6 @@ import os.path
 from django.shortcuts import redirect
 from django.http import HttpResponseNotFound
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -34,6 +33,7 @@ ALLOWED_HOSTS = str(os.getenv('ALLOWED_HOSTS')).split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'django.contrib.humanize',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'website',
     'my_profile',
     'rezervation',
+
 ]
 
 MIDDLEWARE = [
@@ -144,7 +145,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # site framework config
 
 SITE_ID = 1
-
 
 # settings.py
 LOGGING = {

@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.sites.models import Site
+from my_profile.models import *
+
 
 class Facility(models.Model):
     name = models.CharField(max_length=100)
@@ -35,20 +37,21 @@ class Mosque(models.Model):
 
 
 class Hall(models.Model):
-    mosque = models.ForeignKey('Mosque', related_name='halls', on_delete=models.CASCADE)
+    type_hall = [
+        ("salonejtemaat", 'سالن اجتماعات'),
+        ("sahne_asli", 'صحن اصلی'),
+    ]
+    mosque = models.ForeignKey('Mosque', related_name='halls', on_delete=models.CASCADE,)
     name = models.CharField(max_length=200)
     capacity = models.PositiveIntegerField()
     is_active = models.BooleanField(default=True)
     facilities = models.ManyToManyField('Facility', related_name='halls', blank=True)
     video_file = models.FileField(upload_to='videos/',null=True)  # ذخیره در پوشه media/videos/
 
-    price = models.DecimalField(null=True,
-        max_digits=10,  # حداکثر تعداد ارقام (مثلاً 10000000.00)
-        decimal_places=2,  # تعداد ارقام اعشار (مثلاً 150000.00)
+    price = models.IntegerField(null=True,
         help_text='قیمت پایه رزرو سالن به تومان'
-
     )
-
+    type_hall=models.CharField(max_length=50, choices=type_hall,default="salonejtemaat")
     def __str__(self):
         return f"{self.name} ({self.mosque.name})"
 
@@ -62,3 +65,41 @@ class HallImage(models.Model):
     def __str__(self):
         return f"Image for {self.hall.name}"
 
+
+# بازه‌های زمانی قابل رزرو برای هر مسجد
+class AvailableTime(models.Model):
+    DAYS_OF_WEEK = [
+        (0, 'شنبه'),
+        (1, 'یک‌شنبه'),
+        (2, 'دوشنبه'),
+        (3, 'سه‌شنبه'),
+        (4, 'چهارشنبه'),
+        (5, 'پنج‌شنبه'),
+        (6, 'جمعه'),
+    ]
+
+    mosque = models.ForeignKey(Mosque, on_delete=models.CASCADE, related_name='available_times')
+    day_of_week = models.IntegerField(choices=DAYS_OF_WEEK)
+    start_time = models.TimeField()
+    end_time = models.TimeField()
+
+    def __str__(self):
+        return f"{self.get_day_of_week_display()} | {self.start_time} - {self.end_time} ({self.mosque.name})"
+
+    class Order(models.Model):
+        STATUS_CHOICES = [
+            ('pending', 'در انتظار پرداخت'),
+            ('paid', 'پرداخت شده'),
+            ('cancelled', 'لغو شده'),
+        ]
+
+        user = models.ForeignKey(Mosque_customer, on_delete=models.CASCADE)
+        mosque = models.ForeignKey(Mosque, on_delete=models.CASCADE)
+        available_time = models.ForeignKey("AvailableTime", on_delete=models.PROTECT)
+        date = models.DateField()  # تاریخ خاص (مثلاً 1403-08-01)
+        price = models.PositiveIntegerField(default=0)
+        status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
+        created_at = models.DateTimeField(auto_now_add=True)
+
+        def __str__(self):
+            return f"{self.user} رزرو {self.mosque} - {self.date} ({self.available_time})"

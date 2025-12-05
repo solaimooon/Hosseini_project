@@ -1,13 +1,13 @@
+{% extends 'base_kodom_masjed.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مسجد جامع امام سجاد (ع)</title>
-    <meta name="description"
-          content="صفحه رزرو صحن اصلی و سالن اجتماعات مسجد جامع امام سجاد(ع) واقع در خیابان اشرفی اصفهانی"/>
+{% block title %} {% endblock %}
+
+{% block discription %}صفحه رزرو صحن اصلی و سالن اجتماعات مسجد جامع امام سجاد(ع) واقع در خیابان اشرفی
+    اصفهانی {% endblock %}
+{% block costum_head %}
+
+
     <link rel="icon" type="image/x-icon" href="{% static 'assets/logo.webp' %}">
     <!-- All Plugins -->
     <!-- فایل CSS بوت‌استرپ -->
@@ -24,18 +24,15 @@
     <!-- فایل CSS بوت‌استرپ -->
 
     <!-- fontawsone-->
-<link href="{% static 'assets/css/fontawesome.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/fontawesome.css' %}" rel="stylesheet">
     <link href="{% static 'assets/css/bootstrap-icons.css' %}" rel="stylesheet">
 
     <!-- custome style -->
     <link href="{% static 'assets/css/style2.css' %}" rel="stylesheet">
-
-    <!-- sweet alert -->
-    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.5.8/dist/sweetalert2.min.css" rel="stylesheet">
-    <!-- neshan cdn -->
-    <link rel="stylesheet" href="https://static.neshan.org/sdk/leaflet/v1.9.4/neshan-sdk/v1.0.8/index.css"/>
-    <script src="https://static.neshan.org/sdk/leaflet/v1.9.4/neshan-sdk/v1.0.8/index.js"></script>
     <style>
+        body {
+            padding-bottom: 80px; /* بسته به ارتفاع navbar */
+        }
 
         .nav-tabs .nav-link.active {
             border-bottom: 3px solid #4a4aff; /* خط آبی پایین تب فعال */
@@ -146,582 +143,664 @@
                 padding: 10px 25px;
             }
         }
+
+        /* فاصله کافی از بالا برای اینکه دکمه های ویدئو و عکس زیر نوبار نموند */
+        .phone-page {
+            padding-top: 70px !important; /* ارتفاع نوبار */
+        }
+
+        /* اطمینان از اینکه نوبار بالای تب‌هاست */
+        .navbar.fixed-top {
+            z-index: 1050;
+        }
+
+        /*choose sahne */
+        .hall-card.selected {
+            border: 2px solid #007bff !important; /* رنگ تم — تغییر بده */
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+        }
+
+        /* emkanat */
+
+        .facility-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: 0.2s;
+        }
+
+        .facility-item:hover {
+            background: #eef2ff; /* رنگ ملایم هنگام هاور */
+        }
+
+        .facility-icon {
+            width: 28px;
+            height: 28px;
+            background: #e9f7ef;
+            color: #28a745;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 14px;
+        }
+
+        .facility-text {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
     </style>
-</head>
-<body>
+{% endblock %}
 
-<section class="pt-3 gray-simple d-none d-lg-block">
-    <div class="container-fluid">
-        <div class="row">
+{% block content %}
 
-            <div class="col-xl-12 col-lg-12 col-md-12">
-                <div class="card  border-0 p-lg-3 pb-lg-5">
-                    <!-- name and addres of masjed in desktop-->
-                    <div class="card-header d-lg-flex d-none align-items-center justify-content-between mb-3">
-                        <div class="crd-heaader-first">
-                            <div class="d-block">
-                                <h4 class="mb-0 fw-bold">{{ mosque.name }}</h4>
-                                <div class="explotter">
-                                    <p class="detail ellipsis-container fw-semibold">
-                                        <i class="fa-solid fa-map-marker-alt text-info ms-2"></i>
-                                        {{ mosque.address }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-heaader-last my-md-0 my-2">
-                            <div class="drix-wrap d-flex flex-column align-items-md-end align-items-start text-end">
-                                <!--                                    <div class="drix-first d-flex align-items-center text-end mb-2">-->
-                                <!--                                        <a href="rental-detail.html#"-->
-                                <!--                                           class="bg-light-info text-info rounded-1 fw-medium text-sm px-3 py-2 lh-base"><i-->
-                                <!--                                                class="fa-solid fa-bookmark ms-2"></i>افزودن به علاقه مندی</a>-->
-
-                                <!--                                    </div>-->
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- gallery and video for desktop -->
-                    <div class="card-body p-0">
-
-                        <div class="row align-items-center justify-content-between d-lg-flex d-none">
-                            <div class="col-12">
-                                <div class="galleryGrid typeGrid_2 mb-lg-0 mb-3">
-                                    <div class="galleryGrid__item relative d-flex">
-                                        {% for hall in mosque.halls.all %}
-                                            <video class="rounded-2 img-fluid" controls>
-                                                <source src="{{ hall.video_file.url }}" type="video/mp4">
-                                                مرورگر شما از ویدیو پشتیبانی نمی‌کند.
-                                            </video>
-                                        {% endfor %}
-                                    </div>
-                                    <div class="galleryGrid__item position-relative">
-                                        <a href="{% static 'assets/img/property/img-3.jpg' %}" data-lightbox="roadtrip"><img
-                                                src="{% static 'assets/img/property/img-3.jpg' %}"
-                                                alt="image" class="rounded-2 img-fluid"></a>
-                                        <div class="position-absolute start-0 bottom-0 mb-3 ms-3">
-                                            <a href="{% static 'assets/img/property/img-4.jpg' %}"
-                                               data-lightbox="roadtrip"
-                                               class="btn btn-md btn-whites fw-medium text-dark"><i
-                                                    class="fa-solid fa-caret-left ms-1"></i>مشاهده همه</a>
-                                        </div>
-                                    </div>
-                                    <div class="galleryGrid__item">
-                                        <a href="{% static 'assets/img/property/img-4.jpg' %}" data-lightbox="roadtrip"><img
-                                                src="{% static 'assets/img/property/img-4.jpg' %}"
-                                                alt="image" class="rounded-2 img-fluid"></a>
-                                    </div>
-                                    <div class="galleryGrid__item">
-                                        <a href="{% static 'assets/img/property/img-5.jpg' %}" data-lightbox="roadtrip"><img
-                                                src="{% static 'assets/img/property/img-5.jpg' %}"
-                                                alt="image" class="rounded-2 img-fluid"></a>
+    <!-- desktop section-->
+    <section class="pt-3 gray-simple d-none d-lg-block">
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-xl-12 col-lg-12 col-md-12">
+                    <div class="card  border-0 p-lg-3 pb-lg-5">
+                        <!-- name  of masjed in desktop-->
+                        <div class="card-header d-lg-flex d-none align-items-center justify-content-between mb-3">
+                            <div class="crd-heaader-first">
+                                <div class="d-block">
+                                    <h4 class="mb-0 fw-bold">{{ mosque.name }}</h4>
+                                    <div class="explotter">
+                                        <p class="detail ellipsis-container fw-semibold">
+                                            <i class="fa-solid fa-map-marker-alt text-info ms-2"></i>
+                                            {{ mosque.address }}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-heaader-last my-md-0 my-2">
+                                <div class="drix-wrap d-flex flex-column align-items-md-end align-items-start text-end">
+                                    <!--                                    <div class="drix-first d-flex align-items-center text-end mb-2">-->
+                                    <!--                                        <a href="rental-detail.html#"-->
+                                    <!--                                           class="bg-light-info text-info rounded-1 fw-medium text-sm px-3 py-2 lh-base"><i-->
+                                    <!--                                                class="fa-solid fa-bookmark ms-2"></i>افزودن به علاقه مندی</a>-->
+
+                                    <!--                                    </div>-->
+
+                                </div>
+                            </div>
                         </div>
-                        <iframe class="d-lg-none d-block custom-iframe" src="media-tabs.html"></iframe>
 
-                    </div>
-                    <!-- detail of masjed -->
-                    <div class=" row justify-content-between align-items-start mt-2">
-                        <!--  information -->
-                        <div class="col-lg-9 mt-3">
-                            <div class="container">
-                                <!-- navbar -->
-                                <ul class="nav nav-tabs justify-content-start border-bottom d-lg-flex d-none">
-                                    <li class="nav-item">
-                                        <a class="nav-link active text-dark fw-bold" href="#">تصاویر</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark fw-bold" href="#">مشخصات</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark fw-bold" href="#">قوانین</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark fw-bold" href="#">نظرات</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark fw-bold" href="#">موقعیت</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark fw-bold" href="#">تقویم</a>
-                                    </li>
-                                </ul>
-
-                                <!-- check free reservation -->
-                                <div class="mt-4 border-bottom">
-                                    <div class="d-flex lg-justify-content-between lg-align-items-center">
-                                        <!-- انتخاب تاریخ -->
-                                        <div class="form-group w-50 pb-4 pt-4">
-                                            <label class="form-label fw-semibold">تاریخ مراسم را وارد
-                                                کنید</label>
-                                            <input type="text"
-                                                   class="form-control choosedate rounded-pill shadow-sm">
+                        <!-- gallery and video for desktop -->
+                        <div class="card-body p-0">
+                            <div class="row align-items-center justify-content-between d-lg-flex d-none">
+                                <div class="col-12">
+                                    <div class="galleryGrid typeGrid_2 mb-lg-0 mb-3">
+                                        <div class="galleryGrid__item relative d-flex">
+                                            {% for hall in mosque.halls.all %}
+                                                <video class="rounded-2 img-fluid" controls>
+                                                    <source src="{{ hall.video_file.url }}" type="video/mp4">
+                                                    مرورگر شما از ویدیو پشتیبانی نمی‌کند.
+                                                </video>
+                                            {% endfor %}
                                         </div>
-
-                                        <!-- کارت نمایش ساعت‌های رزرو شده -->
-                                        <div class="container w-50 pb-4 pt-4">
-                                            <div class="card shadow-lg border-0 rounded-4">
-                                                <div class="card-header bg-info text-white text-center">
-                                                    <h5 class="mb-0">ساعت‌های رزرو شده</h5>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="d-flex flex-wrap gap-2">
-                                                        <button class="btn btn-outline-danger" disabled>
-                                                            10:00 -
-                                                            11:30
-                                                        </button>
-                                                        <button class="btn btn-outline-danger" disabled>
-                                                            01:30 -
-                                                            02:30
-                                                        </button>
-                                                    </div>
-                                                </div>
+                                        <div class="galleryGrid__item position-relative">
+                                            <a href="{% static 'assets/img/property/img-3.jpg' %}"
+                                               data-lightbox="roadtrip"><img
+                                                    src="{% static 'assets/img/property/img-3.jpg' %}"
+                                                    alt="image" class="rounded-2 img-fluid"></a>
+                                            <div class="position-absolute start-0 bottom-0 mb-3 ms-3">
+                                                <a href="{% static 'assets/img/property/img-4.jpg' %}"
+                                                   data-lightbox="roadtrip"
+                                                   class="btn btn-md btn-whites fw-medium text-dark"><i
+                                                        class="fa-solid fa-caret-left ms-1"></i>مشاهده همه</a>
                                             </div>
                                         </div>
-
-
+                                        <div class="galleryGrid__item">
+                                            <a href="{% static 'assets/img/property/img-4.jpg' %}"
+                                               data-lightbox="roadtrip"><img
+                                                    src="{% static 'assets/img/property/img-4.jpg' %}"
+                                                    alt="image" class="rounded-2 img-fluid"></a>
+                                        </div>
+                                        <div class="galleryGrid__item">
+                                            <a href="{% static 'assets/img/property/img-5.jpg' %}"
+                                               data-lightbox="roadtrip"><img
+                                                    src="{% static 'assets/img/property/img-5.jpg' %}"
+                                                    alt="image" class="rounded-2 img-fluid"></a>
+                                        </div>
                                     </div>
                                 </div>
-                                <!-- emkanat -->
-                                <div class="pt-4 pb-4 border-bottom">
-                                    <h6 class="fw-semibold mb-3">امکانات</h6>
+                            </div>
+                            <iframe class="d-lg-none d-block custom-iframe" src="media-tabs.html"></iframe>
 
-                                    <ul class="row align-items-center p-0 g-3">
-                                        {% for emkanat in mosque.facilities.all %}
-                                            <li class="col-md-6">
-                                                <i class="fa-solid fa-check text-success m-2"></i>
-                                                {{ emkanat.name }}
-                                            </li>
-                                        {% endfor %}
-                                        {% for hall in mosque.halls.all %}
-                                            {% for  emkanat in hall.facilities.all %}
-                                                <li class="col-md-6">
-                                                    <i class="fa-solid fa-check text-success m-2"></i>
-                                                    {{ emkanat.name }}
-                                                </li>
-                                            {% endfor %}
-                                        {% endfor %}
+                        </div>
 
+                        <!-- detail of masjed -->
+                        <div class=" row justify-content-between align-items-start mt-2">
+                            <!--  information -->
+                            <div class="col-lg-9 mt-3">
+                                <div class="container">
+                                    <!-- navbar -->
+                                    <ul class="nav nav-tabs justify-content-start border-bottom d-lg-flex d-none">
+                                        <li class="nav-item">
+                                            <a class="nav-link active text-dark fw-bold" href="#">تصاویر</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark fw-bold" href="#">مشخصات</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark fw-bold" href="#">قوانین</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark fw-bold" href="#">نظرات</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark fw-bold" href="#">موقعیت</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark fw-bold" href="#">تقویم</a>
+                                        </li>
                                     </ul>
 
-                                </div>
-                                <!-- map -->
-                                <div class="pt-4 pb-4 border-bottom w-100" style="height:500px">
-                                    <h6 class="fw-semibold mb-3">موقعیت</h6>
-                                    <div id="map" class="mt-4" style="height: 100% ;width: 100%"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- reserve box -->
-                        <div class="col-lg-3 d-lg-block d-none">
-                            <div class="card mt-5" style="width: 22rem;">
-                                <div class="card-body">
-                                    <div class="justify-content-between">
-                                        <h5 class="text-muted text-end">قیمت : <span
-                                                class="text-dark float-start"> 7,000,000 تومان</span></h5>
-                                        <h6 class="text-end"></h6>
+                                    <!-- check free reservation -->
+                                    <div class="mt-4 border-bottom">
+                                        <div class="d-flex lg-justify-content-between lg-align-items-center">
+
+
+                                            {#                                        <!-- کارت نمایش ساعت‌های رزرو شده -->#}
+                                            {#                                        <div class="container w-50 pb-4 pt-4">#}
+                                            {#                                            <div class="card shadow-lg border-0 rounded-4">#}
+                                            {#                                                <div class="card-header bg-info text-white text-center">#}
+                                            {#                                                    <h5 class="mb-0">ساعت‌های رزرو شده</h5>#}
+                                            {#                                                </div>#}
+                                            {#                                                <div class="card-body">#}
+                                            {#                                                    <div class="d-flex flex-wrap gap-2">#}
+                                            {#                                                        <button class="btn btn-outline-danger" disabled>#}
+                                            {#                                                            10:00 -#}
+                                            {#                                                            11:30#}
+                                            {#                                                        </button>#}
+                                            {#                                                        <button class="btn btn-outline-danger" disabled>#}
+                                            {#                                                            01:30 -#}
+                                            {#                                                            02:30#}
+                                            {#                                                        </button>#}
+                                            {#                                                    </div>#}
+                                            {#                                                </div>#}
+                                            {#                                            </div>#}
+                                            {#                                        </div>#}
+
+
+                                        </div>
                                     </div>
+                                    <!-- بخش امکانات -->
+                <div class="pt-4 pb-4 border-bottom">
+    <h6 class="fw-semibold mb-3">امکانات</h6>
 
-                                    <h3>انتخاب ساعت</h3>
+    <div class="row">
 
-                                    <!-- انتخاب ساعت شروع -->
-                                    <div class="form-group mb-4">
-                                        <label class="form-label">ساعت شروع</label>
-                                        <input type="time" class="form-control rounded-pill appt start_time"
-                                        >
-                                    </div>
-
-                                    <!-- انتخاب ساعت پایان -->
-                                    <div class="form-group mb-4">
-                                        <label class="form-label">ساعت پایان</label>
-                                        <input type="time" class="form-control rounded-pill appt end_time"
-                                        >
-                                    </div>
-                                    <!-- reserve btn -->
-                                    <a class="btn rounded-pill btn-primary w-100 "> رزرو </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-
+        {% if mosque.facilities.all %}
+        <h6 class="fw-bold text-muted mt-2 mb-3">امکانات عمومی مسجد</h6>
+        {% for emkanat in mosque.facilities.all %}
+        <div class="col-6 mb-3">
+            <div class="d-flex align-items-center facility-item p-2 rounded">
+                <span class="facility-icon mr-2">
+                    <i class="fa-regular fa-circle-check"></i>
+                </span>
+                <span class="facility-text">{{ emkanat.name }}</span>
             </div>
         </div>
+        {% endfor %}
+        {% endif %}
 
-    </div>
-</section>
-
-<section class="d-lg-none">
-    <!-- gallery in phone type -->
-    <div class="custom-media-tabs d-lg-none">
-        <div class="tab-content p-0">
-            <ul class="nav nav-tabs justify-content-center" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active fw-bold" id="photos-tab" data-bs-toggle="tab"
-                            data-bs-target="#photos" type="button" role="tab" aria-controls="photos"
-                            aria-selected="true">
-                        تصاویر
-                    </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link fw-bold" id="videos-tab" data-bs-toggle="tab"
-                            data-bs-target="#videos" type="button" role="tab" aria-controls="videos"
-                            aria-selected="false">
-                        ویدئو
-                    </button>
-                </li>
-            </ul>
-
-            <div class="tab-pane fade show active" id="photos" role="tabpanel" aria-labelledby="photos-tab">
-                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="{% static 'assets/2 (1).jpg' %}" class="d-block w-100" loading="lazy"
-                                 alt="تصویر ۱">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{% static 'assets/2 (3).jpg' %}" class="d-block w-100" loading="lazy"
-                                 alt="تصویر ۲">
-                        </div>
-                        <!-- تصاویر بیشتر اضافه کنید -->
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
-                            data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">قبلی</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
-                            data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">بعدی</span>
-                    </button>
+        {% for hall in mosque.halls.all %}
+            {% if hall.facilities.all %}
+            <h6 class="fw-bold text-muted mt-4 mb-3">{{ hall.name }} – امکانات اختصاصی</h6>
+            {% for emkanat in hall.facilities.all %}
+            <div class="col-6 mb-3">
+                <div class="d-flex align-items-center facility-item p-2 rounded">
+                    <span class="facility-icon mr-2">
+                        <i class="fa-regular fa-circle-check"></i>
+                    </span>
+                    <span class="facility-text">{{ emkanat.name }}</span>
                 </div>
             </div>
+            {% endfor %}
+            {% endif %}
+        {% endfor %}
 
-            <div class="tab-pane fade" id="videos" role="tabpanel" aria-labelledby="videos-tab">
-                <div class="video-container ratio ratio-16x9 overflow-hidden">
-                    {% for hall in mosque.halls.all %}
+    </div>
+</div>
+                                    <!-- map -->
+                                    <div class="pt-4 pb-4 border-bottom w-100" style="height:500px">
+                                        <h6 class="fw-semibold mb-3">موقعیت</h6>
+                                        <div id="map" class="mt-4" style="height: 100% ;width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- reserve box -->
+                            <div class="col-lg-3 d-lg-block d-none">
+                                <div class="card mt-5" style="width: 22rem;">
+                                    <div class="card-body">
+                                        <div class="justify-content-between">
+                                            <h5 class="text-muted text-end">قیمت : <span
+                                                    class="text-dark float-start"> 7,000,000 تومان</span></h5>
+                                            <h6 class="text-end"></h6>
+                                        </div>
+
+                                        <h3>انتخاب ساعت</h3>
+
+                                        <!-- انتخاب ساعت شروع -->
+                                        <div class="form-group mb-4">
+                                            <label class="form-label">ساعت شروع</label>
+                                            <input type="time" class="form-control rounded-pill appt start_time"
+                                            >
+                                        </div>
+
+                                        <!-- انتخاب ساعت پایان -->
+                                        <div class="form-group mb-4">
+                                            <label class="form-label">ساعت پایان</label>
+                                            <input type="time" class="form-control rounded-pill appt end_time"
+                                            >
+                                        </div>
+                                        <!-- reserve btn -->
+                                        <a class="btn rounded-pill btn-primary w-100 "> انتخاب تاریخ </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--phone section-->
+    <section class="d-lg-none">
+
+        <!-- gallery in phone type -->
+        <div class="custom-media-tabs d-lg-none">
+            <div class="tab-content p-0">
+                <ul class="nav nav-tabs justify-content-center" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active fw-bold" id="photos-tab" data-bs-toggle="tab"
+                                data-bs-target="#photos" type="button" role="tab" aria-controls="photos"
+                                aria-selected="true"> تصاویر
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link fw-bold" id="videos-tab" data-bs-toggle="tab" data-bs-target="#videos"
+                                type="button" role="tab" aria-controls="videos" aria-selected="false"> ویدئو
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-pane fade show active" id="photos" role="tabpanel" aria-labelledby="photos-tab">
+                    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active"><img src="{% static 'assets/2 (1).jpg' %}"
+                                                                   class="d-block w-100" loading="lazy" alt="تصویر ۱">
+                            </div>
+                            <div class="carousel-item"><img src="{% static 'assets/2 (3).jpg' %}" class="d-block w-100"
+                                                            loading="lazy" alt="تصویر ۲"></div>
+                            <!-- تصاویر بیشتر اضافه کنید --> </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                                data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">قبلی</span></button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                                data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">بعدی</span></button>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="videos" role="tabpanel" aria-labelledby="videos-tab">
+                    <div class="video-container ratio ratio-16x9 overflow-hidden"> {% for hall in mosque.halls.all %}
                         <video class="rounded-2 img-fluid" controls>
                             <source src="{{ hall.video_file.url }}" type="video/mp4">
                             مرورگر شما از ویدیو پشتیبانی نمی‌کند.
-                        </video>
-                    {% endfor %}
+                        </video> {% endfor %} </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- name and address -->
-    <div class="d-block m-3 border-bottom">
-        <h4 class="fw-bold">{{ mosque.name }}</h4>
-        <div class="explotter mb-3">
-            <p class="detail ellipsis-container fw-semibold">
-                <i class="fa-solid fa-map-marker-alt text-info ms-2"></i>
-                {{ mosque.address }}
-            </p>
+
+        <!-- name and address -->
+        <div class="d-block m-3 border-bottom"><h4 class="fw-bold">{{ mosque.name }}</h4>
+            <div class="explotter mb-3"><p class="detail ellipsis-container fw-semibold"><i
+                    class="fa-solid fa-map-marker-alt text-info ms-2"></i> {{ mosque.address }} </p></div>
         </div>
+
+        <!-- detail of masjed -->
+        <div class="col-12 mt-3">
+            <div class="container">
+                <!-- بخش امکانات -->
+                <div class="pt-4 pb-4 border-bottom">
+    <h6 class="fw-semibold mb-3">امکانات</h6>
+
+    <div class="row">
+
+        {% if mosque.facilities.all %}
+        <h6 class="fw-bold text-muted mt-2 mb-3">امکانات عمومی مسجد</h6>
+        {% for emkanat in mosque.facilities.all %}
+        <div class="col-6 mb-3">
+            <div class="d-flex align-items-center facility-item p-2 rounded">
+                <span class="facility-icon mr-2">
+                    <i class="fa-regular fa-circle-check"></i>
+                </span>
+                <span class="facility-text">{{ emkanat.name }}</span>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        {% for hall in mosque.halls.all %}
+            {% if hall.facilities.all %}
+            <h6 class="fw-bold text-muted mt-4 mb-3">{{ hall.name }} – امکانات اختصاصی</h6>
+            {% for emkanat in hall.facilities.all %}
+            <div class="col-6 mb-3">
+                <div class="d-flex align-items-center facility-item p-2 rounded">
+                    <span class="facility-icon mr-2">
+                        <i class="fa-regular fa-circle-check"></i>
+                    </span>
+                    <span class="facility-text">{{ emkanat.name }}</span>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        {% endfor %}
+
     </div>
+</div>
+                <!-- map -->
+                <div class="pt-4 pb-4 border-bottom w-100" style="height:500px"><h6 class="fw-semibold mb-3">موقعیت</h6>
+                    <div id="map2" class="mt-4" style="height: 100% ;width: 100%"></div>
+                </div>
+                <!--choose sahne-->
+                <div class="container mt-3">
 
-    <!-- detail of masjed -->
-    <div class="col-12 mt-3">
-        <div class="container">
-            <!-- check free reservation -->
-            <div class="mt-4 border-bottom">
+                    <h5 class="mb-3">انتخاب صحن</h5>
 
-                <!-- انتخاب تاریخ -->
-                <div class="form-group w-100 pb-4 pt-4">
-                    <label class="form-label fw-semibold">برای دیدن ساعت‌های رزرو شده در یک تاریخ خاص، اول تاریخ رو
-                        انتخاب کن
-                    </label>
-                    <input type="text"
-                           class="form-control choosedate rounded-pill shadow-sm">
+                    <div class="row">
+
+                        <!-- کارت صحن -->
+                        <div class="col-12 mb-3">
+                            <div class="card hall-card" onclick="selectHall(this)">
+                                <img class="card-img-top" src="https://via.placeholder.com/500x250" alt="صحن مسجد">
+                                <div class="card-body">
+                                    <h5 class="card-title">صحن اصلی مسجد</h5>
+                                    <p class="card-text mb-1">
+                                        گنجایش: ۷۰ نفر
+                                    </p>
+                                    <p class="card-text font-weight-bold text-primary mb-3">
+                                        قیمت: ۵۰۰,۰۰۰ تومان
+                                    </p>
+
+                                    <button class="btn btn-primary btn-block select-btn">
+                                        انتخاب صحن
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- کارت صحن -->
+                        <div class="col-12 mb-3">
+                            <div class="card hall-card" onclick="selectHall(this)">
+                                <img class="card-img-top" src="https://via.placeholder.com/500x250" alt="صحن">
+                                <div class="card-body">
+                                    <h5 class="card-title">صحن پشتی</h5>
+                                    <p class="card-text mb-1">
+                                        گنجایش: ۵۰ نفر
+                                    </p>
+                                    <p class="card-text font-weight-bold text-primary mb-3">
+                                        قیمت: ۳۰۰,۰۰۰ تومان
+                                    </p>
+
+                                    <button class="btn btn-primary btn-block select-btn">
+                                        انتخاب صحن
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <nav class="navbar fixed-bottom bg-white shadow-sm p-2 d-block d-lg-none border-top">
+
+            <div class="container d-flex justify-content-between align-items-center">
+
+                <!-- قیمت -->
+                <div id="selected-hall-price" class="text-end">
+                    <div class="text-muted small">
+                        ابتدا یک صحن را انتخاب کنید
+                    </div>
                 </div>
 
-                <!-- کارت نمایش ساعت‌های رزرو شده -->
-                <div class="container w-100 pb-4 pt-4">
-                    <div class="card shadow-lg border-0 rounded-4">
-                        <div class="card-header bg-info text-white text-center">
-                            <h5 class="mb-0">این ساعت‌ها قبلاً رزرو شدن </h5>
+                <!-- دکمه انتخاب تاریخ -->
+                <button id="choose-date-btn" class="btn btn-primary px-3 py-2 fw-bold rounded-pill btn-lg"
+                        data-bs-toggle="modal" data-bs-target="#reservationModal" disabled>
+                    انتخاب تاریخ
+                </button>
+
+            </div>
+
+        </nav>
+
+        <!-- modal to choise the time -->
+        <!-- مودال فول‌اسکرین -->
+        <div class="modal fade" id="reservationModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content d-flex flex-column h-100"> <!-- هدر بالا -->
+                    <div class="modal-header border-bottom">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"> بازگشت</button>
+                    </div> <!-- محتوای اصلی مودال -->
+                    <form method="post" action="" class="flex-grow-1 d-flex flex-column">
+                        <div class="modal-body flex-grow-1 d-flex flex-column justify-content-center align-items-center text-center">
+                            <h4 class="mb-4">انتخاب تاریخ </h4> <!-- انتخاب تاریخ -->
+                            <div class="mb-4 w-75"><label for="date" class="form-label">تاریخ مورد نظر</label> <input
+                                    type="date" id="date" name="date" class="form-control" required></div>
+                            <!-- انتخاب ساعت --> <!-- انتخاب ساعت شروع -->
+                            <div class="form-group mb-4 w-75"><label class="form-label">ساعت شروع</label> <input
+                                    type="time" class="form-control w-100 rounded-pill appt start_time"></div>
+                            <!-- انتخاب ساعت پایان -->
+                            <div class="form-group mb-4 w-75"><label class="form-label">ساعت پایان</label> <input
+                                    type="time" class="form-control w-100 rounded-pill appt end_time "></div>
+                        </div> <!-- فوتر پایین مودال -->
+                        <div class="modal-footer border-0">
+                            <button type="submit" class="btn btn-primary w-100 py-2 fs-5 rounded-pill">ثبت رزرو</button>
                         </div>
-                        <div class="card-body">
-                            <div class="d-flex flex-wrap gap-2">
-                                <button class="btn btn-outline-danger" disabled>
-                                    10:00 -
-                                    11:30
-                                </button>
-                                <button class="btn btn-outline-danger" disabled>
-                                    01:30 -
-                                    02:30
-                                </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================ Footer Start ================================== -->
+    <footer class="footer skin-dark-footer">
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h4 class="widget-title">با خیال راحت به ما اعتماد کنید</h4>
+                            <div class="pmt-wrap">
+                                <a referrerpolicy='origin' target='_blank'
+                                   href='https://trustseal.enamad.ir/?id=662157&Code=cBEfcGMwLrylJXFCmZEIvZwMgqE7kGPU'><img
+                                        referrerpolicy='origin'
+                                        src='https://trustseal.enamad.ir/logo.aspx?id=662157&Code=cBEfcGMwLrylJXFCmZEIvZwMgqE7kGPU'
+                                        alt='' style='cursor:pointer' code='cBEfcGMwLrylJXFCmZEIvZwMgqE7kGPU'></a>
                             </div>
                         </div>
                     </div>
+
                 </div>
-            </div>
-
-            <!-- emkanat -->
-            <div class="pt-4 pb-4 border-bottom">
-                <h6 class="fw-semibold mb-3">امکانات</h6>
-                <ul class="row align-items-center p-0 g-3">
-                    {% for emkanat in mosque.facilities.all %}
-                        <li class="col-md-6">
-                            <i class="fa-solid fa-check text-success m-2"></i>
-                            {{ emkanat.name }}
-                        </li>
-                    {% endfor %}
-                    {% for hall in mosque.halls.all %}
-                        {% for  emkanat in hall.facilities.all %}
-                            <li class="col-md-6">
-                                <i class="fa-solid fa-check text-success m-2"></i>
-                                {{ emkanat.name }}
-                            </li>
-                        {% endfor %}
-                    {% endfor %}
-
-                </ul>
-            </div>
-            <!-- map -->
-            <div class="pt-4 pb-4 border-bottom w-100" style="height:500px">
-                <h6 class="fw-semibold mb-3">موقعیت</h6>
-                <div id="map2" class="mt-4" style="height: 100% ;width: 100%"></div>
             </div>
         </div>
-    </div>
-    <nav class="navbar fixed-bottom bg-white shadow-sm p-2 d-block d-lg-none border-top "> <!-- تغییرات -->
-        <div class="container d-flex justify-content-between align-items-center gap-2"> <!-- اضافه شدن gap -->
 
-            <!-- اطلاعات قیمت و امتیاز -->
-            <div class="text-end">
-                <div class="text-dark">
-                    هر جلسه <span class="fw-bold fs-5">۴,۱۲۵,۰۰۰</span> تومان <!-- کاهش فونت -->
-                </div>
-                <!--            <div class="text-muted text-start">-->
-                <!--                <span class="fw-bold small">⭐ ۴.۸۵</span> &lt;!&ndash; کاهش سایز &ndash;&gt;-->
-                <!--                <span class="small">(۸۳ نظر)</span>-->
-                <!--            </div>-->
-            </div>
-
-            <!-- دکمه ثبت رزرو -->
-            <button class="btn btn-primary px-3 py-3 fw-bold rounded-pill my-2 btn-lg" data-bs-toggle="modal"
-                    data-bs-target="#reservationModal"> <!-- کاهش padding -->
-                ثبت رزرو
-            </button>
-        </div>
-    </nav>
-    <!-- modal to choise the time -->
-    <!-- مودال فول‌اسکرین -->
-    <div class="modal fade" id="reservationModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content d-flex flex-column h-100">
-
-                <!-- هدر بالا -->
-                <div class="modal-header border-bottom">
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                        بازگشت
-                    </button>
-                </div>
-
-                <!-- محتوای اصلی مودال -->
-                <form method="post" action=""
-                      class="flex-grow-1 d-flex flex-column">
-
-                    <div class="modal-body flex-grow-1 d-flex flex-column justify-content-center align-items-center text-center">
-
-                        <h4 class="mb-4">انتخاب تاریخ </h4>
-
-                        <!-- انتخاب تاریخ -->
-                        <div class="mb-4 w-75">
-                            <label for="date" class="form-label">تاریخ مورد نظر</label>
-                            <input type="date" id="date" name="date" class="form-control" required>
-                        </div>
-
-                        <!-- انتخاب ساعت -->
-                        <!-- انتخاب ساعت شروع -->
-                        <div class="form-group mb-4 w-75">
-                            <label class="form-label">ساعت شروع</label>
-                            <input type="time" class="form-control w-100 rounded-pill appt start_time"
-                            >
-                        </div>
-
-                        <!-- انتخاب ساعت پایان -->
-                        <div class="form-group mb-4 w-75">
-                            <label class="form-label">ساعت پایان</label>
-                            <input type="time" class="form-control w-100 rounded-pill appt end_time "
-                            >
-                        </div>
-
+        <div class="footer-bottom border-top">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col">
+                        <p class="mb-0 text-center"> کلیه حقوق این سایت محفوظ و متعلق به کدوم مسجد است.</p>
                     </div>
 
-                    <!-- فوتر پایین مودال -->
-                    <div class="modal-footer border-0">
-                        <button type="submit" class="btn btn-primary w-100 py-2 fs-5 rounded-pill">ثبت رزرو</button>
-                    </div>
-                </form>
 
+                </div>
             </div>
         </div>
-    </div>
+    </footer>
+    <!-- ============================ Footer End ================================== -->
 
-</section>
-<!-- ============================================================== -->
-<!-- bootstrapt script -->
-<script src="{% static 'assets/bootstrap-5.2.3-dist/js/bootstrap.min.js' %}"></script>
+    <!-- ============================================================== -->
+    <!-- bootstrapt script -->
+    <script src="{% static 'assets/bootstrap-5.2.3-dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/dropzone.min.js' %}"></script>
+    <script src="{% static 'assets/js/flatpickr.js' %}"></script>
+    <script src="{% static 'assets/js/flickity.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/js/lightbox.min.js' %}"></script>
+    <script src="{% static 'assets/js/rangeslider.js' %}"></script>
+    <script src="{% static 'assets/js/select2.min.js' %}"></script>
+    <script src="{% static 'assets/js/counterup.min.js' %}"></script>
+    <script src="{% static 'assets/js/prism.js' %}"></script>
 
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+    <!-- Date Booking Script -->
+    <script src="{% static 'assets/js/jdate.min.js' %}"></script>
+    <script src="{% static 'assets/js/fa.js' %}"></script>
+    <script>
+        window.Date = window.JDate;
+        flatpickr("#checkinout", {
+            "locale": "fa",
+            mode: "range",
+            minDate: "today",
+            format: 'YYYY/MM/DD',
+        });
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true
+        })
 
-<script src="{% static 'assets/js/jquery.min.js' %}"></script>
-<script src="{% static 'assets/js/popper.min.js' %}"></script>
-<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
-<script src="{% static 'assets/js/dropzone.min.js' %}"></script>
-<script src="{% static 'assets/js/flatpickr.js' %}"></script>
-<script src="{% static 'assets/js/flickity.pkgd.min.js' %}"></script>
-<script src="{% static 'assets/js/lightbox.min.js' %}"></script>
-<script src="{% static 'assets/js/rangeslider.js' %}"></script>
-<script src="{% static 'assets/js/select2.min.js' %}"></script>
-<script src="{% static 'assets/js/counterup.min.js' %}"></script>
-<script src="{% static 'assets/js/prism.js' %}"></script>
+        flatpickr(".choosedate", {
+            "locale": "fa"
+        });
+    </script>
+    <!-- timepicker script to check the hamposhanitarikh -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script src="{% static 'assets/js/custom.js' %}"></script>
-<!-- Date Booking Script -->
-<script src="{% static 'assets/js/jdate.min.js' %}"></script>
-<script src="{% static 'assets/js/fa.js' %}"></script>
-<script>
-    window.Date = window.JDate;
-    flatpickr("#checkinout", {
-        "locale": "fa",
-        mode: "range",
-        minDate: "today",
-        format: 'YYYY/MM/DD',
-    });
-    lightbox.option({
-        'resizeDuration': 200,
-        'wrapAround': true
-    })
+    <!-- بررسی هم پوشانی ساعت های رزرو  -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const reservedTimes = [
+                {start: "10:00", end: "11:30"},
+                {start: "13:30", end: "14:30"},
+                {start: "15:00", end: "16:00"},
+                {start: "18:00", end: "19:30"}
+            ];
 
-    flatpickr(".choosedate", {
-        "locale": "fa"
-    });
-</script>
-<!-- timepicker script to check the hamposhanitarikh -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-<!-- بررسی هم پوشانی ساعت های رزرو  -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const reservedTimes = [
-            {start: "10:00", end: "11:30"},
-            {start: "13:30", end: "14:30"},
-            {start: "15:00", end: "16:00"},
-            {start: "18:00", end: "19:30"}
-        ];
-
-        function parseTime(timeStr) {
-            const [hours, minutes] = timeStr.split(":").map(Number);
-            return hours * 60 + minutes;
-        }
-
-        function checkOverlap(start, end) {
-            const startTime = parseTime(start);
-            const endTime = parseTime(end);
-
-            return reservedTimes.some(({start, end}) => {
-                const resStart = parseTime(start);
-                const resEnd = parseTime(end);
-
-                return (
-                    (startTime >= resStart && startTime < resEnd) ||
-                    (endTime > resStart && endTime <= resEnd) ||
-                    (startTime <= resStart && endTime >= resEnd)
-                );
-            });
-        }
-
-        function validateTime(startInput, endInput) {
-            const start = startInput.value;
-            const end = endInput.value;
-
-            if (start && end && checkOverlap(start, end)) {
-                Swal.fire({
-                    icon: 'error',
-                    title: '⛔ این بازه زمانی قبلاً رزرو شده است!',
-                    text: 'لطفاً زمان دیگری انتخاب کنید.',
-                    confirmButtonText: 'باشه'
-                });
-
-                // فقط پاک کردن فیلدی که تغییر کرده
-                // می‌تونی هر دو رو هم پاک کنی اگر خواستی
-                startInput.value = "";
-                endInput.value = "";
+            function parseTime(timeStr) {
+                const [hours, minutes] = timeStr.split(":").map(Number);
+                return hours * 60 + minutes;
             }
+
+            function checkOverlap(start, end) {
+                const startTime = parseTime(start);
+                const endTime = parseTime(end);
+
+                return reservedTimes.some(({start, end}) => {
+                    const resStart = parseTime(start);
+                    const resEnd = parseTime(end);
+
+                    return (
+                        (startTime >= resStart && startTime < resEnd) ||
+                        (endTime > resStart && endTime <= resEnd) ||
+                        (startTime <= resStart && endTime >= resEnd)
+                    );
+                });
+            }
+
+            function validateTime(startInput, endInput) {
+                const start = startInput.value;
+                const end = endInput.value;
+
+                if (start && end && checkOverlap(start, end)) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: '⛔ این بازه زمانی قبلاً رزرو شده است!',
+                        text: 'لطفاً زمان دیگری انتخاب کنید.',
+                        confirmButtonText: 'باشه'
+                    });
+
+                    // فقط پاک کردن فیلدی که تغییر کرده
+                    // می‌تونی هر دو رو هم پاک کنی اگر خواستی
+                    startInput.value = "";
+                    endInput.value = "";
+                }
+            }
+
+            // گرفتن همه‌ی زوج‌های start_time و end_time
+            const startInputs = document.querySelectorAll(".start_time");
+            const endInputs = document.querySelectorAll(".end_time");
+
+            startInputs.forEach((startInput, index) => {
+                const endInput = endInputs[index];
+                startInput.addEventListener("change", () => validateTime(startInput, endInput));
+            });
+
+            endInputs.forEach((endInput, index) => {
+                const startInput = startInputs[index];
+                endInput.addEventListener("change", () => validateTime(startInput, endInput));
+            });
+        });
+
+    </script>
+
+
+    <script>
+        const shadowHost = document.getElementById('gallery-shadow-root');
+        const shadowRoot = shadowHost.attachShadow({mode: 'open'});
+        const template = document.getElementById('gallery-template');
+        shadowRoot.appendChild(template.content.cloneNode(true));
+    </script>
+    <!-- choose sahne -->
+    <script>
+        function selectHall(card) {
+            // حذف انتخاب از کارت‌های دیگر
+            document.querySelectorAll('.hall-card').forEach(c => {
+                c.classList.remove('selected');
+            });
+
+            // انتخاب کارت فعلی
+            card.classList.add('selected');
+
+            // می‌تونی اینجا ID صحن رو ذخیره کنی
+            console.log("صحن انتخاب شد");
         }
+    </script>
 
-        // گرفتن همه‌ی زوج‌های start_time و end_time
-        const startInputs = document.querySelectorAll(".start_time");
-        const endInputs = document.querySelectorAll(".end_time");
+    <!-- button navbar -->
+    <script>
+        let selectedHallId = null;
+        let selectedHallPrice = 0;
 
-        startInputs.forEach((startInput, index) => {
-            const endInput = endInputs[index];
-            startInput.addEventListener("change", () => validateTime(startInput, endInput));
-        });
+        function selectHall(card) {
+            // حذف انتخاب قبلی
+            document.querySelectorAll('.hall-card').forEach(c => c.classList.remove('selected'));
 
-        endInputs.forEach((endInput, index) => {
-            const startInput = startInputs[index];
-            endInput.addEventListener("change", () => validateTime(startInput, endInput));
-        });
-    });
+            // انتخاب جدید
+            card.classList.add('selected');
 
-</script>
+            // دریافت اطلاعات از کارت
+            selectedHallId = card.getAttribute("data-id");
+            selectedHallPrice = card.getAttribute("data-price");
 
-<!-- neshan scrypt for phone  -->
-<script>
-    // تابع عمومی برای ایجاد نقشه
-    function createMap(mapId, center, zoom, markerPosition, popupContent) {
-        // ایجاد نقشه
-        const map = new L.Map(mapId, {
-            key: "web.f790ce90cd3f465caf3a71a6919b8c8d", // کلید API خود را جایگزین کنید
-            maptype: "neshan",
-            poi: true,
-            traffic: true,
-            center: center,
-            zoom: zoom,
-        });
+            // آپدیت بخش قیمت
+            document.getElementById("selected-hall-price").innerHTML = `
+            <div class="text-dark">
+                قیمت: <span class="fw-bold fs-5">${selectedHallPrice}</span> تومان
+            </div>
+        `;
 
-        // افزودن مارکر
-        let marker = L.marker(markerPosition).addTo(map);
+            // فعال کردن دکمه انتخاب تاریخ
+            document.getElementById("choose-date-btn").disabled = false;
 
-        // افزودن پاپ‌آپ
-        marker.bindPopup(popupContent).openPopup();
-
-        return map;
-    }
-
-    // ایجاد نقشه اول (map)
-    createMap(
-        'map', // ID المان
-        [35.731810, 51.329440], // مختصات مرکز
-        14, // سطح زوم
-        [35.731810, 51.329440], // موقعیت مارکر
-        `<p class="text-center">مسجد مام سجاد(ع)</p>` // محتوای پاپ‌آپ
-    );
-
-    // ایجاد نقشه دوم (map2)
-    createMap(
-        'map2', // ID المان
-        [35.731810, 51.329440], // مختصات مرکز
-        14, // سطح زوم
-        [35.731810, 51.329440], // موقعیت مارکر
-        `<p class="text-center">مسجد امام سجاد (ع)</p>` // محتوای پاپ‌آپ
-    );
-</script>
-
-
-<script>
-    const shadowHost = document.getElementById('gallery-shadow-root');
-    const shadowRoot = shadowHost.attachShadow({mode: 'open'});
-    const template = document.getElementById('gallery-template');
-    shadowRoot.appendChild(template.content.cloneNode(true));
-</script>
-</body>
-</html>
+            console.log("Hall ID:", selectedHallId);
+        }
+    </script>
+{% endblock %}

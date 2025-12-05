@@ -6,7 +6,7 @@ from django.contrib.sitemaps.views import sitemap
 
 urlpatterns = [
                   path('admin/', admin.site.urls),  # ✅ مسیر پنل مدیریت اضافه شد
-                  path('', include(('rezervation.urls', 'rezervation'), namespace='rezervation')),
+                  path('', include(('website.urls', 'rezervation'), namespace='rezervation')),
 
                   # اپ‌ها
                   path('profile/', include('my_profile.urls')),

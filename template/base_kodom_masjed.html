@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="enamad" content="53897686"/>
+    <meta http-equiv="content-language" content="fa"/>
+    <title>{% block title %} {% endblock %}</title>
+    <meta name="description"
+          content="{% block discription %} {% endblock %}">
+    <!-- sweet alert -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.5.8/dist/sweetalert2.min.css" rel="stylesheet">
+
+    {% block costum_head %}
+
+    {% endblock %}
+</head>
+<body class="">
+
+<!-- ================================== Start Nav ================================== -->
+
+
+<!-- ================================== End Nav ================================== -->
+
+{% block content %}
+
+{% endblock %}
+
+
+
+<!-- Log In Modal -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginmodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content border-0 shadow-lg">
+            <!-- هدر مودال -->
+            <div class="modal-header border-0 pb-0">
+                <div class="w-100 text-center">
+                    <h4 class="modal-title fw-bold text-primary">به سامانه کدوم مسجد خوش آمدید</h4>
+                    <p class="small text-muted mt-1">لطفاً برای ادامه وارد شوید یا ثبت‌نام کنید</p>
+                </div>
+                <button type="button" class="btn-close position-absolute end-0 me-3" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+
+            <!-- بدنه مودال -->
+            <div class="modal-body pt-0">
+                <!-- تب‌های ورود/ثبت‌نام -->
+                <ul class="nav nav-pills nav-justified mb-4" id="authTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active fw-bold" id="login-tab" data-bs-toggle="pill"
+                                data-bs-target="#login-tab-pane" type="button" role="tab">
+                            <i class="fas fa-sign-in-alt me-2"></i>ورود
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link fw-bold" id="register-tab" data-bs-toggle="pill"
+                                data-bs-target="#register-tab-pane" type="button" role="tab">
+                            <i class="fas fa-user-plus me-2"></i>ثبت‌نام
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <!-- تب ورود -->
+                    <div class="tab-pane fade show active" id="login-tab-pane" role="tabpanel"
+                         aria-labelledby="login-tab">
+                        <form method="post" action="{% url 'my_profile:log_in' %}">
+                            {% csrf_token %}
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="loginUsername "
+                                       placeholder="شماره موبایل" name="username">
+                                <label for="loginUsername"> شماره موبایل</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="loginPassword"
+                                       placeholder="رمز عبور" name="password">
+                                <label for="loginPassword">رمز عبور</label>
+                                <a href="#" class="small text-primary float-start mt-1">رمز عبور را فراموش
+                                    کرده‌ام؟</a>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="rememberLogin">
+                                <label class="form-check-label" for="rememberLogin">مرا به خاطر بسپار</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">ورود به حساب</button>
+                        </form>
+                    </div>
+
+                    <!-- تب ثبت‌نام -->
+                    <div class="tab-pane fade" id="register-tab-pane" role="tabpanel"
+                         aria-labelledby="register-tab">
+                        <form action="{% url 'my_profile:Register' %}" method="post">
+                            {% csrf_token %}
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="registerName" placeholder="نام "
+                                       name="first_name">
+                                <label for="registerName">نام </label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="registerName"
+                                       placeholder="نام خانوادگی " name="last_name">
+                                <label for="registerName">نام خانوادگی </label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="tel" class="form-control" id="registerPhone"
+                                       placeholder="شماره موبایل" name="phone_number">
+                                <label for="registerPhone">شماره موبایل</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="registerPassword"
+                                       placeholder="رمز عبور" name="password1">
+                                <label for="registerPassword">رمز عبور</label>
+                            </div>
+                            {#                                <div class="form-check mb-3">#}
+                            {#                                    <input class="form-check-input" type="checkbox" id="agreeTerms">#}
+                            {#                                    <label class="form-check-label" for="agreeTerms">با <a href="#"#}
+                            {#                                                                                           class="text-primary">قوانین</a>#}
+                            {#                                        موافقم</label>#}
+                            {#                                </div>#}
+                            <button type="submit" class="btn btn-success w-100 py-2 fw-bold">ثبت‌نام کنید</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ورود با شبکه‌های اجتماعی -->
+                <div class="text-center my-4">
+                    <div class="divider">
+                        <span class="divider-text bg-white px-3 text-muted">یا با</span>
+                    </div>
+                    <div class="d-flex justify-content-center gap-3 mt-3">
+                        <a href="#" class="btn btn-outline-primary rounded-circle social-btn">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-primary rounded-circle social-btn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-primary rounded-circle social-btn">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- فوتر مودال -->
+            <div class="modal-footer border-0 justify-content-center">
+                <p class="mb-0">با ورود یا ثبت‌نام، با <a href="#" class="text-primary">قوانین</a> موافقت می‌کنید
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+
+
+</body>
+
+</html>
